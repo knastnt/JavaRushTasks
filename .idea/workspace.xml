@@ -1,444 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a9c2848-0864-419d-ba1c-a0669c6ee00f" name="Default" comment="инит1">
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/User01.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/dictionaries/user.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/1.JavaSyntax/1.JavaSyntax.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/1.JavaSyntax/src/Quest.info" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/1.JavaSyntax/src/com/javarush/task/task01/task0142/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/1.JavaSyntax/src/com/javarush/task/task01/task0142/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/1.JavaSyntax/src/com/javarush/task/task08/task0804/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/1.JavaSyntax/src/com/javarush/task/task08/task0804/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/2.JavaCore.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/Quest.info" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1401/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1401/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1402/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1402/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1403/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1403/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1404/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1404/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1405/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1405/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1406/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1406/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1407/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1407/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1408/BelarusianHen.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1408/Country.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1408/Hen.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1408/MoldovanHen.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1408/RussianHen.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1408/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1408/UkrainianHen.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1408/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1409/Bridge.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1409/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1409/SuspensionBridge.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1409/WaterBridge.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1409/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1410/BubblyWine.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1410/Drink.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1410/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1410/Wine.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1410/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1411/Person.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1411/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1411/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1412/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1412/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1413/CompItem.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1413/Computer.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1413/Keyboard.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1413/Monitor.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1413/Mouse.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1413/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1413/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1414/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1414/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1415/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1415/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1416/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1416/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1417/Hrivna.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1417/Money.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1417/Ruble.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1417/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1417/USD.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1417/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1418/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1418/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1419/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1419/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1420/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1420/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1421/Singleton.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1421/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task14/task1421/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1501/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1501/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1502/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1502/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1503/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1503/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1504/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1504/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1505/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1505/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1506/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1506/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1507/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1507/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1508/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1508/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1509/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1509/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1510/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1510/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1511/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1511/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1512/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1512/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1513/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1513/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1514/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1514/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1515/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1515/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1516/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1516/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1517/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1517/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1518/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1518/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1519/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1519/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1520/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1520/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1521/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1521/Tree.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1521/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1522/Earth.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1522/Moon.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1522/Planet.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1522/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1522/Sun.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1522/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1523/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1523/SubSolution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1523/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1524/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1524/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1525/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1525/Statics.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1525/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1526/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1526/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1527/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1527/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1528/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1528/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1529/Flyable.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1529/Helicopter.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1529/Plane.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1529/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1529/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1530/DrinkMaker.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1530/LatteMaker.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1530/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1530/TeaMaker.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1530/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1531/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task15/task1531/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1601/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1601/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1602/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1602/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1603/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1603/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1604/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1604/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1605/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1605/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1606/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1606/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1607/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1607/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1608/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1608/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1609/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1609/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1610/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1610/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1611/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1611/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1612/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1612/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1613/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1613/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1614/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1614/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1615/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1615/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1616/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1616/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1617/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1617/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1618/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1618/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1619/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1619/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1620/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1620/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1621/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1621/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1622/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1622/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1623/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1623/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1624/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1624/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1625/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1625/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1626/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1626/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1627/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1627/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1628/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1628/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1629/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1629/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1630/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1630/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1631/ImageReaderFactory.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1631/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1631/common/BmpReader.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1631/common/ImageReader.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1631/common/ImageTypes.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1631/common/JpgReader.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1631/common/PngReader.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1631/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1632/Message.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1632/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1632/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1633/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task16/task1633/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1701/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1701/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1702/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1702/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1703/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1703/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1704/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1704/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1705/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1705/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1706/OurPresident.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1706/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1706/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1707/IMF.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1707/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1707/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1708/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1708/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1709/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1709/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1710/Person.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1710/Sex.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1710/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1710/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1711/Person.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1711/Sex.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1711/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1711/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1712/Cook.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1712/Dishes.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1712/Manager.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1712/Order.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1712/Restaurant.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1712/Table.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1712/Waiter.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1712/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1713/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1713/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1714/Beach.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1714/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1715/Drug.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1715/DrugsController.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1715/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1715/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1716/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1716/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1717/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1717/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1718/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1718/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1719/ApplicationContext.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1719/Bean.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1719/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1720/BankAccount.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1720/Bankomat.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1720/NotEnoughMoneyException.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1720/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1721/CorruptedDataException.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1721/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1721/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1722/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task17/task1722/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1801/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1801/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1802/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1802/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1803/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1803/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1804/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1804/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1805/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1805/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1806/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1806/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1807/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1807/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1808/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1808/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1809/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1809/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1810/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1810/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1811/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1811/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1812/AmigoOutputStream.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1812/QuestionFileOutputStream.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1812/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1813/AmigoOutputStream.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1813/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1814/TxtInputStream.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1814/UnsupportedFileNameException.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1814/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1815/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1815/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1816/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1816/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1817/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1817/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1818/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1818/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1819/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1819/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1820/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1820/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1821/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1821/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1822/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1822/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1823/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1823/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1824/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1824/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1825/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1825/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1826/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1826/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1827/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1827/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1828/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task18/task1828/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1901/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1901/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1902/AdapterFileOutputStream.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1902/AmigoStringWriter.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1902/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1903/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1903/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1904/Person.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1904/PersonScanner.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1904/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1904/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1905/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1905/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1906/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1906/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1907/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1907/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1908/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1908/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1909/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1909/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1910/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1910/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1911/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1911/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1912/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1912/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1913/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1913/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1914/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1914/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1915/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1915/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1916/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1916/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1917/FileConsoleWriter.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1917/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1918/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1918/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1919/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1919/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1920/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1920/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1921/Person.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1921/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1921/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1922/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1922/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1923/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1923/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1924/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1924/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1925/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1925/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1926/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1926/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1927/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1927/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1928/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1928/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2001/Asset.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2001/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2001/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2002/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2002/User.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2002/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2003/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2003/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2004/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2004/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2005/Asset.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2005/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2005/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2006/Asset.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2006/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2006/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2007/Solution.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2007/User.java" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2007/Условие.jrtc" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/3.JavaMultithreading/3.JavaMultithreading.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/3.JavaMultithreading/src/Quest.info" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/4.JavaCollections/4.JavaCollections.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/4.JavaCollections/src/Quest.info" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/5.OnlineInternship/5.OnlineInternship.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/5.OnlineInternship/src/Internship.info" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/JavaRushPlugin.properties" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/JavaRushTasks.iml" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/out.log" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/¦Ш¦-TБTВTАTГ¦¦TЖ¦¬TП.png" />
+    <list default="true" id="8a9c2848-0864-419d-ba1c-a0669c6ee00f" name="Default" comment="импорт классов 2008">
+      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2008/Solution.java" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2008/Условие.jrtc" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/JavaRushPlugin.properties" afterPath="$PROJECT_DIR$/JavaRushPlugin.properties" />
+      <change beforePath="$PROJECT_DIR$/out.log" afterPath="$PROJECT_DIR$/out.log" />
     </list>
     <ignored path="JavaRushTasks.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -459,47 +27,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Solution.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2007/Solution.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="39" column="33" lean-forward="false" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Solution.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2002/Solution.java">
+        <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2008/Solution.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="80" column="37" lean-forward="false" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
+            <state relative-caret-position="555">
+              <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2007/User.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="5" column="41" lean-forward="false" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Условие.jrtc" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2007/Условие.jrtc">
-          <provider selected="true" editor-type-id="EditorTypeId">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Валидация" pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Temp/Валидация">
+        <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2008/Условие.jrtc">
           <provider selected="true" editor-type-id="EditorTypeId">
             <state />
           </provider>
@@ -569,6 +108,7 @@
         <option value="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2006/Solution.java" />
         <option value="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2007/User.java" />
         <option value="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2007/Solution.java" />
+        <option value="$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2008/Solution.java" />
       </list>
     </option>
   </component>
@@ -600,10 +140,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -636,6 +176,15 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="task" type="462c0819:PsiDirectoryNode" />
               <item name="task20" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="JavaRushTasks" type="b2602c69:ProjectViewProjectNode" />
+              <item name="JavaRushTasks" type="462c0819:PsiDirectoryNode" />
+              <item name="2.JavaCore" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="task" type="462c0819:PsiDirectoryNode" />
+              <item name="task20" type="462c0819:PsiDirectoryNode" />
+              <item name="task2008" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1219,14 +768,16 @@
       <workItem from="1519469471853" duration="4156000" />
       <workItem from="1519525164955" duration="5252000" />
       <workItem from="1519533897180" duration="2308000" />
+      <workItem from="1519540285469" duration="391000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="77686000" />
+    <option name="totallyTimeSpent" value="78077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1296" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1275,7 +826,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="инит1" />
-    <option name="LAST_COMMIT_MESSAGE" value="инит1" />
+    <MESSAGE value="импорт классов 2008" />
+    <option name="LAST_COMMIT_MESSAGE" value="импорт классов 2008" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1358,18 +910,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1920/Условие.jrtc">
-      <provider selected="true" editor-type-id="EditorTypeId">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1920/Solution.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" column="10" lean-forward="false" selection-start-line="16" selection-start-column="10" selection-end-line="16" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task19/task1921/Условие.jrtc">
       <provider selected="true" editor-type-id="EditorTypeId">
         <state />
@@ -1612,7 +1152,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
           <caret line="1474" column="0" lean-forward="false" selection-start-line="1474" selection-start-column="0" selection-end-line="1474" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1650,7 +1189,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="10" column="25" lean-forward="true" selection-start-line="10" selection-start-column="25" selection-end-line="10" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1658,17 +1196,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="441">
           <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2007/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="41" lean-forward="false" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1677,9 +1204,27 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2002/Solution.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="87">
+          <caret line="80" column="37" lean-forward="false" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Temp/Валидация">
       <provider selected="true" editor-type-id="EditorTypeId">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2007/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="5" column="41" lean-forward="false" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2007/Solution.java">
@@ -1690,10 +1235,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2002/Solution.java">
+    <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2008/Условие.jrtc">
+      <provider selected="true" editor-type-id="EditorTypeId">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/2.JavaCore/src/com/javarush/task/task20/task2008/Solution.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="80" column="37" lean-forward="false" selection-start-line="80" selection-start-column="37" selection-end-line="80" selection-end-column="37" />
+        <state relative-caret-position="555">
+          <caret line="33" column="4" lean-forward="false" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
           <folding />
         </state>
       </provider>
