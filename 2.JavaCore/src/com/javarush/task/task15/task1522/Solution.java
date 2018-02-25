@@ -1,0 +1,42 @@
+package com.javarush.task.task15.task1522;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+/* 
+Закрепляем паттерн Singleton
+*/
+
+public class Solution {
+    public static void main(String[] args) {
+
+    }
+
+    public static Planet thePlanet;
+
+    //add static block here - добавьте статический блок тут
+    static {
+        readKeyFromConsoleAndInitPlanet();
+    }
+
+    public static void readKeyFromConsoleAndInitPlanet() {
+        // implement step #5 here - реализуйте задание №5 тут
+        try {
+            BufferedReader brdr = new BufferedReader(new InputStreamReader(System.in));
+            String inputted = brdr.readLine();
+            thePlanet = null;
+            if (Planet.SUN.equals(inputted)){
+                thePlanet = Sun.getInstance();
+            }
+            if (Planet.EARTH.equals(inputted)){
+                thePlanet = Earth.getInstance();
+            }
+            if (Planet.MOON.equals(inputted)){
+                thePlanet = Moon.getInstance();
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+}
