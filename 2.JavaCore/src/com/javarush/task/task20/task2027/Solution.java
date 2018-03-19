@@ -42,10 +42,8 @@ same - (1, 1) - (4, 1)
                         if(v.length > 0){
                             for (int k = 0; k < v.length; k++) {
                                 Word wordObject = new Word(word);
-                                wordObject.startY = i;
-                                wordObject.startX = j;
-                                wordObject.endY = i+v[k].X*(word.length()-1);
-                                wordObject.endX = j+v[k].Y*(word.length()-1);
+                                wordObject.setStartPoint(j, i);
+                                wordObject.setEndPoint(j+v[k].Y*(word.length()-1), i+v[k].X*(word.length()-1));
                                 wl.add(wordObject);
                             }
 
