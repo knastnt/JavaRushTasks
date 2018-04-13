@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8a9c2848-0864-419d-ba1c-a0669c6ee00f" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/3.JavaMultithreading/src/com/javarush/task/task23/task2311_/test.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/JavaRushPlugin.properties" afterPath="$PROJECT_DIR$/JavaRushPlugin.properties" />
-      <change beforePath="$PROJECT_DIR$/out.log" afterPath="$PROJECT_DIR$/out.log" />
+      <change beforePath="$PROJECT_DIR$/3.JavaMultithreading/3.JavaMultithreading.iml" afterPath="$PROJECT_DIR$/3.JavaMultithreading/3.JavaMultithreading.iml" />
     </list>
     <ignored path="JavaRushTasks.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -57,7 +55,7 @@
         <entry file="file://$PROJECT_DIR$/3.JavaMultithreading/src/com/javarush/task/task23/task2311_/test.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-102">
-              <caret line="18" column="46" lean-forward="true" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+              <caret line="18" column="46" lean-forward="false" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -245,7 +243,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="settings.github" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="C:/Program Files/Java/addons/javax.mail.jar!/" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path" value="node" />
@@ -898,7 +896,14 @@
       <option name="project" value="LOCAL" />
       <updated>1523339934654</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Процесс создания программы для отправки E-Mail">
+      <created>1523591344329</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1523591344330</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -958,7 +963,8 @@
     <MESSAGE value="2206" />
     <MESSAGE value="2308" />
     <MESSAGE value="2309" />
-    <option name="LAST_COMMIT_MESSAGE" value="2309" />
+    <MESSAGE value="Процесс создания программы для отправки E-Mail" />
+    <option name="LAST_COMMIT_MESSAGE" value="Процесс создания программы для отправки E-Mail" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1402,6 +1408,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding>
+            <element signature="e#145#146#0" expanded="false" />
+            <element signature="e#177#178#0" expanded="false" />
+            <element signature="e#211#212#0" expanded="false" />
+            <element signature="e#238#239#0" expanded="false" />
+            <element signature="e#327#328#0" expanded="false" />
+            <element signature="e#388#389#0" expanded="false" />
+            <element signature="e#463#464#0" expanded="false" />
+            <element signature="e#506#507#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1429,7 +1445,7 @@
     <entry file="file://$PROJECT_DIR$/3.JavaMultithreading/src/com/javarush/task/task23/task2311_/test.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-102">
-          <caret line="18" column="46" lean-forward="true" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
+          <caret line="18" column="46" lean-forward="false" selection-start-line="18" selection-start-column="46" selection-end-line="18" selection-end-column="46" />
           <folding />
         </state>
       </provider>
@@ -1511,6 +1527,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
+          <last-edited>javax.mail</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
