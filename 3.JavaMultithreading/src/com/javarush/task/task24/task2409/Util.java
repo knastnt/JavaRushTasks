@@ -2,6 +2,7 @@ package com.javarush.task.task24.task2409;
 
 import java.util.Collection;
 import java.util.LinkedList;
+import java.util.List;
 
 public class Util {
     protected static Collection<Object[]> jeansArray = new LinkedList<>();
@@ -16,6 +17,80 @@ public class Util {
     public static List<Jeans> getAllJeans() {
 
         //add your code here
+        abstract class AbstractJeans implements Jeans{
+            protected int length;
+            protected int size;
+            protected int id;
+            protected double price;
+
+            public AbstractJeans(int length, int size, int id, double price) {
+                this.length = length;
+                this.size = size;
+                this.id = id;
+                this.price = price;
+            }
+
+
+            @Override
+            public int getLength() {
+                return length;
+            }
+
+            @Override
+            public int getSize() {
+                return size;
+            }
+
+            @Override
+            public int getId() {
+                return id;
+            }
+
+            @Override
+            public double getPrice() {
+                return price;
+            }
+
+            public abstract String getTM();
+
+            @Override
+            public String toString() {
+                //Levis0{id=1, length=34, size=6, price=150.0}
+
+                return this.getClass().getSimpleName() + "{" +
+                        "id=" + id +
+                        ", length=" + length +
+                        ", size=" + size +
+                        ", price=" + price +
+                        '}';
+            }
+        }
+
+        class Levis extends AbstractJeans {
+            private String tm;
+
+            public Levis(int length, int size, int id, double price) {
+                super(length, size, id, price);
+            }
+
+            @Override
+            public String getTM() {
+                return tm;
+            }
+        }
+
+        class Denim extends AbstractJeans {
+            private String tm;
+
+            public Denim(int length, int size, int id, double price) {
+                super(length, size, id, price);
+            }
+
+            @Override
+            public String getTM() {
+                return tm;
+            }
+        }
 
         List<Jeans> allJeans = new LinkedList<>();
 
@@ -50,7 +125,7 @@ public class Util {
 
     static enum Company {
         Levis ("Levi's"),
-        Denim("Denim"),
+        Denim("Denim0"),
         Colins("COLIN'S"),
         CalvinKleinJeans("Calvin Klein Jeans");
 
