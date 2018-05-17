@@ -30,4 +30,10 @@ public class Controller {
     public void setEditUserView(EditUserView editUserView) {
         this.editUserView = editUserView;
     }
+
+    public void onOpenUserEditForm(long userId){
+        model.loadUserById(userId);
+        //usersView.refresh(model.getModelData());
+        editUserView.refresh(model.getModelData());
+    }
 }

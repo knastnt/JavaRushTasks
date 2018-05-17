@@ -26,4 +26,10 @@ public class FakeModel implements Model {
         //this class not uses
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public void loadUserById(long userId) {
+        //this class not uses
+        throw new UnsupportedOperationException();
+    }
 }
