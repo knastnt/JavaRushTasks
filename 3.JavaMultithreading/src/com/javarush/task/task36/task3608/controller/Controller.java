@@ -33,7 +33,11 @@ public class Controller {
 
     public void onOpenUserEditForm(long userId){
         model.loadUserById(userId);
-        //usersView.refresh(model.getModelData());
         editUserView.refresh(model.getModelData());
+    }
+
+    public void onUserDelete(long id){
+        model.deleteUserById(id);
+        usersView.refresh(model.getModelData());
     }
 }
