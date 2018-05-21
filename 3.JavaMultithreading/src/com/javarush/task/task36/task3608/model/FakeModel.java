@@ -38,4 +38,10 @@ public class FakeModel implements Model {
         //this class not uses
         throw new UnsupportedOperationException();
     }
+
+    @Override
+    public void changeUserData(String name, long id, int level) {
+        //this class not uses
+        throw new UnsupportedOperationException();
+    }
 }
