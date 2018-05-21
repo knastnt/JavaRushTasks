@@ -1,15 +1,20 @@
 package com.javarush.task.task36.task3608.view;
 
+import com.javarush.task.task36.task3608.bean.User;
 import com.javarush.task.task36.task3608.controller.Controller;
-import com.javarush.task.task36.task3608.model.ModelData;
 
 public class EditUserView implements View {
     private Controller controller;
+    private User activeUser;
+
+    public void setActiveUser(User activeUser) {
+        this.activeUser = activeUser;
+    }
 
     @Override
-    public void refresh(ModelData modelData) {
+    public void refresh() {
         System.out.println("User to be edited:");
-        System.out.println("\t" + modelData.getActiveUser());
+        System.out.println("\t" + activeUser);
         System.out.println("===================================================");
     }
 
