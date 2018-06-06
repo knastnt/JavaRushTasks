@@ -10,16 +10,15 @@ public class LoggingStateThread extends Thread{
 
     @Override
     public void run() {
-        while (thread.getState() != State.TERMINATED) {
+
+
+        while(true) {
             if (old_state != thread.getState()) {
                 old_state = thread.getState();
                 System.out.println(thread.getState().toString());
             }
-                /*try {
-                    sleep(1);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }*/
+            if (old_state == State.TERMINATED) break;
         }
+
     }
 }
