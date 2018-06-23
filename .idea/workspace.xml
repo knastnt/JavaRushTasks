@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8a9c2848-0864-419d-ba1c-a0669c6ee00f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/JavaRushPlugin.properties" afterPath="$PROJECT_DIR$/JavaRushPlugin.properties" />
-      <change beforePath="$PROJECT_DIR$/out.log" afterPath="$PROJECT_DIR$/out.log" />
     </list>
     <ignored path="JavaRushTasks.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -1181,7 +1179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1529661467421</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="2601">
+      <created>1529737551161</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1529737551161</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -1239,7 +1244,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Процесс создания программы для отправки E-Mail" />
     <MESSAGE value="Процесс создания программы для отправки E-Mail&#10;Добавил модуль" />
     <MESSAGE value="Готова программа для отправки E-Mail" />
     <MESSAGE value="treeMap автоматом сортирует ключи в порядке возрастания" />
@@ -1264,7 +1268,8 @@
     <MESSAGE value="2508" />
     <MESSAGE value="2510" />
     <MESSAGE value="2512" />
-    <option name="LAST_COMMIT_MESSAGE" value="2512" />
+    <MESSAGE value="2601" />
+    <option name="LAST_COMMIT_MESSAGE" value="2601" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
