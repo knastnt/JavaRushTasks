@@ -19,10 +19,10 @@ public class test {
         //Тто же самое сделать для JAF (activation.jar): http://www.oracle.com/technetwork/java/javase/jaf-136260.html
 
 
-        final String username = "456kot@mail.ru";
-        final String password = "authorise1011";
+        final String username = "address@mail.ru";
+        final String password = "password";
 
-        final String target = "kons_self@mail.ru";
+        final String target = "target@mail.ru";
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
