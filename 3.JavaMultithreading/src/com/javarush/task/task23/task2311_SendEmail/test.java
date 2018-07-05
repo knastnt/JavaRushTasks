@@ -14,7 +14,7 @@ public class test {
         //Отправить E-Mail
 
         //Скачать javamail api (javax.mail.jar) отсюда http://www.oracle.com/technetwork/java/javamail/index.html
-        //В Intellij IDEA в меню File->Project Structure...->Libraries нажать плюсик и добавить этот файл к проекту
+        //В Intellij IDEA в меню File->Project Structure...->Libraries нажать плюсик и добавить файл javamail1_4_5.zip к проекту
 
         //Тто же самое сделать для JAF (activation.jar): http://www.oracle.com/technetwork/java/javase/jaf-136260.html
 
