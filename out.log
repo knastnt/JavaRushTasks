@@ -12552,3 +12552,5 @@ java.lang.AssertionError: Virtual file mismatch: VirtualFileWindow in C:\Users\k
 2018-08-11 22:04:31 INFO  ApacheHttpClient.sendEvent(467) - responseCode = 200
 2018-08-11 22:05:31 INFO  ApacheHttpClient.sendEvent(467) - responseCode = 200
 2018-08-11 22:06:31 INFO  ApacheHttpClient.sendEvent(467) - responseCode = 200
+2018-08-11 22:07:31 INFO  ApacheHttpClient.sendEvent(467) - responseCode = 200
+2018-08-11 22:08:31 INFO  ApacheHttpClient.sendEvent(467) - responseCode = 200
