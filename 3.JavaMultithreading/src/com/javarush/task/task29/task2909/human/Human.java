@@ -1,5 +1,9 @@
 package com.javarush.task.task29.task2909.human;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
 public class Human {
     public static int nextId = 0;
     private int id;
@@ -7,9 +11,11 @@ public class Human {
     protected String name;
     protected int course;
 
+    private List<Human> children = new ArrayList<>();
+
     protected int[] size;
 
-    protected boolean isSoldier;
+    //protected boolean isSoldier;
 
     public static final int FIRST = 1;
     public static final int SECOND = 2;
@@ -25,8 +31,15 @@ public class Human {
         return bloodGroup;
     }
 
-    public Human(boolean isSoldier) {
+    /*public Human(boolean isSoldier) {
         this.isSoldier = isSoldier;
+        this.id = nextId;
+        nextId++;
+    }*/
+
+    public Human(String name, int age) {
+        this.age = age;
+        this.name = name;
         this.id = nextId;
         nextId++;
     }
@@ -47,17 +60,34 @@ public class Human {
         this.name = name;
     }
 
+    public List<Human> getChildren() {
+        //return children;
+        return Collections.unmodifiableList(children);
+    }
+
+    /*public void setChildren(List<Human> children) {
+        this.children = children;
+    }*/
+
+    public void addChild(Human human) {
+        children.add(human);
+    }
+
+    public void removeChild(Human human) {
+        if(children.contains(human)) children.remove(human);
+    }
+
     public int getCourse() {
         return course;
     }
 
     public void live() {
-        if (isSoldier)
-            fight();
+        //if (isSoldier)
+        //    fight();
     }
 
-    public void fight() {
-    }
+    //public void fight() {
+    //}
 
     public int getId() {
         return id;
