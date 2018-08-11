@@ -14,15 +14,15 @@ public class test {
         //Отправить E-Mail
 
         //Скачать javamail api (javax.mail.jar) отсюда http://www.oracle.com/technetwork/java/javamail/index.html
-        //В Intellij IDEA в меню File->Project Structure...->Libraries нажать плюсик и добавить файл javamail1_4_5.zip к проекту
+        //В Intellij IDEA в меню File->Project Structure...->Libraries нажать плюсик и добавить этот файл к проекту
 
         //Тто же самое сделать для JAF (activation.jar): http://www.oracle.com/technetwork/java/javase/jaf-136260.html
 
 
-        final String username = "address@mail.ru";
-        final String password = "password";
+        final String username = "456kot@mail.ru";
+        final String password = "authorise1011";
 
-        final String target = "target@mail.ru";
+        final String target = "kons_self@mail.ru";
 
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
