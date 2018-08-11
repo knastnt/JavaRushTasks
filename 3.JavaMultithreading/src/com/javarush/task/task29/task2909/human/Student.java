@@ -4,20 +4,23 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Student extends Human {
+public class Student extends UniversityPerson {
     //private List<Human> children = new ArrayList<>();
     private double averageGrade;
-    private String university;
+    //private String university;
     private Date beginningOfSession;
     private Date endOfSession;
     private int course;
+
+    /*public Student(String name, int age, double averageGrade) {
+        super(name, age);
+        this.averageGrade = averageGrade;
+    }*/
 
     public Student(String name, int age, double averageGrade) {
         super(name, age);
         this.averageGrade = averageGrade;
     }
-
-
     /*public List<Human> getChildren() {
         return children;
     }
@@ -37,17 +40,17 @@ public class Student extends Human {
     public void learn() {
     }
 
-    public String getUniversity() {
+    /*public String getUniversity() {
         return university;
     }
 
     public void setUniversity(String university) {
         this.university = university;
-    }
+    }*/
 
-    public void printData() {
+    /*public void printData() {
         System.out.println("Студент: " + name);
-    }
+    }*/
 
     public void incAverageGradeBy01() {
         averageGrade += 0.1;
@@ -57,7 +60,7 @@ public class Student extends Human {
         averageGrade += 0.2;
     }
 
-    public void setValue(String name, double value) {
+    /*public void setValue(String name, double value) {
         if (name.equals("averageGrade")) {
             averageGrade = value;
             return;
@@ -66,6 +69,14 @@ public class Student extends Human {
             course = (int) value;
             return;
         }
+    }*/
+
+    public void setAverageGrade(double averageGrade) {
+        this.averageGrade = averageGrade;
+    }
+
+    public void setCourse(int course) {
+        this.course = course;
     }
 
     public void setBeginningOfSession(int day, int month, int year) {
@@ -78,5 +89,10 @@ public class Student extends Human {
 
     public double getAverageGrade() {
         return averageGrade;
+    }
+
+    @Override
+    public String getPosition() {
+        return "Студент";
     }
 }
