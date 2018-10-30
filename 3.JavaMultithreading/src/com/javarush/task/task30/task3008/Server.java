@@ -6,6 +6,8 @@ import java.net.Socket;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+import static com.javarush.task.task30.task3008.MessageType.*;
+
 public class Server {
     private static Map<String, Connection> connectionMap = new ConcurrentHashMap<>();
 
@@ -41,6 +43,28 @@ public class Server {
 
         public Handler(Socket socket) {
             this.socket = socket;
+        }
+
+        private String serverHandshake(Connection connection) throws IOException, ClassNotFoundException{
+            connection.send(new Message(NAME_REQUEST));
+            while (true){
+                Message message = connection.receive();
+                if(message.getType() != USER_NAME){
+                    connection.send(new Message(NAME_REQUEST));
+                    continue;
+                }
+
+                if(message.getData() != null && !message.getData().equals("") && !connectionMap.containsKey(message.getData())){
+                    connectionMap.put(message.getData(), connection);
+                    connection.send(new Message(NAME_ACCEPTED));
+                    return message.getData();
+                }else{
+                    //return serverHandshake(connection);
+                    connection.send(new Message(NAME_REQUEST));
+                    continue;
+                }
+
+            }
         }
     }
 
