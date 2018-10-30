@@ -6481,3 +6481,118 @@ java.lang.Throwable: unable to get stub builder for com.intellij.openapi.fileTyp
 2018-10-31 08:58:30 INFO  ApacheHttpClient.testConnection(187) - responseCode = 200
 2018-10-31 08:58:30 INFO  ApacheHttpClient.testConnection(198) - result = true
 2018-10-31 08:58:30 INFO  ApacheHttpClient.getWebResourceAsStream(437) - responseCode = 200
+2018-10-31 08:59:14 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:00:14 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:01:14 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:02:14 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:03:14 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:04:14 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:05:14 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:06:14 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:07:14 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:08:14 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:09:14 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:10:14 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:11:14 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:12:14 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:13:14 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:13:21 ERROR JavaCopyPastePostProcessor.error(103) - IdeaLoggingEvent[message=DisjunctionTypeConstructions(ArraySeq(TypeConstruction(IOException), TypeConstruction(ClassNotFoundException))) (of class org.jetbrains.plugins.scala.conversion.ast.DisjunctionTypeConstructions), throwable=scala.MatchError: DisjunctionTypeConstructions(ArraySeq(TypeConstruction(IOException), TypeConstruction(ClassNotFoundException))) (of class org.jetbrains.plugins.scala.conversion.ast.DisjunctionTypeConstructions)
+	at org.jetbrains.plugins.scala.conversion.visitors.SimplePrintVisitor.visit(SimplePrintVisitor.scala:91)
+	at org.jetbrains.plugins.scala.conversion.visitors.PrintWithComments.visit(PrintWithComments.scala:15)
+	at org.jetbrains.plugins.scala.conversion.visitors.SimplePrintVisitor.$anonfun$visit$1(SimplePrintVisitor.scala:17)
+	at org.jetbrains.plugins.scala.conversion.visitors.SimplePrintVisitor.$anonfun$visit$1$adapted(SimplePrintVisitor.scala:17)
+	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:52)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:48)
+	at org.jetbrains.plugins.scala.conversion.visitors.SimplePrintVisitor.visit(SimplePrintVisitor.scala:17)
+	at org.jetbrains.plugins.scala.conversion.visitors.PrintWithComments.visit(PrintWithComments.scala:15)
+	at org.jetbrains.plugins.scala.conversion.copy.JavaCopyPastePostProcessor.collectTransferableData0(JavaCopyPastePostProcessor.scala:79)
+	at org.jetbrains.plugins.scala.conversion.copy.SingularCopyPastePostProcessor.collectTransferableData(SingularCopyPastePostProcessor.scala:28)
+	at com.intellij.codeInsight.editorActions.CopyHandler.lambda$doExecute$0(CopyHandler.java:95)
+	at com.intellij.openapi.project.DumbService.withAlternativeResolveEnabled(DumbService.java:291)
+	at com.intellij.codeInsight.editorActions.CopyHandler.doExecute(CopyHandler.java:93)
+	at com.intellij.openapi.editor.actionSystem.EditorActionHandler.lambda$execute$4(EditorActionHandler.java:207)
+	at com.intellij.openapi.editor.actionSystem.EditorActionHandler.doIfEnabled(EditorActionHandler.java:110)
+	at com.intellij.openapi.editor.actionSystem.EditorActionHandler.execute(EditorActionHandler.java:206)
+	at com.intellij.openapi.editor.actionSystem.EditorAction.lambda$actionPerformed$0(EditorAction.java:98)
+	at com.intellij.openapi.command.impl.CoreCommandProcessor.executeCommand(CoreCommandProcessor.java:149)
+	at com.intellij.openapi.command.impl.CoreCommandProcessor.executeCommand(CoreCommandProcessor.java:109)
+	at com.intellij.openapi.editor.actionSystem.EditorAction.actionPerformed(EditorAction.java:107)
+	at com.intellij.openapi.editor.impl.EditorImpl$MyEditable.executeAction(EditorImpl.java:2999)
+	at com.intellij.openapi.editor.impl.EditorImpl$MyEditable.performCopy(EditorImpl.java:2942)
+	at com.intellij.ide.actions.CopyAction.actionPerformed(CopyAction.java:34)
+	at com.intellij.openapi.actionSystem.ex.ActionUtil$1.run(ActionUtil.java:220)
+	at com.intellij.openapi.actionSystem.ex.ActionUtil.performActionDumbAware(ActionUtil.java:237)
+	at com.intellij.openapi.actionSystem.impl.ActionMenuItem$ActionTransmitter.lambda$actionPerformed$0(ActionMenuItem.java:321)
+	at com.intellij.openapi.wm.impl.FocusManagerImpl.runOnOwnContext(FocusManagerImpl.java:911)
+	at com.intellij.openapi.wm.impl.IdeFocusManagerImpl.runOnOwnContext(IdeFocusManagerImpl.java:136)
+	at com.intellij.openapi.actionSystem.impl.ActionMenuItem$ActionTransmitter.actionPerformed(ActionMenuItem.java:311)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at com.intellij.openapi.actionSystem.impl.ActionMenuItem.lambda$fireActionPerformed$0(ActionMenuItem.java:130)
+	at com.intellij.openapi.application.TransactionGuardImpl.runSyncTransaction(TransactionGuardImpl.java:88)
+	at com.intellij.openapi.application.TransactionGuardImpl.lambda$submitTransaction$1(TransactionGuardImpl.java:111)
+	at com.intellij.openapi.application.TransactionGuardImpl.submitTransaction(TransactionGuardImpl.java:120)
+	at com.intellij.openapi.application.TransactionGuard.submitTransaction(TransactionGuard.java:122)
+	at com.intellij.openapi.actionSystem.impl.ActionMenuItem.fireActionPerformed(ActionMenuItem.java:130)
+	at com.intellij.ui.plaf.beg.BegMenuItemUI.doClick(BegMenuItemUI.java:521)
+	at com.intellij.ui.plaf.beg.BegMenuItemUI.access$300(BegMenuItemUI.java:48)
+	at com.intellij.ui.plaf.beg.BegMenuItemUI$MyMouseInputHandler.mouseReleased(BegMenuItemUI.java:541)
+	at java.awt.Component.processMouseEvent(Component.java:6541)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6306)
+	at java.awt.Container.processEvent(Container.java:2237)
+	at java.awt.Component.dispatchEventImpl(Component.java:4897)
+	at java.awt.Container.dispatchEventImpl(Container.java:2295)
+	at java.awt.Component.dispatchEvent(Component.java:4719)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4889)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4526)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4467)
+	at java.awt.Container.dispatchEventImpl(Container.java:2281)
+	at java.awt.Window.dispatchEventImpl(Window.java:2746)
+	at java.awt.Component.dispatchEvent(Component.java:4719)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:764)
+	at java.awt.EventQueue.access$500(EventQueue.java:98)
+	at java.awt.EventQueue$3.run(EventQueue.java:715)
+	at java.awt.EventQueue$3.run(EventQueue.java:709)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:90)
+	at java.awt.EventQueue$4.run(EventQueue.java:737)
+	at java.awt.EventQueue$4.run(EventQueue.java:735)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:80)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:734)
+	at com.intellij.ide.IdeEventQueue.defaultDispatchEvent(IdeEventQueue.java:822)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent(IdeEventQueue.java:646)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.java:366)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
+	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
+	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+]
+2018-10-31 09:14:11 INFO  ApacheHttpClient.getWebResourceAsStream(437) - responseCode = 200
+2018-10-31 09:14:12 INFO  ApacheHttpClient.getWebResourceAsStream(437) - responseCode = 200
+2018-10-31 09:14:12 INFO  ApacheHttpClient.getTask(422) - responseCode = 200
+2018-10-31 09:14:14 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:14:15 INFO  ApacheHttpClient.completed(27) - responseCode = 200
+2018-10-31 09:15:14 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:16:14 INFO  ApacheHttpClient.getWebResourceAsStream(437) - responseCode = 200
+2018-10-31 09:16:14 WARN  JavaRushUtil.getCurrentTask(66) - Ошибка получения ключа задачи.
+2018-10-31 09:16:14 WARN  JavaRushUtil.getCurrentDirectory(97) - Ошибка получения текущей директории.
+2018-10-31 09:16:14 WARN  JavaRushUtil.getCurrentDirectory(97) - Ошибка получения текущей директории.
+2018-10-31 09:16:14 INFO  ApacheHttpClient.getTask(422) - responseCode = 200
+2018-10-31 09:16:14 INFO  ApacheHttpClient.getTask(422) - responseCode = 200
+2018-10-31 09:16:15 INFO  ApacheHttpClient.sendEvent(470) - responseCode = 200
+2018-10-31 09:16:16 INFO  ApacheHttpClient.getWebResourceAsStream(437) - responseCode = 200
+2018-10-31 09:16:19 INFO  ApacheHttpClient.completed(27) - responseCode = 200
+2018-10-31 09:16:19 INFO  ApacheHttpClient.getTask(422) - responseCode = 200
+2018-10-31 09:16:29 INFO  ApacheHttpClient.getWebResourceAsStream(437) - responseCode = 200
+2018-10-31 09:16:29 INFO  ApacheHttpClient.getFilteredTasks(324) - responseCode = 200
+2018-10-31 09:16:32 INFO  ApacheHttpClient.getTaskTemplateInfo(341) - responseCode = 200
+2018-10-31 09:16:34 INFO  ApacheHttpClient.testConnection(187) - responseCode = 200
+2018-10-31 09:16:34 INFO  ApacheHttpClient.testConnection(198) - result = true
+2018-10-31 09:16:35 INFO  ApacheHttpClient.testConnection(187) - responseCode = 200
+2018-10-31 09:16:35 INFO  ApacheHttpClient.testConnection(198) - result = true
+2018-10-31 09:16:35 INFO  ApacheHttpClient.getWebResourceAsStream(437) - responseCode = 200
