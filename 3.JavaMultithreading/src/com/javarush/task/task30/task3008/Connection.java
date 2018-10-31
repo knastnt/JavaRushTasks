@@ -7,6 +7,12 @@ import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.net.SocketAddress;
 
+/**
+ * Класс - обёртка вокруг класса Socket
+ *
+ * Есть два стрима для объектов - входящий и исходящий.
+ * Умеет отправлять объекты класса Message в стрим и извлекать их оттуда
+ */
 public class Connection implements Closeable {
     private final Socket socket;
     private final ObjectOutputStream out;
@@ -26,7 +32,11 @@ public class Connection implements Closeable {
 
     public Message receive() throws IOException, ClassNotFoundException{
         synchronized (in){
-            return (Message) in.readObject();
+            //Этот метод внутри использует задержку и продолжает выполнение когда обнаружится новый переданный объект
+            Message message = (Message) in.readObject();
+
+            System.out.println(message);
+            return message;
         }
     }
 

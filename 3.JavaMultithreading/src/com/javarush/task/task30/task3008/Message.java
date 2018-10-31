@@ -2,6 +2,11 @@ package com.javarush.task.task30.task3008;
 
 import java.io.Serializable;
 
+/**
+ * Простой класс сообщения
+ * имеет тип
+ * может иметь текстовые данные
+ */
 public class Message implements Serializable {
     private final MessageType type;
     private final String data;

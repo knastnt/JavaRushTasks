@@ -4,6 +4,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/**
+ * Класс который умеет получать из консоли строку или число
+ * ну и ещё пишет туда текст
+ */
 public class ConsoleHelper {
     private static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 
