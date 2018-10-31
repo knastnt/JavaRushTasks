@@ -35,7 +35,7 @@ public class Connection implements Closeable {
             //Этот метод внутри использует задержку и продолжает выполнение когда обнаружится новый переданный объект
             Message message = (Message) in.readObject();
 
-            System.out.println(message);
+            //System.out.println(message);
             return message;
         }
     }
