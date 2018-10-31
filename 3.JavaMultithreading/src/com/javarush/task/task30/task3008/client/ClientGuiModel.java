@@ -8,7 +8,7 @@ public class ClientGuiModel {
     private final Set<String> allUserNames = new HashSet();
     private String newMessage;
 
-    public Set getAllUserNames() {
+    public Set<String> getAllUserNames() {
         return Collections.unmodifiableSet(allUserNames);
     }
 

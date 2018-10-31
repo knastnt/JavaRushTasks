@@ -122,6 +122,7 @@ public class Client {
                 //Переходим к приему сообщений (бесконечный цикл)
                 clientMainLoop();
             }catch (IOException | ClassNotFoundException e){
+                e.printStackTrace();
                 ConsoleHelper.writeMessage("Error in Client in run");
                 notifyConnectionStatusChanged(false);
             }
