@@ -11,12 +11,14 @@ public class Client {
     protected Connection connection;
     private volatile boolean clientConnected = false;
 
-    public synchronized void run(){
+    public void run(){
         SocketThread socketThread = getSocketThread();
         socketThread.setDaemon(true);
         socketThread.start();
         try {
-            wait();
+            synchronized (Client.this) {
+                wait();
+            }
             if(clientConnected){
                 ConsoleHelper.writeMessage("Соединение установлено. Для выхода наберите команду 'exit'.");
             }else{
@@ -36,7 +38,21 @@ public class Client {
     }
 
     public class SocketThread extends Thread{
-
+        protected void processIncomingMessage(String message){
+            ConsoleHelper.writeMessage(message);
+        }
+        protected void informAboutAddingNewUser(String userName){
+            ConsoleHelper.writeMessage(userName + " присоединился к чату");
+        }
+        protected void informAboutDeletingNewUser(String userName){
+            ConsoleHelper.writeMessage(userName + " покинул чат");
+        }
+        protected void notifyConnectionStatusChanged(boolean clientConnected){
+            Client.this.clientConnected = clientConnected;
+            synchronized (Client.this) {
+                Client.this.notify();
+            }
+        }
     }
 
     protected String getServerAddress(){
