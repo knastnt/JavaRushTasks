@@ -6,6 +6,7 @@ import com.javarush.task.task30.task3008.Message;
 import com.javarush.task.task30.task3008.MessageType;
 
 import java.io.IOException;
+import java.net.Socket;
 
 public class Client {
     protected Connection connection;
@@ -79,6 +80,19 @@ public class Client {
                 }else{
                     throw new IOException("Unexpected MessageType");
                 }
+            }
+        }
+
+        @Override
+        public void run() {
+            try {
+                Socket socket = new Socket(getServerAddress(), getServerPort());
+                connection = new Connection(socket);
+                clientHandshake();
+                clientMainLoop();
+            }catch (IOException | ClassNotFoundException e){
+                ConsoleHelper.writeMessage("Error in Client in run");
+                notifyConnectionStatusChanged(false);
             }
         }
     }
