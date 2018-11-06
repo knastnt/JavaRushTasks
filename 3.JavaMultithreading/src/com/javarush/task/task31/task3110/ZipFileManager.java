@@ -1,5 +1,7 @@
 package com.javarush.task.task31.task3110;
 
+import com.javarush.task.task31.task3110.exception.PathIsNotFoundException;
+
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -27,13 +29,17 @@ public class ZipFileManager {
                 for (Path fileName : fileNames) {
                     addNewZipEntry(zipOutputStream, source, fileName);
                 }
+            }else{
+                throw new PathIsNotFoundException();
             }
         }
     }
 
     private void addNewZipEntry(ZipOutputStream zipOutputStream, Path filePath, Path fileName) throws Exception{
         try (InputStream inputStream = Files.newInputStream(filePath.resolve(fileName))) {
-            ZipEntry zipEntry = new ZipEntry(fileName.getFileName().toString());
+        //try (InputStream inputStream = Files.newInputStream(filePath)) {
+            //ZipEntry zipEntry = new ZipEntry(fileName.getFileName().toString());
+            ZipEntry zipEntry = new ZipEntry(fileName.toString());
             zipOutputStream.putNextEntry(zipEntry);
 
             copyData(inputStream,zipOutputStream);

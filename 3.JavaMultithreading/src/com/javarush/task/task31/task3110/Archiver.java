@@ -21,7 +21,12 @@ public class Archiver {
 
         } while (operation != Operation.EXIT);
 
-        FileManager fm = new FileManager(Paths.get("G:\\+\\стол"));
+        //FileManager fm = new FileManager(Paths.get("G:\\+\\стол"));
+        try {
+            new ZipFileManager(Paths.get("D:\\Lan_Realtek_7.99.311.2016_W7x64.zip")).createZip(Paths.get("D:\\Lan_Realtek_7.99.311.2016_W7x64"));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
