@@ -22,12 +22,12 @@ public class Archiver {
         } while (operation != Operation.EXIT);
 
         //FileManager fm = new FileManager(Paths.get("G:\\+\\стол"));
-        try {
+        /*try {
             //new ZipFileManager(Paths.get("D:\\Lan_Realtek_7.99.311.2016_W7x64.zip")).createZip(Paths.get("D:\\Lan_Realtek_7.99.311.2016_W7x64"));
             new ZipFileManager(Paths.get("D:\\Lan_Realtek_7.99.311.2016_W7x64\\0x0c0c.zip")).createZip(Paths.get("D:\\Lan_Realtek_7.99.311.2016_W7x64\\0x0c0c.ini"));
         } catch (Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
 
