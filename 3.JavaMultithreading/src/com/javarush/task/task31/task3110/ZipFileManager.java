@@ -23,7 +23,7 @@ public class ZipFileManager {
         try(ZipOutputStream zipOutputStream =new ZipOutputStream(Files.newOutputStream(zipFile))) {
 
             if(Files.isRegularFile(source)){
-                addNewZipEntry(zipOutputStream,zipFile.getParent(),zipFile.getFileName());
+                addNewZipEntry(zipOutputStream,source.getParent(),source.getFileName());
             }else if(Files.isDirectory(source)){
                 List<Path> fileNames = new FileManager(source).getFileList();
                 for (Path fileName : fileNames) {
