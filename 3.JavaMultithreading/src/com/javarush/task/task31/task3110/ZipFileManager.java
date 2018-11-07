@@ -213,7 +213,7 @@ public class ZipFileManager {
                 for (Path path : absolutePathList) {
 
                     if(Files.exists(path) && Files.isRegularFile(path)){
-                        if(copiedPathList.contains(path)){
+                        if(copiedPathList.contains(path.getFileName())){
                             ConsoleHelper.writeMessage("файл " + path.toString() + " уже есть в архиве");
                         }else{
                             //Добавляем в архив
@@ -226,14 +226,6 @@ public class ZipFileManager {
 
                                 zipOutputStream.closeEntry();
                             }
-
-                            /*try (InputStream inputStream = Files.newInputStream(path)) {
-                                zipOutputStream.putNextEntry(new ZipEntry(path.toString()));
-
-                                copyData(inputStream, zipOutputStream);
-
-                                zipOutputStream.closeEntry();
-                            }*/
                             ConsoleHelper.writeMessage("файл " + path.toString() + " добавлен в архив");
                         }
                     }else{
