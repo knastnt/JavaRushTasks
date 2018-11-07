@@ -1,5 +1,6 @@
 package com.javarush.task.task31.task3110;
 
+import com.javarush.task.task31.task3110.command.ZipExtractCommand;
 import com.javarush.task.task31.task3110.exception.PathIsNotFoundException;
 import com.javarush.task.task31.task3110.exception.WrongZipFileException;
 
@@ -9,6 +10,7 @@ import java.io.OutputStream;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
@@ -100,5 +102,62 @@ public class ZipFileManager {
         while ((len = in.read(buffer)) > 0) {
             out.write(buffer, 0, len);
         }
+    }
+
+    public void extractAll(Path outputFolder) throws Exception{
+        // Проверяем существует ли zip файл
+        if (!Files.isRegularFile(zipFile)) {
+            throw new WrongZipFileException();
+        }
+        // Проверяем, существует ли директория, где будет распаковываться архив
+        // При необходимости создаем ее
+        if (Files.notExists(outputFolder)) {
+            Files.createDirectories(outputFolder);
+        }
+
+        // Создаем onzip поток
+        try (ZipInputStream zipInputStream = new ZipInputStream(Files.newInputStream(zipFile), Charset.forName("CP866"))) {
+            ZipEntry zipEntry;
+            while ((zipEntry = zipInputStream.getNextEntry()) != null){
+
+                Path path = outputFolder.resolve(Paths.get(zipEntry.getName()));
+
+                String fileName = path.getFileName().toString();
+                Path parentPath = path.getParent();
+
+
+                if (Files.notExists(parentPath)) {
+                    Files.createDirectories(parentPath);
+                }
+
+
+                if(!zipEntry.isDirectory()){
+                    try (OutputStream outputStream = Files.newOutputStream(path)) {
+                        copyData(zipInputStream, outputStream);
+                    }
+                }
+
+            }
+
+            /*if (Files.isDirectory(source)) {
+                // Если архивируем директорию, то нужно получить список файлов в ней
+                FileManager fileManager = new FileManager(source);
+                List<Path> fileNames = fileManager.getFileList();
+
+                // Добавляем каждый файл в архив
+                for (Path fileName : fileNames)
+                    addNewZipEntry(zipOutputStream, source, fileName);
+
+            } else if (Files.isRegularFile(source)) {
+
+                // Если архивируем отдельный файл, то нужно получить его директорию и имя
+                addNewZipEntry(zipOutputStream, source.getParent(), source.getFileName());
+            } else {
+
+                // Если переданный source не директория и не файл, бросаем исключение
+                throw new PathIsNotFoundException();
+            }*/
+        }
+
     }
 }
