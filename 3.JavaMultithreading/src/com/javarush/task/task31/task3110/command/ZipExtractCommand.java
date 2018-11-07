@@ -16,13 +16,13 @@ public class ZipExtractCommand extends ZipCommand {
             ZipFileManager zipFileManager = getZipFileManager();
 
             ConsoleHelper.writeMessage("Введите путь для распаковки:");
-            Path sourcePath = Paths.get(ConsoleHelper.readString());
-            zipFileManager.extractAll(sourcePath);
+            Path destinationPath = Paths.get(ConsoleHelper.readString());
+            zipFileManager.extractAll(destinationPath);
 
-            ConsoleHelper.writeMessage("Архив распакован.");
+            ConsoleHelper.writeMessage("Архив был распакован.");
 
         } catch (PathIsNotFoundException e) {
-            ConsoleHelper.writeMessage("Вы неверно указали или директории.");
+            ConsoleHelper.writeMessage("Неверный путь для распаковки.");
         }
     }
 }
