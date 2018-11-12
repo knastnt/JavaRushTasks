@@ -7,15 +7,21 @@ ThreadLocalRandom
 */
 public class Solution {
     public static int getRandomIntegerBetweenNumbers(int from, int to) {
-        return 0;
+        ThreadLocalRandom threadLocalRandom = ThreadLocalRandom.current();
+
+        return threadLocalRandom.nextInt(from, to);
     }
 
     public static double getRandomDouble() {
-        return 0;
+        ThreadLocalRandom threadLocalRandom = ThreadLocalRandom.current();
+
+        return threadLocalRandom.nextDouble();
     }
 
     public static long getRandomLongBetween0AndN(long n) {
-        return 0;
+        ThreadLocalRandom threadLocalRandom = ThreadLocalRandom.current();
+
+        return threadLocalRandom.nextLong(n);
     }
 
     public static void main(String[] args) {
