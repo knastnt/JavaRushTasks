@@ -1,5 +1,7 @@
 package com.javarush.task.task32.task3209;
 
+import com.javarush.task.task32.task3209.listeners.FrameListener;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,7 +25,8 @@ public class View extends JFrame implements ActionListener {
 
     public void init(){
         initGui();
-        addWindowListener(new);
+        addWindowListener(new FrameListener(this));
+        setVisible(true);
     }
 
     public void initGui(){
