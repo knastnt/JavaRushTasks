@@ -1,8 +1,10 @@
 package com.javarush.task.task32.task3209;
 
 import com.javarush.task.task32.task3209.listeners.FrameListener;
+import com.javarush.task.task32.task3209.listeners.TabbedPaneChangeListener;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -42,7 +44,17 @@ public class View extends JFrame implements ActionListener {
 
     //инициализация панелей редактора
     public void initEditor(){
+        htmlTextPane.setContentType("text/html");
 
+        JScrollPane jScrollPane = new JScrollPane(htmlTextPane);
+        tabbedPane.add("HTML",jScrollPane);
+        JScrollPane jScrollPane1 = new JScrollPane(plainTextPane);
+        tabbedPane.add("Текст",jScrollPane1);
+
+        tabbedPane.setPreferredSize(new Dimension(600,400));
+        tabbedPane.addChangeListener(new TabbedPaneChangeListener(this));
+
+        getContentPane().add(tabbedPane, BorderLayout.CENTER);
     }
 
     public void exit(){
