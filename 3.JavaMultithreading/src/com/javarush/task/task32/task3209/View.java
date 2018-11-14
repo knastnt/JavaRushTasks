@@ -2,6 +2,8 @@ package com.javarush.task.task32.task3209;
 
 import com.javarush.task.task32.task3209.listeners.FrameListener;
 import com.javarush.task.task32.task3209.listeners.TabbedPaneChangeListener;
+import com.sun.java.swing.plaf.windows.WindowsLookAndFeel;
+import javafx.scene.layout.BorderPane;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,7 +41,17 @@ public class View extends JFrame implements ActionListener {
 
     //инициализация меню
     public void initMenuBar(){
+        JMenuBar jMenuBar = new JMenuBar();
+        //Файл, Редактировать, Стиль, Выравнивание, Цвет, Шрифт и Помощь.
+        MenuHelper.initFileMenu(this,jMenuBar);
+        MenuHelper.initEditMenu(this,jMenuBar);
+        MenuHelper.initStyleMenu(this,jMenuBar);
+        MenuHelper.initAlignMenu(this,jMenuBar);
+        MenuHelper.initColorMenu(this,jMenuBar);
+        MenuHelper.initFontMenu(this,jMenuBar);
+        MenuHelper.initHelpMenu(this,jMenuBar);
 
+        getContentPane().add(jMenuBar, BorderLayout.NORTH);
     }
 
     //инициализация панелей редактора
@@ -67,5 +79,26 @@ public class View extends JFrame implements ActionListener {
 
     public void selectedTabChanged(){
 
+    }
+
+    public View() {
+        try{
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+        }catch (HeadlessException e){
+            ExceptionHandler.log(e);
+            //e.printStackTrace();
+        } catch (UnsupportedLookAndFeelException e) {
+            ExceptionHandler.log(e);
+            //e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            ExceptionHandler.log(e);
+            //e.printStackTrace();
+        } catch (InstantiationException e) {
+            ExceptionHandler.log(e);
+            //e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            ExceptionHandler.log(e);
+            //e.printStackTrace();
+        }
     }
 }
