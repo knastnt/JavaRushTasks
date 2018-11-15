@@ -81,6 +81,13 @@ public class View extends JFrame implements ActionListener {
 
     }
 
+    public boolean canUndo(){
+        return false;
+    }
+    public boolean canRedo(){
+        return false;
+    }
+
     public View() {
         try{
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
