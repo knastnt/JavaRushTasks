@@ -117,6 +117,11 @@ public class View extends JFrame implements ActionListener {
         return undoListener;
     }
 
+    public boolean isHtmlTabSelected(){
+        //System.out.println(tabbedPane.getSelectedIndex() == 0);
+        return tabbedPane.getSelectedIndex() == 0;
+    }
+
     public View() {
         try{
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
