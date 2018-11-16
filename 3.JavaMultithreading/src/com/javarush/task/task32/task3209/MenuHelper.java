@@ -115,7 +115,7 @@ public class MenuHelper {
         addMenuItem(editMenu, "Копировать", new DefaultEditorKit.CopyAction());
         addMenuItem(editMenu, "Вставить", new DefaultEditorKit.PasteAction());
 
-        editMenu.addMenuListener(new UndoMenuListener(view, undoItem, redoItem));
+        editMenu.addMenuListener(new UndoMenuListener(view, undoItem, redoItem)); //слушатель открытия/закрытия меню Редактировать
     }
 
     public static void initFileMenu(View view, JMenuBar menuBar) {

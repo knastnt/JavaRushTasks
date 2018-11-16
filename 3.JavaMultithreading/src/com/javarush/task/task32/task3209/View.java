@@ -26,7 +26,7 @@ public class View extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        System.out.println("view как слушатель - услышал");
     }
 
     public Controller getController() {
