@@ -27,6 +27,11 @@ public class View extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         System.out.println("view как слушатель - услышал");
+        switch (e.getActionCommand()){
+            case "О программе":
+                showAbout();
+                break;
+        }
     }
 
     public Controller getController() {
@@ -120,6 +125,19 @@ public class View extends JFrame implements ActionListener {
     public boolean isHtmlTabSelected(){
         //System.out.println(tabbedPane.getSelectedIndex() == 0);
         return tabbedPane.getSelectedIndex() == 0;
+    }
+
+    public void selectHtmlTab(){
+        tabbedPane.setSelectedIndex(0);
+        resetUndo();
+    }
+
+    public void update(){
+        htmlTextPane.setDocument(controller.getDocument());
+    }
+
+    public void showAbout(){
+        JOptionPane.showMessageDialog(tabbedPane,"О программе. Контент","О программе. Заголовок", JOptionPane.INFORMATION_MESSAGE);
     }
 
     public View() {
