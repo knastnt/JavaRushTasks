@@ -43,12 +43,17 @@ public class Solution implements Serializable {
 
     public static class Singleton implements Serializable {
         private static Singleton ourInstance;
+        private static final long serialVersionUID = 260220181614L;
 
         public static Singleton getInstance() {
             if (ourInstance == null) {
                 ourInstance = new Singleton();
             }
             return ourInstance;
+        }
+
+        private Object readResolve() throws ObjectStreamException{
+            return getInstance();
         }
 
         private Singleton() {
