@@ -31,6 +31,21 @@ public class View extends JFrame implements ActionListener {
             case "О программе":
                 showAbout();
                 break;
+            case "Новый":
+                controller.createNewDocument();
+                break;
+            case "Открыть":
+                controller.openDocument();
+                break;
+            case "Сохранить":
+                controller.saveDocument();
+                break;
+            case "Сохранить как...":
+                controller.saveDocumentAs();
+                break;
+            case "Выход":
+                exit();
+                break;
         }
     }
 

@@ -83,4 +83,17 @@ public class Controller {
         }
         return sw.toString();
     }
+
+    public void createNewDocument(){
+
+    }
+    public void openDocument(){
+
+    }
+    public void saveDocument(){
+
+    }
+    public void saveDocumentAs(){
+
+    }
 }
