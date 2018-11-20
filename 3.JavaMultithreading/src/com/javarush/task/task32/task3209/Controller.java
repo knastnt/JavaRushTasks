@@ -90,10 +90,39 @@ public class Controller {
         currentFile = null;
     }
     public void openDocument(){
-
+        view.selectHtmlTab();
+        JFileChooser jFileChooser = new JFileChooser();
+        jFileChooser.setFileFilter(new HTMLFileFilter());
+        if(jFileChooser.showOpenDialog(view) == JFileChooser.APPROVE_OPTION){
+            currentFile = jFileChooser.getSelectedFile();
+            resetDocument();
+            view.setTitle(currentFile.getName());
+            try {
+                FileReader fr = new FileReader(currentFile);
+                new HTMLEditorKit().read(fr, document, 0);
+            } catch (IOException e) {
+                ExceptionHandler.log(e);
+            } catch (BadLocationException e) {
+                ExceptionHandler.log(e);
+            }
+            view.resetUndo();
+        }
     }
     public void saveDocument(){
-
+        if(currentFile == null){
+            saveDocumentAs();
+        }else{
+            view.selectHtmlTab();
+            view.setTitle(currentFile.getName());
+            try {
+                FileWriter fw = new FileWriter(currentFile);
+                new HTMLEditorKit().write(fw, document, 0, document.getLength());
+            } catch (IOException e) {
+                ExceptionHandler.log(e);
+            } catch (BadLocationException e) {
+                ExceptionHandler.log(e);
+            }
+        }
     }
     public void saveDocumentAs(){
         view.selectHtmlTab();
