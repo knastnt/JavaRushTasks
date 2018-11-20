@@ -1,26 +1,54 @@
 package com.javarush.task.task32.task3209;
 
-import javax.swing.*;
+import javax.swing.JFileChooser;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
-import java.io.*;
-import java.util.concurrent.ExecutionException;
+import java.io.File;
+import java.io.StringReader;
+import java.io.StringWriter;
+import java.io.IOException;
+import java.io.FileReader;
+import java.io.FileWriter;
 
+/**
+ * Контроллер HTML едитора.
+ */
 public class Controller {
+    /**
+     * Ссылка на представление.
+     */
     private View view;
+
+    /**
+     * Документ.
+     */
     private HTMLDocument document;
+
+    /**
+     * Текущий файл.
+     */
     private File currentFile;
 
-    public Controller(View view) {
-        this.view = view;
+    /**
+     * Конструктор.
+     * @param view1
+     */
+    public Controller(final View view1) {
+        this.view = view1;
     }
 
-    public void init(){
+    /**
+     * Инициализация конструктора.
+     */
+    public void init() {
         createNewDocument();
     }
 
-    public void exit(){
+    /**
+     * Завершение работы.
+     */
+    public void exit() {
         System.exit(0);
     }
 
@@ -70,7 +98,7 @@ public class Controller {
         }
     }
 
-    public String getPlainText(){
+    public String getPlainText() {
         StringWriter sw = new StringWriter();
         try {
         new HTMLEditorKit().write(sw, document, 0, document.getLength());
@@ -82,18 +110,19 @@ public class Controller {
         return sw.toString();
     }
 
-    public void createNewDocument(){
+    public void createNewDocument() {
         view.selectHtmlTab();
         resetDocument();
         view.setTitle("HTML редактор");
         view.resetUndo();
         currentFile = null;
     }
-    public void openDocument(){
+    public void openDocument() {
         view.selectHtmlTab();
         JFileChooser jFileChooser = new JFileChooser();
         jFileChooser.setFileFilter(new HTMLFileFilter());
-        if(jFileChooser.showOpenDialog(view) == JFileChooser.APPROVE_OPTION){
+        if(jFileChooser.showOpenDialog(view) == JFileChooser.APPROVE_OPTION) {
+
             currentFile = jFileChooser.getSelectedFile();
             resetDocument();
             view.setTitle(currentFile.getName());
@@ -108,10 +137,10 @@ public class Controller {
             view.resetUndo();
         }
     }
-    public void saveDocument(){
-        if(currentFile == null){
+    public void saveDocument() {
+        if(currentFile == null) {
             saveDocumentAs();
-        }else{
+        } else {
             view.selectHtmlTab();
             view.setTitle(currentFile.getName());
             try {
@@ -124,11 +153,11 @@ public class Controller {
             }
         }
     }
-    public void saveDocumentAs(){
+    public void saveDocumentAs() {
         view.selectHtmlTab();
         JFileChooser jFileChooser = new JFileChooser();
         jFileChooser.setFileFilter(new HTMLFileFilter());
-        if(jFileChooser.showSaveDialog(view) == JFileChooser.APPROVE_OPTION){
+        if(jFileChooser.showSaveDialog(view) == JFileChooser.APPROVE_OPTION) {
             currentFile = jFileChooser.getSelectedFile();
             view.setTitle(currentFile.getName());
             try {
