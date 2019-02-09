@@ -35,4 +35,16 @@ public class Order {
         if(sb.length() > 0) sb.delete(0,2);
         return sb.toString();
     }
+
+    public int getTotalCookingTime(){
+        int duration = 0;
+        for(Dish dish : dishes){
+            duration += dish.getDuration();
+        }
+        return duration;
+    }
+
+    public boolean isEmpty(){
+        return dishes.size() == 0;
+    }
 }
