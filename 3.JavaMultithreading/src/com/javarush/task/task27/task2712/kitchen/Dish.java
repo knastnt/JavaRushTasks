@@ -11,4 +11,13 @@ public enum Dish {
         if(sb.length() > 0) sb.delete(0,2);
         return sb.toString();
     }
+
+    public static boolean contains(String test) {
+        for (Dish c : Dish.values()) {
+            if (c.name().equals(test)) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
