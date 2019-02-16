@@ -16,46 +16,53 @@ public class AdvertisementManager {
     }
 
     public void processVideos() throws NoVideoAvailableException {
-        if(storage.list().size()<1) throw new NoVideoAvailableException();
+        //if(storage.list().size()<1) throw new NoVideoAvailableException();
 
-        HashSet<Advertisement> selectedToSwow = new HashSet<>();
+        HashSet<Advertisement> recursToShow = new HashSet<>();
 
-        func (storage.list(), selectedToSwow, 0);
+        HashSet<HashSet<Advertisement>> selectedToShow = new HashSet<>();
+        func (storage.list(), recursToShow, 0, selectedToShow);
+
+        if (selectedToShow.size()<1) throw new NoVideoAvailableException();
     }
 
-    public void func (List<Advertisement> storageList, HashSet<Advertisement> selectedToSwow, int deep) {
-        for (int i = 0; i < storageList.size(); i++) {
+    public void func (List<Advertisement> storageList, HashSet<Advertisement> recursToShow, int deep, HashSet<HashSet<Advertisement>> selectedToShow) {
+
+        for (int i = deep; i < storageList.size(); i++) {
             Advertisement adv = storageList.get(i);
 
-            if (selectedToSwow.contains(adv)) { continue; }
+            if (recursToShow.contains(adv)) { continue; }
 
-            if (adv.getDuration() <= timeSeconds - getBusySec(selectedToSwow)) {
+            if (adv.getDuration() <= timeSeconds - getBusySec(recursToShow)) {
 
-                selectedToSwow.add(adv);
+                recursToShow.add(adv);
 
-                func(storageList, selectedToSwow, deep + 1);
+                func(storageList, recursToShow, deep + 1, null);
             }
 
             if (deep == 0) {
+
                 System.out.println("--- итерация начата ---");
                 System.out.println(deep);
                 int res = 0;
-                for (Advertisement adv0 : selectedToSwow) {
+                for (Advertisement adv0 : recursToShow) {
                     res += adv0.getDuration();
                     System.out.println(adv0.getName() + " " + adv0.getDuration());
                 }
                 System.out.println(timeSeconds + " " + res);
-                selectedToSwow.clear();
                 System.out.println("--- итерация закончена ---");
+
+                selectedToShow.add(recursToShow);
+                recursToShow = new HashSet<>();
             }
 
         }
     }
 
-    private int getBusySec(HashSet<Advertisement> selectedToSwow){
+    private int getBusySec(HashSet<Advertisement> recursToShow){
         int toReturn = 0;
 
-        for (Advertisement adv : selectedToSwow){
+        for (Advertisement adv : recursToShow){
             toReturn += adv.getDuration();
         }
 
