@@ -17,7 +17,7 @@ public class AdvertisementManager {
     }
 
     public void processVideos() throws NoVideoAvailableException {
-        //if(storage.list().size()<1) throw new NoVideoAvailableException();
+        if(storage.list().size()<1) throw new NoVideoAvailableException();
 
         ArrayListOfAdvertisements recursToShow = new ArrayListOfAdvertisements();
 
@@ -26,16 +26,10 @@ public class AdvertisementManager {
 
         if (selectedToShow.size()<1) throw new NoVideoAvailableException();
 
-        //System.out.println("--- итерация начата ---");
-        //int res = 0;
         for (Advertisement adv0 : selectedToShow) {
-            //res += adv0.getDuration();
             System.out.println(adv0.getName() + " is displaying... " + adv0.getAmountPerOneDisplaying() + ", " + adv0.getAmountPerOneDisplaying()*1000/adv0.getDuration());
             adv0.revalidate();
         }
-        //System.out.println(timeSeconds + " " + res);
-        //System.out.println("--- итерация закончена ---");
-
 
     }
 
