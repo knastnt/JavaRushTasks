@@ -26,14 +26,15 @@ public class AdvertisementManager {
 
         if (selectedToShow.size()<1) throw new NoVideoAvailableException();
 
-        System.out.println("--- итерация начата ---");
-        int res = 0;
+        //System.out.println("--- итерация начата ---");
+        //int res = 0;
         for (Advertisement adv0 : selectedToShow) {
-            res += adv0.getDuration();
-            System.out.println(adv0.getName() + " " + adv0.getAmountPerOneDisplaying());
+            //res += adv0.getDuration();
+            System.out.println(adv0.getName() + " is displaying... " + adv0.getAmountPerOneDisplaying() + ", " + adv0.getAmountPerOneDisplaying()*1000/adv0.getDuration());
+            adv0.revalidate();
         }
-        System.out.println(timeSeconds + " " + res);
-        System.out.println("--- итерация закончена ---");
+        //System.out.println(timeSeconds + " " + res);
+        //System.out.println("--- итерация закончена ---");
 
 
     }
@@ -44,6 +45,8 @@ public class AdvertisementManager {
             Advertisement adv = storageList.get(i);
 
             if (recursToShow.contains(adv)) { continue; }
+
+            if (adv.getHits() < 1) { continue; }
 
             if (adv.getDuration() <= timeSeconds - getBusySec(recursToShow)) {
 
@@ -61,7 +64,9 @@ public class AdvertisementManager {
                 recursToShow.sort(new Comparator<Advertisement>() {
                     @Override
                     public int compare(Advertisement o1, Advertisement o2) {
-                        return (int) (o2.getAmountPerOneDisplaying() - o1.getAmountPerOneDisplaying());
+                        int result = (int) (o2.getAmountPerOneDisplaying() - o1.getAmountPerOneDisplaying());
+                        if(result == 0) { result = (int) (o1.getAmountPerOneDisplaying()*1000/o1.getDuration() - o2.getAmountPerOneDisplaying()*1000/o2.getDuration()); }
+                        return result;
                     }
                 });
 

@@ -36,4 +36,8 @@ public class Advertisement {
         if(hits<1) throw new UnsupportedOperationException();
         hits -= 1;
     }
+
+    public int getHits() {
+        return hits;
+    }
 }
