@@ -32,5 +32,9 @@ public class StatisticManager {
                 storage.put(eventType, new ArrayList<EventDataRow>());
             }
         }
+
+        private void put(EventDataRow data){
+
+        }
     }
 }
