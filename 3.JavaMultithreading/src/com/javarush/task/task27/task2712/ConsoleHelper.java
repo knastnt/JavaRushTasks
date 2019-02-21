@@ -20,14 +20,14 @@ public class ConsoleHelper {
     public static List<Dish> getAllDishesForOrder() throws IOException {  // просит пользователя выбрать блюдо и добавляет его в список.
         List<Dish> allDishesForOrder = new ArrayList<>();
         String readed;
-        writeMessage("Напишите что Вы ходите заказать в нашем Меню. exit - для завершения заказа");
+        writeMessage("Введите желаемое блюдо:");
         writeMessage(Dish.allDishesToString());
         while(!"exit".equals(readed = readString())){
             if(Dish.contains(readed)){
                 allDishesForOrder.add(Dish.valueOf(readed));
-                writeMessage("блюдо добавлено, введите следующее блюдо или exit для завершения заказа");
+                writeMessage("Введите название блюда, или 'exit'");
             }else{
-                writeMessage("такого блюда нет, попробуйте снова. exit - для завершения заказа");
+                writeMessage("такого блюда нет");
             }
         }
         return allDishesForOrder;
