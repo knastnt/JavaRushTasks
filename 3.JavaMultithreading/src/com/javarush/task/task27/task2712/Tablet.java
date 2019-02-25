@@ -4,6 +4,7 @@ import com.javarush.task.task27.task2712.ad.Advertisement;
 import com.javarush.task.task27.task2712.ad.AdvertisementManager;
 import com.javarush.task.task27.task2712.ad.NoVideoAvailableException;
 import com.javarush.task.task27.task2712.kitchen.Order;
+import com.javarush.task.task27.task2712.kitchen.TestOrder;
 import com.javarush.task.task27.task2712.statistic.StatisticManager;
 import com.javarush.task.task27.task2712.statistic.event.NoAvailableVideoEventDataRow;
 import com.javarush.task.task27.task2712.statistic.event.VideoSelectedEventDataRow;
@@ -25,27 +26,41 @@ public class Tablet extends Observable {
     public Order createOrder(){
         try {
             Order order = new Order(this);
-            if (order.isEmpty()) return null;
-            ConsoleHelper.writeMessage(order.toString());
-            //new Thread(){
-            //    @Override
-            //    public void run() {
-            int totalDuration = order.getTotalCookingTime() * 60;
-            try {
-                //AdvertisementManager.ArrayListOfAdvertisements optimalVideoSet = new AdvertisementManager(totalDuration).processVideos();
-                //StatisticManager.getInstance().register(new VideoSelectedEventDataRow(optimalVideoSet, optimalVideoSet.getAllAmount(), optimalVideoSet.getAllDuration()));
-                new AdvertisementManager(totalDuration).processVideos();
-                ConsoleHelper.writeMessage("видео выбрано");
-            } catch (NoVideoAvailableException e) {
-                logger.log(Level.INFO, "No video is available for the order " + order);
-                StatisticManager.getInstance().register(new NoAvailableVideoEventDataRow(totalDuration));
-            }
-            //    }
-            //}.start();
+            return processOfCreatingOrder(order);
+        } catch (IOException e) {
+            logger.log(Level.SEVERE, "Console is unavailable.");
+            return null;
+        }
+    }
 
-            setChanged();
-            notifyObservers(order);
-            return order;
+    private Order processOfCreatingOrder(Order order) {
+        if (order.isEmpty()) return null;
+        ConsoleHelper.writeMessage(order.toString());
+        //new Thread(){
+        //    @Override
+        //    public void run() {
+        int totalDuration = order.getTotalCookingTime() * 60;
+        try {
+            //AdvertisementManager.ArrayListOfAdvertisements optimalVideoSet = new AdvertisementManager(totalDuration).processVideos();
+            //StatisticManager.getInstance().register(new VideoSelectedEventDataRow(optimalVideoSet, optimalVideoSet.getAllAmount(), optimalVideoSet.getAllDuration()));
+            new AdvertisementManager(totalDuration).processVideos();
+            ConsoleHelper.writeMessage("видео выбрано");
+        } catch (NoVideoAvailableException e) {
+            logger.log(Level.INFO, "No video is available for the order " + order);
+            StatisticManager.getInstance().register(new NoAvailableVideoEventDataRow(totalDuration));
+        }
+        //    }
+        //}.start();
+
+        setChanged();
+        notifyObservers(order);
+        return order;
+    }
+
+    public Order createTestOrder(){
+        try {
+            TestOrder order = new TestOrder(this);
+            return processOfCreatingOrder(order);
         } catch (IOException e) {
             logger.log(Level.SEVERE, "Console is unavailable.");
             return null;
