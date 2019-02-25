@@ -55,8 +55,8 @@ public class StatisticManager {
 
             profit += ((VideoSelectedEventDataRow)eventDataRow).getAmount() / 100.0;
 
-            //toReturn.put(todayWithZeroTime, profit);
-            toReturn.put(eventDataRow.getDate(), profit);
+            toReturn.put(todayWithZeroTime, profit);
+            //toReturn.put(eventDataRow.getDate(), profit);
         }
         return toReturn.descendingMap();
     }
