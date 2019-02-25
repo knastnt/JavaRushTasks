@@ -35,8 +35,8 @@ public class StatisticManager {
         cooks.add(cook);
     }
 
-    public SortedMap<Date, Double> getAdvertisementProfit() {
-        SortedMap<Date, Double> toReturn = new TreeMap<>();
+    public NavigableMap<Date, Double> getAdvertisementProfit() {
+        TreeMap<Date, Double> toReturn = new TreeMap<>();
         DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         for (EventDataRow eventDataRow : statisticStorage.get(SELECTED_VIDEOS)) {
 
@@ -53,16 +53,16 @@ public class StatisticManager {
                 profit += toReturn.get(todayWithZeroTime);
             }
 
-            profit += ((VideoSelectedEventDataRow)eventDataRow).getAmount();
+            profit += ((VideoSelectedEventDataRow)eventDataRow).getAmount() / 100.0;
 
-            toReturn.put(todayWithZeroTime, profit);
-            //toReturn.put(eventDataRow.getDate(), profit);
+            //toReturn.put(todayWithZeroTime, profit);
+            toReturn.put(eventDataRow.getDate(), profit);
         }
-        return toReturn;
+        return toReturn.descendingMap();
     }
 
-    public SortedMap<Date, SortedMap<String, Integer>> getCookWorkloading() {
-        SortedMap<Date, SortedMap<String, Integer>> toReturn = new TreeMap<>();
+    public NavigableMap<Date, TreeMap<String, Integer>> getCookWorkloading() {
+        TreeMap<Date, TreeMap<String, Integer>> toReturn = new TreeMap<>();
         DateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
         for (EventDataRow eventDataRow : statisticStorage.get(COOKED_ORDER)) {
 
@@ -91,7 +91,7 @@ public class StatisticManager {
 
             toReturn.get(todayWithZeroTime).put(((CookedOrderEventDataRow)eventDataRow).getCookName(), busyTime);
         }
-        return toReturn;
+        return toReturn.descendingMap();
     }
 
     private class StatisticStorage {
