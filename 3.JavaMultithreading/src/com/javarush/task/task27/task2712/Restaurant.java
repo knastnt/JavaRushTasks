@@ -18,8 +18,8 @@ public class Restaurant {
         tablet.createOrder();
 
         DirectorTablet directorTablet = new DirectorTablet();
-        directorTablet.printActiveVideoSet();
         directorTablet.printAdvertisementProfit();
+        directorTablet.printActiveVideoSet();
         directorTablet.printArchivedVideoSet();
         directorTablet.printCookWorkloading();
     }
