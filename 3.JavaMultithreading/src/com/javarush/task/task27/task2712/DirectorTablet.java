@@ -13,11 +13,11 @@ public class DirectorTablet {
         SortedMap<Date, Double> profits = StatisticManager.getInstance().getTotalProfit();
 
         for (Map.Entry<Date, Double> e : profits.entrySet()){
-            ConsoleHelper.writeMessage( new SimpleDateFormat("dd-MMM-yyyy").format(e.getKey()) + " - " + e.getValue().toString() );
+            ConsoleHelper.writeMessage( new SimpleDateFormat("dd-MMM-yyyy").format(e.getKey()) + " - " + String.format("%.2f", e.getValue()) );
             total += e.getValue();
         }
 
-        ConsoleHelper.writeMessage("Total - " + total.toString());
+        ConsoleHelper.writeMessage("Total - " + String.format("%.2f", total));
     }
 
     public void printCookWorkloading() {
