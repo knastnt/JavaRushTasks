@@ -32,8 +32,9 @@ public class Tablet extends Observable {
             //    public void run() {
             int totalDuration = order.getTotalCookingTime() * 60;
             try {
-                AdvertisementManager.ArrayListOfAdvertisements optimalVideoSet = new AdvertisementManager(totalDuration).processVideos();
-                StatisticManager.getInstance().register(new VideoSelectedEventDataRow(optimalVideoSet, optimalVideoSet.getAllAmount(), optimalVideoSet.getAllDuration()));
+                //AdvertisementManager.ArrayListOfAdvertisements optimalVideoSet = new AdvertisementManager(totalDuration).processVideos();
+                //StatisticManager.getInstance().register(new VideoSelectedEventDataRow(optimalVideoSet, optimalVideoSet.getAllAmount(), optimalVideoSet.getAllDuration()));
+                new AdvertisementManager(totalDuration).processVideos();
                 ConsoleHelper.writeMessage("видео выбрано");
             } catch (NoVideoAvailableException e) {
                 logger.log(Level.INFO, "No video is available for the order " + order);
