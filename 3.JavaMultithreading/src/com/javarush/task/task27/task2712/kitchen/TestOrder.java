@@ -17,4 +17,6 @@ public class TestOrder extends Order {
             dishes.add(Dish.values()[(int) Math.random() * Dish.values().length]);
         }
     }
+
+
 }
