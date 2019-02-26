@@ -38,6 +38,10 @@ public class Restaurant {
         tablet.createOrder();
         tablet.createOrder();*/
 
+
+        StatisticManager.getInstance().register(cook);
+        StatisticManager.getInstance().register(cook2);
+
         Thread t = new Thread(new RandomOrderGeneratorTask(tablets, ORDER_CREATING_INTERVAL));
         t.start();
         try {
@@ -46,10 +50,6 @@ public class Restaurant {
             //e.printStackTrace();
         }
         t.interrupt();
-
-
-        StatisticManager.getInstance().register(cook);
-        StatisticManager.getInstance().register(cook2);
 
         DirectorTablet directorTablet = new DirectorTablet();
         directorTablet.printAdvertisementProfit();

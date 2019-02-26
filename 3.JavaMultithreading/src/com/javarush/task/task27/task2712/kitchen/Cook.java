@@ -10,6 +10,7 @@ import java.util.Observer;
 
 public class Cook extends Observable {
     private String name;
+    private volatile boolean busy;
 
     public Cook(String name) {
         this.name = name;
@@ -21,9 +22,23 @@ public class Cook extends Observable {
     }
 
     public void startCookingOrder(Order order) {
+        busy = true;
         ConsoleHelper.writeMessage("Start cooking - " + order + ", cooking time " + ((Order)order).getTotalCookingTime() + "min");
         StatisticManager.getInstance().register( new CookedOrderEventDataRow(Tablet.class.getName(), name, ((Order)order).getTotalCookingTime(), ((Order) order).getDishes()));
+
+        try{
+            Thread.sleep( ((Order)order).getTotalCookingTime() * 10 );
+        }catch (InterruptedException e){
+            busy = false;
+            return;
+        }
+
         setChanged();
         notifyObservers(order);
+        busy = false;
+    }
+
+    public boolean isBusy() {
+        return busy;
     }
 }
