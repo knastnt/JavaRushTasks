@@ -11,6 +11,8 @@ public class Restaurant {
     private static final int ORDER_CREATING_INTERVAL = 100;
 
     public static void main(String[] args) {
+        OrderManager orderManager = new OrderManager();
+
         Cook cook = new Cook("Amigo");
         Cook cook2 = new Cook("Diego");
 
@@ -22,8 +24,7 @@ public class Restaurant {
         List<Tablet> tablets = new ArrayList<>();
         for (int i = 0; i < 5 ; i++) {
             tablets.add(new Tablet(i));
-            tablets.get(i).addObserver(cook);
-            tablets.get(i).addObserver(cook2);
+            tablets.get(i).addObserver(orderManager);
         }
 
 
