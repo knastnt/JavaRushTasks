@@ -17,7 +17,6 @@ import static com.javarush.task.task27.task2712.statistic.event.EventType.SELECT
 public class StatisticManager {
     private static StatisticManager statisticManager;
     private StatisticStorage statisticStorage = new StatisticStorage();
-    private Set<Cook> cooks = new HashSet<Cook>();
 
     private StatisticManager() {
     }
@@ -29,10 +28,6 @@ public class StatisticManager {
 
     public void register(EventDataRow data){
         statisticStorage.put(data);
-    }
-
-    public void register(Cook cook) {
-        cooks.add(cook);
     }
 
     public NavigableMap<Date, Double> getAdvertisementProfit() {
@@ -92,10 +87,6 @@ public class StatisticManager {
             toReturn.get(todayWithZeroTime).put(((CookedOrderEventDataRow)eventDataRow).getCookName(), busyTime);
         }
         return toReturn.descendingMap();
-    }
-
-    public Set<Cook> getCooks() {
-        return cooks;
     }
 
     private class StatisticStorage {

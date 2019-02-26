@@ -1,46 +1,41 @@
 package com.javarush.task.task27.task2712;
 
 import com.javarush.task.task27.task2712.kitchen.Cook;
+import com.javarush.task.task27.task2712.kitchen.Order;
 import com.javarush.task.task27.task2712.kitchen.Waiter;
-import com.javarush.task.task27.task2712.statistic.StatisticManager;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.LinkedBlockingQueue;
 
 public class Restaurant {
+    private static final LinkedBlockingQueue<Order> orderQueue = new LinkedBlockingQueue<>();
     private static final int ORDER_CREATING_INTERVAL = 100;
 
     public static void main(String[] args) {
-        OrderManager orderManager = new OrderManager();
-
         Cook cook = new Cook("Amigo");
+        cook.setQueue(orderQueue);
+        Thread t1 = new Thread(cook);
+        t1.setDaemon(true);
+        t1.start();
+
         Cook cook2 = new Cook("Diego");
+        cook2.setQueue(orderQueue);
+        Thread t2 = new Thread(cook2);
+        t2.setDaemon(true);
+        t2.start();
+
 
 
         Waiter waiter = new Waiter();
 
 
-        //Tablet tablet = new Tablet(1);
         List<Tablet> tablets = new ArrayList<>();
         for (int i = 0; i < 5 ; i++) {
             tablets.add(new Tablet(i));
-            tablets.get(i).addObserver(orderManager);
+            tablets.get(i).setQueue(orderQueue);
         }
 
-
-
-        //tablet.addObserver(cook);
-        cook.addObserver(waiter);
-        cook2.addObserver(waiter);
-
-        /*tablet.createOrder();
-        tablet.createOrder();
-        tablet.createOrder();
-        tablet.createOrder();*/
-
-
-        StatisticManager.getInstance().register(cook);
-        StatisticManager.getInstance().register(cook2);
 
         Thread t = new Thread(new RandomOrderGeneratorTask(tablets, ORDER_CREATING_INTERVAL));
         t.start();
@@ -50,6 +45,8 @@ public class Restaurant {
             //e.printStackTrace();
         }
         t.interrupt();
+
+
 
         DirectorTablet directorTablet = new DirectorTablet();
         directorTablet.printAdvertisementProfit();

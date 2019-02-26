@@ -12,12 +12,14 @@ import com.javarush.task.task27.task2712.statistic.event.VideoSelectedEventDataR
 import java.io.IOException;
 import java.util.List;
 import java.util.Observable;
+import java.util.concurrent.LinkedBlockingQueue;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class Tablet extends Observable {
+public class Tablet {
     final int number;
     static Logger logger = Logger.getLogger(Tablet.class.getName());
+    private LinkedBlockingQueue<Order> queue;
 
     public Tablet(int number) {
         this.number = number;
@@ -36,25 +38,21 @@ public class Tablet extends Observable {
     private Order processOfCreatingOrder(Order order) {
             if (order.isEmpty()) return null;
             ConsoleHelper.writeMessage(order.toString());
-            //new Thread(){
-            //    @Override
-            //    public void run() {
+
             int totalDuration = order.getTotalCookingTime() * 60;
             try {
-                //AdvertisementManager.ArrayListOfAdvertisements optimalVideoSet = new AdvertisementManager(totalDuration).processVideos();
-                //StatisticManager.getInstance().register(new VideoSelectedEventDataRow(optimalVideoSet, optimalVideoSet.getAllAmount(), optimalVideoSet.getAllDuration()));
                 new AdvertisementManager(totalDuration).processVideos();
                 ConsoleHelper.writeMessage("видео выбрано");
             } catch (NoVideoAvailableException e) {
                 logger.log(Level.INFO, "No video is available for the order " + order);
                 StatisticManager.getInstance().register(new NoAvailableVideoEventDataRow(totalDuration));
             }
-            //    }
-            //}.start();
-
-            setChanged();
-            notifyObservers(order);
-            return order;
+        try {
+            queue.put(order);
+        } catch (InterruptedException e) {
+            return null;
+        }
+        return order;
     }
 
     public void createTestOrder(){
@@ -75,5 +73,7 @@ public class Tablet extends Observable {
         return sb.toString();
     }
 
-
+    public void setQueue(LinkedBlockingQueue<Order> queue) {
+        this.queue = queue;
+    }
 }
