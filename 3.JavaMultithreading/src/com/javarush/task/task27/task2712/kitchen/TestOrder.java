@@ -11,7 +11,7 @@ public class TestOrder extends Order {
 
     @Override
     protected void initDishes() throws IOException {
-        int numOfDishes = (int) (Math.random() * Dish.values().length);
+        int numOfDishes = (int) (Math.random() * Dish.values().length-2) +2;
 
         for (int i = 0; i < numOfDishes; i++) {
             dishes.add(Dish.values()[(int) (Math.random() * Dish.values().length)]);
