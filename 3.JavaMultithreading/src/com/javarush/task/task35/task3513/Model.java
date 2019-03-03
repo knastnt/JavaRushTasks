@@ -41,28 +41,34 @@ public class Model {
         return toReturn;
     }
 
-    private void compressTiles(Tile[] tiles) {
-        int[] toReturn = new int[tiles.length];
+    private boolean compressTiles(Tile[] tiles) {
+        boolean toReturn = false;
+        int[] tempTiles = new int[tiles.length];
         int n = 0;
         for (int i = 0; i < tiles.length; i++) {
             if(tiles[i].value != 0) {
-                toReturn[n] = tiles[i].value;
+                tempTiles[n] = tiles[i].value;
                 n++;
             }
         }
         n = tiles.length -1;
         for (int i = tiles.length - 1; i >= 0; i--) {
             if(tiles[i].value == 0) {
-                toReturn[n] = tiles[i].value;
+                tempTiles[n] = tiles[i].value;
                 n--;
             }
         }
-        for (int i = 0; i < toReturn.length; i++) {
-            tiles[i].value = toReturn[i];
+        for (int i = 0; i < tempTiles.length; i++) {
+            if(tiles[i].value != tempTiles[i]){
+                tiles[i].value = tempTiles[i];
+                toReturn = true;
+            }
         }
+        return toReturn;
     }
 
-    private void mergeTiles(Tile[] tiles) {
+    private boolean mergeTiles(Tile[] tiles) {
+        boolean toReturn = false;
         for (int i = 0; i < tiles.length; i++) {
             if(i<tiles.length-1 && tiles[i].value != 0 && tiles[i].value == tiles[i+1].value){
                 tiles[i].value += tiles[i+1].value;
@@ -72,8 +78,21 @@ public class Model {
                 if(maxTile<tiles[i].value){maxTile=tiles[i].value;}
 
                 i++;
+
+                toReturn = true;
             }
         }
         compressTiles(tiles);
+        return toReturn;
+    }
+
+    public void left(){
+        boolean changed = false;
+        for (int i = 0; i < FIELD_WIDTH; i++) {
+            Tile[] stroka = gameTiles[i];
+            changed |= compressTiles(stroka);
+            changed |= mergeTiles(stroka);
+        }
+        if ( changed ) { addTile(); };
     }
 }
