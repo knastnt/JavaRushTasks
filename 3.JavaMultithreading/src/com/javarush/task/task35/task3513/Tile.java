@@ -42,4 +42,9 @@ public class Tile {
             default: return new Color (0xff0000);
         }
     }
+
+    @Override
+    public String toString() {
+        return String.valueOf(value);
+    }
 }
