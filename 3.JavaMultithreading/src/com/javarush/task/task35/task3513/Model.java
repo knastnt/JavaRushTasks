@@ -86,7 +86,7 @@ public class Model {
         return toReturn;
     }
 
-    public boolean left(){
+    public void left(){
         boolean changed = false;
         for (int i = 0; i < FIELD_WIDTH; i++) {
             Tile[] stroka = gameTiles[i];
@@ -94,7 +94,6 @@ public class Model {
             changed |= mergeTiles(stroka);
         }
         if ( changed ) { addTile(); };
-        return changed;
     }
 
     private void turnMassive(){
@@ -112,31 +111,28 @@ public class Model {
         }
     }
 
-    public boolean up(){
+    public void up(){
         turnMassive();
-        boolean res = left();
+        left();
         turnMassive();
         turnMassive();
         turnMassive();
-        return res;
     }
 
-    public boolean right(){
+    public void right(){
         turnMassive();
         turnMassive();
-        boolean res = left();
+        left();
         turnMassive();
         turnMassive();
-        return res;
     }
 
-    public boolean down(){
+    public void down(){
         turnMassive();
         turnMassive();
         turnMassive();
-        boolean res = left();
+        left();
         turnMassive();
-        return res;
     }
 
     public boolean canMove(){
