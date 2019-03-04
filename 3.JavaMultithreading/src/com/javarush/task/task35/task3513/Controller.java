@@ -29,7 +29,7 @@ public class Controller extends KeyAdapter {
     }
 
     @Override
-    public void keyTyped(KeyEvent e) {
+    public void keyPressed(KeyEvent e) {
         if ( e.getKeyCode() == KeyEvent.VK_ESCAPE ) { resetGame(); }
 
         view.isGameLost = !model.canMove();
