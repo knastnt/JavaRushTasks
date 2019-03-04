@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Model {
     private static final int FIELD_WIDTH = 4;
-    private Tile[][] gameTiles = new Tile[4][4];
+    private Tile[][] gameTiles = new Tile[FIELD_WIDTH][FIELD_WIDTH];
     protected int score, maxTile;
 
     public Model() {
@@ -94,5 +94,45 @@ public class Model {
             changed |= mergeTiles(stroka);
         }
         if ( changed ) { addTile(); };
+    }
+
+    private void turnMassiveCounterclockwise(){
+        int[][] tempMass = new int[FIELD_WIDTH][FIELD_WIDTH];
+        for (int i = 0; i < FIELD_WIDTH; i++) {
+            for (int j = 0; j < FIELD_WIDTH; j++) {
+                tempMass[i][j] = gameTiles[j][FIELD_WIDTH-i-1].value;
+            }
+        }
+
+        for (int i = 0; i < FIELD_WIDTH; i++) {
+            for (int j = 0; j < FIELD_WIDTH; j++) {
+                gameTiles[i][j].value = tempMass[i][j];
+            }
+        }
+    }
+
+    public void up(){
+        turnMassiveCounterclockwise();
+        left();
+        turnMassiveCounterclockwise();
+        turnMassiveCounterclockwise();
+        turnMassiveCounterclockwise();
+    }
+
+    public void right(){
+        turnMassiveCounterclockwise();
+        turnMassiveCounterclockwise();
+        left();
+        turnMassiveCounterclockwise();
+        turnMassiveCounterclockwise();
+    }
+
+    public void down(){
+        turnMassiveCounterclockwise();
+        turnMassiveCounterclockwise();
+        turnMassiveCounterclockwise();
+        left();
+        turnMassiveCounterclockwise();
+        System.out.println();
     }
 }
