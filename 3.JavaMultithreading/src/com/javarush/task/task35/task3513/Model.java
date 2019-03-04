@@ -86,7 +86,7 @@ public class Model {
         return toReturn;
     }
 
-    public void left(){
+    public boolean left(){
         boolean changed = false;
         for (int i = 0; i < FIELD_WIDTH; i++) {
             Tile[] stroka = gameTiles[i];
@@ -94,9 +94,10 @@ public class Model {
             changed |= mergeTiles(stroka);
         }
         if ( changed ) { addTile(); };
+        return changed;
     }
 
-    private void turnMassiveCounterclockwise(){
+    private void turnMassive(){
         int[][] tempMass = new int[FIELD_WIDTH][FIELD_WIDTH];
         for (int i = 0; i < FIELD_WIDTH; i++) {
             for (int j = 0; j < FIELD_WIDTH; j++) {
@@ -111,28 +112,45 @@ public class Model {
         }
     }
 
-    public void up(){
-        turnMassiveCounterclockwise();
-        left();
-        turnMassiveCounterclockwise();
-        turnMassiveCounterclockwise();
-        turnMassiveCounterclockwise();
+    public boolean up(){
+        turnMassive();
+        boolean res = left();
+        turnMassive();
+        turnMassive();
+        turnMassive();
+        return res;
     }
 
-    public void right(){
-        turnMassiveCounterclockwise();
-        turnMassiveCounterclockwise();
-        left();
-        turnMassiveCounterclockwise();
-        turnMassiveCounterclockwise();
+    public boolean right(){
+        turnMassive();
+        turnMassive();
+        boolean res = left();
+        turnMassive();
+        turnMassive();
+        return res;
     }
 
-    public void down(){
-        turnMassiveCounterclockwise();
-        turnMassiveCounterclockwise();
-        turnMassiveCounterclockwise();
-        left();
-        turnMassiveCounterclockwise();
-        System.out.println();
+    public boolean down(){
+        turnMassive();
+        turnMassive();
+        turnMassive();
+        boolean res = left();
+        turnMassive();
+        return res;
+    }
+
+    public boolean canMove(){
+        for (int i = 0; i < FIELD_WIDTH; i++) {
+            for (int j = 0; j < FIELD_WIDTH; j++) {
+                if (gameTiles[i][j].value == 0) return true;
+                if (i<FIELD_WIDTH-1 && gameTiles[i][j].value == gameTiles[i+1][j].value) return true;
+                if (j<FIELD_WIDTH-1 && gameTiles[i][j].value == gameTiles[i][j+1].value) return true;
+            }
+        }
+        return false;
+    }
+
+    public Tile[][] getGameTiles() {
+        return gameTiles;
     }
 }
