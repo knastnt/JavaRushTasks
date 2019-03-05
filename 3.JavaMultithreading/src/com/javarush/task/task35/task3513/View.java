@@ -13,6 +13,7 @@ public class View extends JPanel {
 
     boolean isGameWon = false;
     boolean isGameLost = false;
+    boolean isEnded = false;
 
     public View(Controller controller) {
         setFocusable(true);
@@ -23,6 +24,7 @@ public class View extends JPanel {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
+        //if (isGameWon || isGameLost) return;
         g.setColor(BG_COLOR);
         g.fillRect(0, 0, this.getSize().width, this.getSize().height);
         for (int x = 0; x < 4; x++) {

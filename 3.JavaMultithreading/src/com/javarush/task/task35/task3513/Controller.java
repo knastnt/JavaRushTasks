@@ -2,6 +2,7 @@ package com.javarush.task.task35.task3513;
 
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.util.Date;
 
 public class Controller extends KeyAdapter {
     private Model model;
@@ -54,5 +55,9 @@ public class Controller extends KeyAdapter {
         if (model.maxTile == WINNING_TILE) { view.isGameWon = true; }
 
         view.repaint();
+    }
+
+    public View getView() {
+        return view;
     }
 }
