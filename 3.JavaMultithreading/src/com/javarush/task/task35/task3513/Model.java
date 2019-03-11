@@ -1,8 +1,6 @@
 package com.javarush.task.task35.task3513;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class Model {
     private static final int FIELD_WIDTH = 4;
@@ -196,10 +194,12 @@ public class Model {
         }
     }
 
-    private boolean hasBoardChanged(){
+    private boolean hasBoardChanged() {
         for (int i = 0; i < FIELD_WIDTH; i++) {
             for (int j = 0; j < FIELD_WIDTH; j++) {
-                if (gameTiles[i][j].value != previousStates.peek()[i][j].value) { return true; }
+                if (gameTiles[i][j].value != previousStates.peek()[i][j].value) {
+                    return true;
+                }
             }
         }
         return false;
@@ -218,5 +218,15 @@ public class Model {
         }
         rollback();
         return me;
+    }
+
+    public void autoMove(){
+        PriorityQueue pq = new PriorityQueue(4,Collections.reverseOrder());
+        pq.offer(getMoveEfficiency(() -> left()));
+        pq.offer(getMoveEfficiency(() -> right()));
+        pq.offer(getMoveEfficiency(() -> down()));
+        pq.offer(getMoveEfficiency(() -> up()));
+
+        ((MoveEfficiency)pq.poll()).getMove().move();
     }
 }
