@@ -177,4 +177,22 @@ public class Model {
     public Tile[][] getGameTiles() {
         return gameTiles;
     }
+
+    public void randomMove(){
+        int n = ((int) (Math.random() * 100)) % 4;
+        switch (n){
+            case 1:
+                left();
+                break;
+            case 2:
+                right();
+                break;
+            case 3:
+                up();
+                break;
+            case 4:
+                down();
+                break;
+        }
+    }
 }
