@@ -195,4 +195,28 @@ public class Model {
                 break;
         }
     }
+
+    private boolean hasBoardChanged(){
+        for (int i = 0; i < FIELD_WIDTH; i++) {
+            for (int j = 0; j < FIELD_WIDTH; j++) {
+                if (gameTiles[i][j].value != previousStates.peek()[i][j].value) { return true; }
+            }
+        }
+        return false;
+    }
+
+    private MoveEfficiency getMoveEfficiency(Move move){
+        int oldNumberOfEmptyTiles = getEmptyTiles().size();
+        int oldScope = score;
+
+        move.move();
+        MoveEfficiency me;
+        if(!hasBoardChanged()) {
+            me = new MoveEfficiency(-1,0,move);
+        }else{
+            me = new MoveEfficiency(getEmptyTiles().size(),score,move);
+        }
+        rollback();
+        return me;
+    }
 }
