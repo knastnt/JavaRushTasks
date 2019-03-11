@@ -7,6 +7,7 @@ public class Main {
         Model m = new Model();
         Controller controller = new Controller(m);
         JFrame game = new JFrame();
+        game.setAlwaysOnTop(true);
 
         game.setTitle("2048");
         game.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
