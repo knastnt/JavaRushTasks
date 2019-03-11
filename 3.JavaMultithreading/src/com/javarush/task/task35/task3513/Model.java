@@ -111,6 +111,7 @@ public class Model {
     }
 
     public void left(){
+        if(isSaveNeeded) { saveState(gameTiles); }
         boolean changed = false;
         for (int i = 0; i < FIELD_WIDTH; i++) {
             Tile[] stroka = gameTiles[i];
@@ -136,6 +137,7 @@ public class Model {
     }
 
     public void up(){
+        saveState(gameTiles);
         turnMassive();
         left();
         turnMassive();
@@ -144,6 +146,7 @@ public class Model {
     }
 
     public void right(){
+        saveState(gameTiles);
         turnMassive();
         turnMassive();
         left();
@@ -152,6 +155,7 @@ public class Model {
     }
 
     public void down(){
+        saveState(gameTiles);
         turnMassive();
         turnMassive();
         turnMassive();
