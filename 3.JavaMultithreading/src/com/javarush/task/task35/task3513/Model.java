@@ -9,7 +9,7 @@ public class Model {
 
     private Stack<Tile[][]> previousStates = new Stack<>();
     private Stack<Integer> previousScores = new Stack<>();
-    private boolean isSaveNeeded = true;
+    //private boolean isSaveNeeded = true;
 
     private void saveState(Tile[][] state){
         Tile[][] copyOfGame = new Tile[FIELD_WIDTH][FIELD_WIDTH];
@@ -20,7 +20,7 @@ public class Model {
         }
         previousStates.push(copyOfGame);
         previousScores.push(score);
-        isSaveNeeded = false;
+        //isSaveNeeded = false;
     }
 
     public void rollback(){
@@ -109,7 +109,12 @@ public class Model {
     }
 
     public void left(){
-        if(isSaveNeeded) { saveState(gameTiles); }
+        saveState(gameTiles);
+        leftaction();
+    }
+
+    private void leftaction(){
+       // if(isSaveNeeded) { saveState(gameTiles); }
         boolean changed = false;
         for (int i = 0; i < FIELD_WIDTH; i++) {
             Tile[] stroka = gameTiles[i];
@@ -137,7 +142,7 @@ public class Model {
     public void up(){
         saveState(gameTiles);
         turnMassive();
-        left();
+        leftaction();
         turnMassive();
         turnMassive();
         turnMassive();
@@ -147,7 +152,7 @@ public class Model {
         saveState(gameTiles);
         turnMassive();
         turnMassive();
-        left();
+        leftaction();
         turnMassive();
         turnMassive();
     }
@@ -157,7 +162,7 @@ public class Model {
         turnMassive();
         turnMassive();
         turnMassive();
-        left();
+        leftaction();
         turnMassive();
     }
 
@@ -194,12 +199,10 @@ public class Model {
         }
     }
 
-    private boolean hasBoardChanged() {
+    private boolean hasBoardChanged(){
         for (int i = 0; i < FIELD_WIDTH; i++) {
             for (int j = 0; j < FIELD_WIDTH; j++) {
-                if (gameTiles[i][j].value != previousStates.peek()[i][j].value) {
-                    return true;
-                }
+                if (gameTiles[i][j].value != previousStates.peek()[i][j].value) { return true; }
             }
         }
         return false;
