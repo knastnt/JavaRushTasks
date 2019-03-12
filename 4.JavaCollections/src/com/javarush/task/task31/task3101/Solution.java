@@ -26,7 +26,7 @@ public class Solution {
             }
         });
 
-        if (FileUtils.isExist(resultFile)){
+        //if (FileUtils.isExist(resultFile)){
             //System.out.println("success");
             File renamed = new File(resultFile.getParent() + "/allFilesContent.txt");
             FileUtils.renameFile(resultFile, renamed);
@@ -48,9 +48,9 @@ public class Solution {
             }catch (IOException e){
                 System.out.println("I/O Error");
             }
-        }else{
+        /*}else{
             System.out.println("no file");
-        }
+        }*/
     }
 
     private void printFiles(File f){
