@@ -13,7 +13,7 @@ import java.util.List;
 
 public class SearchFileVisitor extends SimpleFileVisitor<Path> {
     private String partOfName, partOfContent;
-    private Integer minSize, maxSize;
+    private int minSize = -1, maxSize = -1;
     private List<Path> foundFiles = new ArrayList<>();
 
     @Override
@@ -22,8 +22,8 @@ public class SearchFileVisitor extends SimpleFileVisitor<Path> {
 
         boolean willAdd = true;
 
-        if (willAdd && minSize != null && attrs.size() < minSize) { willAdd = false; }
-        if (willAdd && maxSize != null && attrs.size() > maxSize) { willAdd = false; }
+        if (willAdd && minSize != -1 && attrs.size() < minSize) { willAdd = false; }
+        if (willAdd && maxSize != -1 && attrs.size() > maxSize) { willAdd = false; }
         if (willAdd && partOfName != null && !file.getFileName().toString().toLowerCase().contains(partOfName.toLowerCase())){ willAdd = false; }
         if (willAdd && partOfContent != null) {
             willAdd = false;
