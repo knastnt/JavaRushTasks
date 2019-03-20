@@ -1,6 +1,6 @@
 package com.javarush.task.task31.task3103;
 
-import java.io.*;
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -15,18 +15,19 @@ public class Solution {
         byte[] result = new byte[fis.available()];
         fis.read(result);
         fis.close();*/
-        return Files.readAllBytes(new File(fileName).toPath());
+
+        return Files.readAllBytes(Paths.get(fileName));
     }
 
     public static List<String> readLines(String fileName) throws IOException {
-        return Files.readAllLines(new File(fileName).toPath());
+        return Files.readAllLines(Paths.get(fileName));
     }
 
     public static void writeBytes(String fileName, byte[] bytes) throws IOException {
-        Files.write(new File(fileName).toPath(), bytes);
+        Files.write(Paths.get(fileName), bytes);
     }
 
     public static void copy(String resourceFileName, String destinationFileName) throws IOException {
-        Files.copy(new File(resourceFileName).toPath(), new File(destinationFileName).toPath());
+        Files.copy(Paths.get(resourceFileName), Paths.get(destinationFileName));
     }
 }
