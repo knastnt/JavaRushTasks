@@ -24,14 +24,15 @@ public class Solution {
             for (String s : list) {
                 System.out.println(s);
             }*/
-            MySimpleFileVisitor spv = new MySimpleFileVisitor(){
-                private int dirCount = -1;
-                private int fileCount = 0;
-                private int totalBytes = 0;
+
+            SimpleFileVisitor spv = new SimpleFileVisitor<Path>(){
+                int dirCount = -1;
+                int fileCount = 0;
+                int totalBytes = 0;
 
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                    fileCount++;
+                    this.fileCount++;
                     totalBytes += file.toFile().length();
                     return super.visitFile(file, attrs);
                 }
@@ -42,16 +43,9 @@ public class Solution {
                     return super.preVisitDirectory(dir, attrs);
                 }
 
-                public int getDirCount() {
-                    return dirCount;
-                }
-
-                public int getFileCount() {
-                    return fileCount;
-                }
-
-                public int getTotalBytes() {
-                    return totalBytes;
+                @Override
+                public String toString() {
+                    return String.format("Всего папок - %d\nВсего файлов - %d\nОбщий размер - %d", dirCount, fileCount, totalBytes);
                 }
             };
 
@@ -59,12 +53,10 @@ public class Solution {
 
             Files.walkFileTree(Paths.get(dir.getAbsolutePath()), spv);
 
-
-            System.out.format("Всего папок - %d\n", spv.getDirCount());
-            System.out.format("Всего файлов - %d\n", spv.getFileCount());
-            System.out.format("Общий размер - %d", spv.getTotalBytes());
+            System.out.println(spv);
         }else{
             System.out.format("%s - не папка", dir);
         }
     }
+
 }
