@@ -60,11 +60,11 @@ public class Solution {
             Files.walkFileTree(Paths.get(dir.getAbsolutePath()), spv);
 
 
-            System.out.println("Всего папок - " + spv.getDirCount());
-            System.out.println("Всего файлов - " + spv.getFileCount());
-            System.out.println("Общий размер - " + spv.getTotalBytes());
+            System.out.format("Всего папок - %d\n", spv.getDirCount());
+            System.out.format("Всего файлов - %d\n", spv.getFileCount());
+            System.out.format("Общий размер - %d", spv.getTotalBytes());
         }else{
-            System.out.println(dir + " - не папка");
+            System.out.format("%s - не папка", dir);
         }
     }
 }
