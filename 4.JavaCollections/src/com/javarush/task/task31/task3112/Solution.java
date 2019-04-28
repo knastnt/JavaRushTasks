@@ -27,14 +27,14 @@ public class Solution {
 
         Files.copy(url.openStream(), file, StandardCopyOption.REPLACE_EXISTING);
 
-        Path p = downloadDirectory.resolve(Paths.get(url.getFile()).getFileName());
+        String fileName = urlString.substring(urlString.lastIndexOf("/"));
 
-        if (!p.getParent().toFile().exists()){
-            Files.createDirectories(p.getParent());
+        if (!downloadDirectory.getParent().toFile().exists()){
+            Files.createDirectories(downloadDirectory);
         }
 
-        Files.move(file, p, StandardCopyOption.REPLACE_EXISTING);
 
-        return p;
+
+        return Files.move(file, Paths.get(downloadDirectory.toString() + fileName), StandardCopyOption.REPLACE_EXISTING);
     }
 }
