@@ -25,11 +25,21 @@ public class Solution {
         ByteArrayOutputStream buffer = new ByteArrayOutputStream();
         ZipOutputStream zipBuffer = new ZipOutputStream(buffer);
 
+        //Вставляем mp3
+        ZipEntry emp3 = new ZipEntry("new/" + file.getName());
+
+        zipBuffer.putNextEntry(emp3);
+        while (fis.available() > 0) {
+            zipBuffer.write(fis.read());
+        }
+
         //Копируем содержимое
         while (true) {
             ZipEntry e = zis.getNextEntry();
 
             if (e == null) { break; }
+
+            if (e.toString().toLowerCase().equals(emp3.toString().toLowerCase())) { continue; }
 
             zipBuffer.putNextEntry(e);
 
@@ -41,23 +51,17 @@ public class Solution {
             }
         }
 
-        //Вставляем mp3
-        ZipEntry e = new ZipEntry(file.getName());
-        zipBuffer.putNextEntry(e);
-        while (fis.available() > 0) {
-            zipBuffer.write(fis.read());
-        }
 
-
-
+        zis.close();
         fis.close();
         zipBuffer.close();
+        buffer.close();
 
         FileOutputStream zipFileOut = new FileOutputStream(zipFile);
 
         zipFileOut.write(buffer.toByteArray());
         zipFileOut.close();
 
-        System.out.println("");
+
     }
 }
