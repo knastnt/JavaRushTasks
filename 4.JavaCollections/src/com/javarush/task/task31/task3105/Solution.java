@@ -1,6 +1,8 @@
 package com.javarush.task.task31.task3105;
 
 import java.io.*;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
@@ -18,20 +20,9 @@ public class Solution {
 
         if (!file.exists() || !zipFile.exists()) { return; }
 
+        HashMap<String, ByteArrayOutputStream> map = new HashMap<>();
+
         ZipInputStream zis = new ZipInputStream(new FileInputStream(zipFile));
-
-        FileInputStream fis = new FileInputStream(file);
-
-        ByteArrayOutputStream buffer = new ByteArrayOutputStream();
-        ZipOutputStream zipBuffer = new ZipOutputStream(buffer);
-
-        //Вставляем mp3
-        ZipEntry emp3 = new ZipEntry("new/" + file.getName());
-
-        zipBuffer.putNextEntry(emp3);
-        while (fis.available() > 0) {
-            zipBuffer.write(fis.read());
-        }
 
         //Копируем содержимое
         while (true) {
@@ -39,29 +30,37 @@ public class Solution {
 
             if (e == null) { break; }
 
-            if (e.toString().toLowerCase().equals(emp3.toString().toLowerCase())) { continue; }
-
-            zipBuffer.putNextEntry(e);
-
+            ByteArrayOutputStream key = new ByteArrayOutputStream();
             while (zis.available() > 0){
                 int readed = zis.read();
                 if (readed == -1) break;
-
-                zipBuffer.write(readed);
+                key.write(readed);
             }
+            key.close();
+
+            map.put(e.toString().toLowerCase(), key);
         }
 
-
-        zis.close();
+        //Вставляем mp3
+        FileInputStream fis = new FileInputStream(file);
+        ByteArrayOutputStream key = new ByteArrayOutputStream();
+        while (fis.available() > 0){
+            int readed = fis.read();
+            key.write(readed);
+        }
+        key.close();
         fis.close();
-        zipBuffer.close();
-        buffer.close();
+        map.put("new/" + file.getName().toLowerCase(), key);
 
-        FileOutputStream zipFileOut = new FileOutputStream(zipFile);
 
-        zipFileOut.write(buffer.toByteArray());
+
+        ZipOutputStream zipFileOut = new ZipOutputStream(new FileOutputStream(zipFile));
+
+        for (Map.Entry<String, ByteArrayOutputStream> pair : map.entrySet()) {
+            zipFileOut.putNextEntry(new ZipEntry(pair.getKey()));
+            zipFileOut.write(pair.getValue().toByteArray());
+        }
+
         zipFileOut.close();
-
-
     }
 }
