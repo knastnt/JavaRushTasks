@@ -40,6 +40,7 @@ public class Solution {
 
             map.put(e.toString().toLowerCase(), key);
         }
+        zis.close();
 
         //Вставляем mp3
         FileInputStream fis = new FileInputStream(file);
