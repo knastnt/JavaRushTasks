@@ -14,10 +14,12 @@ import java.util.zip.ZipOutputStream;
 */
 public class Solution {
     public static void main(String[] args) throws IOException {
+        String fileName = args.length > 0 ? args[0] : "C:/result.mp3";
+        String zipFileName = args.length > 1 ? args[1] : "C:/pathToTest/test.zip";
 
 
         Map<String, byte[]> map = new HashMap<>();
-        ZipInputStream zis = new ZipInputStream(new FileInputStream(args[1]));
+        ZipInputStream zis = new ZipInputStream(new FileInputStream(zipFileName));
         //Копируем содержимое
         while (true) {
             ZipEntry e = zis.getNextEntry();
@@ -32,16 +34,16 @@ public class Solution {
             }
             keyStream.close();
 
-            if (!("new/" + Paths.get(args[0]).getFileName().toString().toLowerCase()).equals(e.getName().toLowerCase())) {
+            if (!("new/" + Paths.get(fileName).getFileName().toString().toLowerCase()).equals(e.getName().toLowerCase())) {
                 map.put(e.toString().toLowerCase(), keyStream.toByteArray());
             }
         }
         zis.close();
 
-        ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(args[1]));
-        ZipEntry ze = new ZipEntry("new/" + Paths.get(args[0]).getFileName());
+        ZipOutputStream zos = new ZipOutputStream(new FileOutputStream(zipFileName));
+        ZipEntry ze = new ZipEntry("new/" + Paths.get(fileName).getFileName());
         zos.putNextEntry(ze);
-        Files.copy(Paths.get(args[0]), zos);
+        Files.copy(Paths.get(fileName), zos);
         zos.closeEntry();
 
         for (Map.Entry<String, byte[]> pair : map.entrySet()) {
