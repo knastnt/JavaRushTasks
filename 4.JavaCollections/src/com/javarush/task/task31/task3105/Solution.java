@@ -27,10 +27,20 @@ public class Solution {
             if (e == null) { break; }
 
             ByteArrayOutputStream keyStream = new ByteArrayOutputStream();
-            while (zis.available() > 0){
+            /*while (zis.available() > 0){
                 int readed = zis.read();
                 if (readed == -1) break;
                 keyStream.write(readed);
+            }*/
+            byte[] b = new byte[100];
+            int d;
+            while (true) {
+                d = zis.read(b);
+                if (d == -1) {
+                    break;
+                } else {
+                    keyStream.write(b, 0, d);
+                }
             }
             keyStream.close();
 
