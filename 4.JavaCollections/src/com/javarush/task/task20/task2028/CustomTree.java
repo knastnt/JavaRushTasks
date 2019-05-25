@@ -20,7 +20,11 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
 
     @Override
     public String get(int index){
-        throw new UnsupportedOperationException();
+        //throw new UnsupportedOperationException();
+        String me =  list.get(index).elementName;
+        String left = list.get(index).leftChild != null ? list.get(index).leftChild.elementName : "null";
+        String right = list.get(index).rightChild != null ? list.get(index).rightChild.elementName : "null";
+        return me + " - " + left + ", " + right;
     }
     public String set(int index, String element){
         throw new UnsupportedOperationException();
@@ -40,7 +44,6 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
     public boolean addAll(int index, Collection<? extends String> c){
         throw new UnsupportedOperationException();
     }
-
 
 
     @Override
@@ -77,6 +80,25 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
         return null;
     }
 
+    @Override
+    public boolean remove(Object o) {
+        if (!(o instanceof String)) {
+            throw new UnsupportedOperationException();
+        }
+        for (Entry<String> entry : list) {
+            if (entry.elementName.equals((String)o)){
+                entry.remove();
+                break;
+            }
+        }
+        for (int i = list.size() - 1; i >= 1; i--) {
+            if (list.get(i).parent == null){
+                list.remove(i);
+            }
+        }
+        return true;
+    }
+
     static class Entry<T> implements Serializable{
         String elementName;
         boolean availableToAddLeftChildren, availableToAddRightChildren;
@@ -90,6 +112,28 @@ public class CustomTree extends AbstractList<String> implements Cloneable, Seria
 
         public boolean isAvailableToAddChildren() {
             return availableToAddLeftChildren || availableToAddRightChildren;
+        }
+
+        public void remove() {
+            if (!availableToAddLeftChildren) {
+                leftChild.remove();
+                leftChild = null;
+                availableToAddLeftChildren = true;
+            }
+            if (!availableToAddRightChildren) {
+                rightChild.remove();
+                rightChild = null;
+                availableToAddRightChildren = true;
+            }
+            if (parent.leftChild == this) {
+                parent.leftChild = null;
+                parent.availableToAddLeftChildren = true;
+            }
+            if (parent.rightChild == this) {
+                parent.rightChild = null;
+                parent.availableToAddRightChildren = true;
+            }
+            parent = null;
         }
 
         /*private boolean add (Entry<T> entry){
