@@ -14,15 +14,13 @@ public class Solution {
         System.out.println(decode(reader, -3));  //Hello Amigo #@)₴?$0
     }
 
-    public static String decode(StringReader reader, int key) {
+    public static String decode(StringReader reader, int key) throws IOException {
         StringWriter sw = new StringWriter();
         int readed;
-        try {
+        if (reader != null) {
             while ((readed = reader.read()) > 0) {
                 sw.append((char) (readed + key));
             }
-        } catch (NullPointerException | IOException e) {
-            return "";
         }
         return sw.toString();
     }

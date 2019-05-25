@@ -13,12 +13,10 @@ public class Solution {
 
     public static StringWriter getAllDataFromInputStream(InputStream is) throws IOException {
         StringWriter sw = new StringWriter();
-        try {
+        if (is != null) {
             while (is.available() > 0) {
                 sw.write(is.read());
             }
-        } catch (NullPointerException e) {
-            return sw;
         }
         return sw;
     }
