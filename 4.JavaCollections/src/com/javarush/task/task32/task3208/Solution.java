@@ -13,6 +13,8 @@ RMI-2
 */
 public class Solution {
     public static Registry registry;
+    static Cat cat;
+    static Dog dog;
 
 
     // Pretend we're starting an RMI client as the CLIENT_THREAD thread
@@ -38,8 +40,6 @@ public class Solution {
         @Override
         public void run() {
             //напишите тут ваш код
-            Cat cat;
-            Dog dog;
             try {
                 registry = LocateRegistry.createRegistry(2099);
 
