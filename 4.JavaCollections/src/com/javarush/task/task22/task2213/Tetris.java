@@ -73,8 +73,8 @@ public class Tetris {
             step();             //делаем очередной шаг
             field.print();      //печатаем состояние "поля"
             Thread.sleep(300);  //пауза 300 миллисекунд - 1/3 секунды
+            //isGameOver = true;
         }
-
         //Выводим сообщение "Game Over"
         System.out.println("Game Over");
     }
@@ -113,5 +113,35 @@ public class Tetris {
     public static void main(String[] args) throws Exception {
         game = new Tetris(10, 20);
         game.run();
+
+        /*Field f = new Field(7, 4);
+        f.setValue(0,6, 1);
+        f.setValue(1,6, 1);
+        f.setValue(2,6, 1);
+        f.setValue(3,6, 1);
+
+        f.setValue(0,5, 1);
+        f.setValue(1,5, 0);
+        f.setValue(2,5, 1);
+        f.setValue(3,5, 1);
+
+        f.setValue(0,4, 1);
+        f.setValue(1,4, 1);
+        f.setValue(2,4, 1);
+        f.setValue(3,4, 1);
+
+        f.setValue(0,3, 0);
+        f.setValue(1,3, 1);
+        f.setValue(2,3, 0);
+        f.setValue(3,3, 0);
+
+        f.setValue(0,2, 0);
+        f.setValue(1,2, 0);
+        f.setValue(2,2, 0);
+        f.setValue(3,2, 0);
+
+        f.print();
+        f.removeFullLines();
+        f.print();*/
     }
 }
