@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
  * Класс Tetris - содержит основной функционал игры.
  */
 public class Tetris {
+
     private Field field;                //Поле с клетками
     private Figure figure;              //Фигурка
 
@@ -51,11 +52,7 @@ public class Tetris {
                 //получить самое первое событие из очереди
                 KeyEvent event = keyboardObserver.getEventFromTop();
                 //Если равно символу 'q' - выйти из игры.
-                if (event.getKeyChar() == 'q') {
-                    System.out.println("exit");
-                    System.exit(0);
-                    return;
-                }
+                if (event.getKeyChar() == 'q') return;
                 //Если "стрелка влево" - сдвинуть фигурку влево
                 if (event.getKeyCode() == KeyEvent.VK_LEFT)
                     figure.left();
@@ -73,35 +70,27 @@ public class Tetris {
             step();             //делаем очередной шаг
             field.print();      //печатаем состояние "поля"
             Thread.sleep(300);  //пауза 300 миллисекунд - 1/3 секунды
-            //isGameOver = true;
         }
+
         //Выводим сообщение "Game Over"
         System.out.println("Game Over");
     }
 
-    /**
-     * Один шаг игры
-     */
     public void step() {
         //опускам фигурку вниз
         figure.down();
-        //если разместить фигурку на текущем месте невозможно:
+
+        //если разместить фигурку на текущем месте невозможно
         if (!figure.isCurrentPositionAvailable()) {
-            //поднимаем обратно
-            figure.up();
-            //приземляем
-            figure.landed();
-            //если фигурка приземлилась на самом верху - игра окончена
-            if (figure.getY() >= field.getHeight()-1) {
-                isGameOver = true;
-            }
-                //удаляем заполненные линии
-                field.removeFullLines();
-                //создаем новую фигурку
-                figure = FigureFactory.createRandomFigure(field.getWidth() / 2, 0);
+            figure.up();                    //поднимаем обратно
+            figure.landed();                //приземляем
 
+            isGameOver = figure.getY() <= 1;//если фигурка приземлилась на самом верху - игра окончена
+
+            field.removeFullLines();        //удаляем заполненные линии
+
+            figure = FigureFactory.createRandomFigure(field.getWidth() / 2, 0); //создаем новую фигурку
         }
-
     }
 
     /**
@@ -123,35 +112,5 @@ public class Tetris {
     public static void main(String[] args) throws Exception {
         game = new Tetris(10, 20);
         game.run();
-
-        /*Field f = new Field(7, 4);
-        f.setValue(0,6, 1);
-        f.setValue(1,6, 1);
-        f.setValue(2,6, 1);
-        f.setValue(3,6, 1);
-
-        f.setValue(0,5, 1);
-        f.setValue(1,5, 0);
-        f.setValue(2,5, 1);
-        f.setValue(3,5, 1);
-
-        f.setValue(0,4, 1);
-        f.setValue(1,4, 1);
-        f.setValue(2,4, 1);
-        f.setValue(3,4, 1);
-
-        f.setValue(0,3, 0);
-        f.setValue(1,3, 1);
-        f.setValue(2,3, 0);
-        f.setValue(3,3, 0);
-
-        f.setValue(0,2, 0);
-        f.setValue(1,2, 0);
-        f.setValue(2,2, 0);
-        f.setValue(3,2, 0);
-
-        f.print();
-        f.removeFullLines();
-        f.print();*/
     }
 }
