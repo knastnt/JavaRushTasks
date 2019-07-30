@@ -18,7 +18,16 @@ public class Field {
     }
 
     public void print() { //объект будет отрисовывать на экран свое текущее состояние;
-
+        for (int y = 0; y < matrix.length; y++) {
+            for (int x = 0; x < matrix[y].length; x++) {
+                if (matrix[y][x]==0) {
+                    System.out.print(".");
+                }else{
+                    System.out.print("X");
+                }
+            }
+            System.out.println("");
+        }
     }
     public void removeFullLines() { //будет удалять из матрицы полностью заполненные строки и сдвигать вышележащие строки вниз;
 
