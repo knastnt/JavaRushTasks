@@ -17,6 +17,19 @@ public class Field {
         return matrix;
     }
 
+    public void print() { //объект будет отрисовывать на экран свое текущее состояние;
+
+    }
+    public void removeFullLines() { //будет удалять из матрицы полностью заполненные строки и сдвигать вышележащие строки вниз;
+
+    }
+    public Integer getValue(int x, int y) { //возвращает значение которое находится в матрице с координатами x и y;
+        return null;
+    }
+    public void setValue(int x, int y, int value) { //устанавливает переданное значение в ячейку массива (матрицы) с координатами x, y.
+
+    }
+
     public Field(int width, int height) {
         this.width = width;
         this.height = height;
