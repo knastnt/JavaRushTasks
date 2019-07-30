@@ -105,52 +105,28 @@ public class Field {
      * Удаляем заполненные линии
      */
     public void removeFullLines() {
-        //Например так:
-        /*/Создаем список для хранения линий
-        ArrayList<int[]> lines = new ArrayList();
-        //Копируем все незаполненные линии в список.
+        //Создаем список для хранения линий
+        ArrayList<int[]> lines = new ArrayList<int[]>();
+
+        //Копируем все непустые линии в список.
         for (int i = 0; i < height; i++) {
+            //подсчитываем количество единиц в строке - просто суммируем все ее значения
+            int count = 0;
             for (int j = 0; j < width; j++) {
-                if(matrix[i][j] == 0) {
-                    lines.add(matrix[i]);
-                    break;
-                }
+                count += matrix[i][j];
             }
+
+            //Если сумма строки не равна ее ширине - добавляем в список
+            if (count != width)
+                lines.add(matrix[i]);
         }
+
         //Добавляем недостающие строки в начало списка.
-        for (int i = 0; i < (matrix.length - lines.size()); i++) {
-            int[] emptyline = new int[width];
-            for (int k = 0; k < emptyline.length; k++) {
-                emptyline[k] = 0;
-            }
-            lines.add(emptyline);
+        while (lines.size() < height) {
+            lines.add(0, new int[width]);
         }
+
         //Преобразуем список обратно в матрицу
-        for (int y = 0; y < lines.size(); y++) {
-            for (int x = 0; x < lines.get(y).length; x++) {
-                matrix[y][x] = lines.get(y)[x];
-            }
-        }*/
-        int[][] result = new int[height][width];
-        int currentIndex = height-1;
-
-        for (int y = matrix.length - 1; y >= 0; y--) {
-            if (!isLineFully(matrix[y])) {
-                //проходим снизу вверх и копируем только незаполненные строки
-                result[currentIndex] = matrix[y];
-                currentIndex -= 1;
-            }
-        }
-
-        //Недостающие строки вверху - уже заполнены нулями
-
-        matrix = result;
-    }
-
-    private boolean isLineFully(int[] line) {
-        for (int i : line) {
-            if (i != 1) return false;
-        }
-        return true;
+        matrix = lines.toArray(new int[height][width]);
     }
 }
