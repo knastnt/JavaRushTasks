@@ -5,13 +5,14 @@ package com.javarush.task.task25.task2515;
 import java.util.*;                                                  
                                                                                                                                                                
 public class Space {
+   public static Space game;
                                                                                                                                                            
    private int width;                                                                                                          
    private int height;                                                                                                    
    private SpaceShip ship;                                                                                                    
    private List<Ufo> ufos = new ArrayList<>();                                                                                                    
    private List<Rocket> rockets = new ArrayList<>();                                                                                                    
-   private List<Bomb> bombs = new ArrayList<>();                                                                                                    
+   private List<Bomb> bombs = new ArrayList<>();
                                                                                                     
    public void setShip(SpaceShip ship){                                                                                                    
       this.ship = ship;                                                                                                    
