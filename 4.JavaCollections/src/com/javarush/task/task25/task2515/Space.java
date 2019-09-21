@@ -230,8 +230,8 @@ public class Space {
     public static Space game;
 
     public static void main(String[] args) throws Exception {
-        game = new Space(200, 200);
-        game.setShip(new SpaceShip(10, 18));
+        game = new Space(30, 30);
+        game.setShip(new SpaceShip(10, 28));
         game.run();
     }
 
