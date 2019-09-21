@@ -12,7 +12,7 @@ public abstract class BaseObject {
         this.x = x;
         this.y = y;
         this.radius = radius;
-        this.isAlive = true;
+        isAlive = true;
     }
 
     public double getX() {
@@ -41,5 +41,23 @@ public abstract class BaseObject {
 
     public boolean isAlive() {
         return isAlive;
+    }
+
+    public void draw(){
+
+    }
+
+    public void move(){
+
+    }
+
+    public void die(){
+        isAlive = false;
+    }
+
+    public boolean isIntersect(BaseObject o) {
+        double minDistance = radius + o.getRadius();
+        double currentDistance = Math.sqrt(Math.pow((x - o.getX()), 2) + Math.pow((y - o.getY()), 2));
+        return currentDistance < minDistance;
     }
 }
