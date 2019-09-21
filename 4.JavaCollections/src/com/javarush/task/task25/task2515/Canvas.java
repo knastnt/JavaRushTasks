@@ -39,11 +39,30 @@ public class Canvas {
         int yi = (int) Math.round(y);
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j] != 0) {
+                if (matrix[i][j] != ' ') {
                    setPoint(xi+j, yi+i, c);
                 }
             }
         }
 
+    }
+
+    public void clear(){
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                setPoint(j, i, ' ');
+            }
+        }
+    }
+
+    public void print(){
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                System.out.print(matrix[j][i]);
+            }
+            System.out.println("");
+        }
+        System.out.println("");
+        System.out.println("");
     }
 }
