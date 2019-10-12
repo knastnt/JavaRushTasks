@@ -18,7 +18,7 @@ public class Solution {
         // Убрать numRings-1 с первого на третий
         moveRing( a, c, b, numRings - 1);
         //Перекладываем numRings с первого на второй
-        System.out.println("move " + a + " to " + b);
+        System.out.println("from " + a + " to " + b);
         //Возвращаем на место те, что отодвинули
         // Вернуть numRings-1 с третего на второй
         moveRing(c, b, a, numRings - 1);
