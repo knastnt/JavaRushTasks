@@ -32,7 +32,7 @@ public class Solution {
 
 
         Marshaller marshaller = jaxbContext.createMarshaller();
-        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
+//        marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
 
         marshaller.marshal(obj, writer);
 
@@ -75,7 +75,7 @@ public class Solution {
 
     public static void main(String[] args) throws JAXBException, XMLStreamException, IOException, SAXException, ParserConfigurationException, TransformerException {
         Cat cat = new Cat("Sima", 6);
-        System.out.println(toXmlWithComment(cat, "name", "comm"));
+        System.out.println(toXmlWithComment(cat, "temp", "comm"));
     }
 
     @XmlRootElement
@@ -83,7 +83,7 @@ public class Solution {
 
         public String name;
         public int age;
-        public String temp = "dsfdfsdfsdf";
+        public String[] temp = {"dsfdfsdfsdf", "kkjkjkjk"};
 
         public Cat(String name, int age) {
             this.name = name;
