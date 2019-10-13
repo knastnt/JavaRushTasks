@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.recurse("5*sin(1.7754*5.2)+28", 0)); //expected output 0.5 6
+        System.out.println(solution.recurse("5*sin(-2.44*-3)+28 * (5j^2)", 0)); //expected output 0.5 6
 //        solution.recurse("sin(2*(-5+1.5*4)+28)", 0); //expected output 0.5 6
     }
 
@@ -23,23 +23,42 @@ public class Solution {
 //        Pattern p = Pattern.compile("(^.*)([0-9]+(\\.[0-9]+)?)(\\*|\\^)([0-9]+(\\.[0-9]+)?)(.*$)");
 //        Pattern p = Pattern.compile("(^|[^0-9])([0-9]+(\\.[0-9]+)?)($|[^0-9])"); //double
 //        Pattern p = Pattern.compile(  "(^|^.*[^0-9\\.])([0-9]+(\\.[0-9]+)?)(\\*|\\^)([0-9]+(\\.[0-9]+)?)($|[^0-9\\.].*$)"  ); //double
-        Pattern p = Pattern.compile(  "(^|^.*[^0-9\\.])([0-9]+(\\.[0-9]+)?)(\\*|\\^)([0-9]+(\\.[0-9]+)?)($|[^0-9\\.].*$)"  ); //double
-        Matcher m = p.matcher(cleanExpression);
-        //return m.matches();
-        m.find();
-        for (int i=0; i<=m.groupCount(); i++){
-//            System.out.println(m.group(i));
-        }
-        String start = m.group(1);
-        String end = m.group(7);
-        double first = Double.parseDouble(m.group(2));
-        double second = Double.parseDouble(m.group(5));
+
+        String start = "";
+        String end = "";
+        double first = 0;
+        double second = 0;
         double result = 0;
-        String charact = m.group(4);
+        String charact = "";
+
+        Pattern p;
+        Matcher m;
+
+        p = Pattern.compile(  "(^|^.*[^0-9\\.\\-])(-?[0-9]+(\\.[0-9]+)?)(\\*|\\^)(-?[0-9]+(\\.[0-9]+)?)($|[^0-9\\.\\-].*$)"  ); //double
+        m = p.matcher(cleanExpression);
+        if(m.find()){
+            for (int i=0; i<=m.groupCount(); i++){
+                System.out.println(m.group(i));
+            }
+
+            start = m.group(1);
+            end = m.group(7);
+            first = Double.parseDouble(m.group(2));
+            second = Double.parseDouble(m.group(5));
+            charact = m.group(4);
+        }else{
+
+        }
+
+
+
 
         switch (charact){
             case "*":
                 result = first * second;
+                break;
+            case "^":
+                result = Math.pow(first, second);
                 break;
         }
 
