@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(solution.recurse("5*sin(-2.5*-3-0.5)+28 * (5^2)", 0)); //expected output 0.5 6
+        System.out.println(solution.recurse("5*sin(3-2.5*3-0.5)+28 * (5^2)", 0)); //expected output 0.5 6
 //        solution.recurse("sin(2*(-5+1.5*4)+28)", 0); //expected output 0.5 6
     }
 
@@ -36,33 +36,35 @@ public class Solution {
         Pattern p;
         Matcher m;
 
-        p = Pattern.compile(  "(^|^.*[^0-9\\.\\-])(-?[0-9]+(\\.[0-9]+)?)(\\*|\\^)(-?[0-9]+(\\.[0-9]+)?)($|[^0-9\\.].*$)"  ); //double
+        p = Pattern.compile(  "(^|^.*\\(|^.*\\d(\\+))(-?[0-9]+(\\.[0-9]+)?)(\\*|\\^)(-?[0-9]+(\\.[0-9]+)?)($|[^0-9\\.].*$)"  ); //double
         m = p.matcher(cleanExpression);
         if(m.find()){
             for (int i=0; i<=m.groupCount(); i++){
-                //System.out.println(m.group(i));
+//                System.out.println(m.group(i));
             }
 
             start = m.group(1);
-            end = m.group(7);
-            first = Double.parseDouble(m.group(2));
-            second = Double.parseDouble(m.group(5));
-            charact = m.group(4);
+            end = m.group(8);
+            first = Double.parseDouble(m.group(3));
+            second = Double.parseDouble(m.group(6));
+            charact = m.group(5);
         }else{
-            p = Pattern.compile(  "(^|^.*[^0-9\\.\\-])(-?[0-9]+(\\.[0-9]+)?)(\\+|\\-)(-?[0-9]+(\\.[0-9]+)?)($|[^0-9\\.].*$)"  ); //double
+            p = Pattern.compile(  "(^|^.*\\(|^.*\\d(\\+))(-?[0-9]+(\\.[0-9]+)?)(\\+|\\-)(-?[0-9]+(\\.[0-9]+)?)($|[^0-9\\.].*$)"  ); //double
             m = p.matcher(cleanExpression);
             if(m.find()){
                 for (int i=0; i<=m.groupCount(); i++){
-                    //System.out.println(m.group(i));
+//                    System.out.println(m.group(i));
                 }
 
                 start = m.group(1);
-                end = m.group(7);
-                first = Double.parseDouble(m.group(2));
-                second = Double.parseDouble(m.group(5));
-                charact = m.group(4);
+                end = m.group(8);
+                first = Double.parseDouble(m.group(3));
+                second = Double.parseDouble(m.group(6));
+                charact = m.group(5);
             }else{
-                return expression;
+
+                    return expression;
+
             }
         }
 
@@ -87,7 +89,12 @@ public class Solution {
         String resultS = String.valueOf(result);
 
         //return start + resultS + end;
-        String res = recurse(start + resultS + end, countOperation+1);
+        String res = "";
+        if(start.endsWith("-") || start.endsWith("(") || start == "") {
+            res = recurse(start + resultS + end, countOperation + 1);
+        }else{
+            res = recurse(start + "+" + resultS + end, countOperation + 1);
+        }
         return res;
     }
 
