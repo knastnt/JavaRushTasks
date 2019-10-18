@@ -1,6 +1,7 @@
 package com.javarush.task.task37.task3707;
 
 import java.io.*;
+import java.util.HashSet;
 
 public class Solution {
     public static void main(String[] args) {
