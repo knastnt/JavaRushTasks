@@ -2,11 +2,7 @@ package com.javarush.task.task35.task3507;
 
 import java.io.*;
 import java.lang.reflect.Constructor;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLClassLoader;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,17 +16,11 @@ public class Solution {
     }
 
     public static Set<? extends Animal> getAllAnimals(String pathToAnimals) {
-        Set<? extends Animal> toReturn = new HashSet<>();
-
-//        if(!pathToAnimals.endsWith("/")){
-//            pathToAnimals += "/";
-//        }
+        Set<Animal> toReturn = new HashSet<>();
 
         File f = new File(pathToAnimals);
         if(f.isDirectory()){
             for (File file : f.listFiles()) {
-
-
                 Class clazz = new ClassLoader() {
                     public Class loadClassFromFile(File file)  {
                         try {
@@ -55,29 +45,13 @@ public class Solution {
                 if(Animal.class.isAssignableFrom(clazz) && constructor != null){
                     try {
                         Animal a = (Animal) clazz.newInstance();
-                        //toReturn.add(a);
-                        System.out.println("");
-                    } catch (InstantiationException e) {
-                        e.printStackTrace();
-                    } catch (IllegalAccessException e) {
+                        toReturn.add(a);
+                    } catch (InstantiationException | IllegalAccessException e) {
                         e.printStackTrace();
                     }
-
-//                    try {
-//                        toReturn.add(clazz.newInstance());
-//                    } catch (InstantiationException e) {
-//                        e.printStackTrace();
-//                    } catch (IllegalAccessException e) {
-//                        e.printStackTrace();
-//                    }
                 }
-
-
             }
         }
-
-
         return toReturn;
     }
-
 }
