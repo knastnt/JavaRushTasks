@@ -1,6 +1,7 @@
 package com.javarush.task.task35.task3507;
 
 import java.io.*;
+import java.lang.reflect.Constructor;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -45,7 +46,13 @@ public class Solution {
                     }
                 }.loadClassFromFile(file);
 
-                if(Animal.class.isAssignableFrom(clazz)){
+                Constructor constructor;
+                try {
+                    constructor = clazz.getConstructor();
+                } catch (NoSuchMethodException e) {
+                    constructor = null;
+                }
+                if(Animal.class.isAssignableFrom(clazz) && constructor != null){
                     try {
                         Animal a = (Animal) clazz.newInstance();
                         //toReturn.add(a);
