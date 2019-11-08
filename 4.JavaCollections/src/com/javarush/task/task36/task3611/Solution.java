@@ -25,10 +25,19 @@ public class Solution {
         if (deep==0) return toReturn;
 
         for (int i = 0; i < humanRelationships[index].length; i++) {
-//            System.out.println(humanRelationships[index][i]);
-            if(humanRelationships[index][i]){
+            if(humanRelationships[index][i] && i != index){
                 toReturn.add(i);
-                toReturn.addAll(getAllFriendsAndPotentialFriends(i, deep-1));
+                Set<Integer> childs = getAllFriendsAndPotentialFriends(i, deep-1);
+                toReturn.addAll(childs);
+            }
+        }
+
+
+        for (int i = 0; i < humanRelationships.length; i++) {
+            if(humanRelationships[i].length-1 >= index && humanRelationships[i][index] && i != index){
+                toReturn.add(i);
+                Set<Integer> childs = getAllFriendsAndPotentialFriends(i, deep-1);
+                toReturn.addAll(childs);
             }
         }
 
