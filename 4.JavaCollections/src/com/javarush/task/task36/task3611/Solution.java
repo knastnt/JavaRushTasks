@@ -23,37 +23,25 @@ public class Solution {
     public Set<Integer> getAllFriendsAndPotentialFriends(int index, int deep) {
         Set<Integer> toReturn = new HashSet<Integer>();
         if (deep==0) return toReturn;
-
-//        for (int i = 0; i < humanRelationships.length; i++) {
-//            if(((humanRelationships[i].length >= index+1 && humanRelationships[i][index]) || (humanRelationships[index])) && i != index){
-//                toReturn.add(i);
-//                Set<Integer> childs = getAllFriendsAndPotentialFriends(i, deep-1);
-//                toReturn.addAll(childs);
-//            }
-//        }
-
         for (int i = 0; i < humanRelationships.length; i++) { //перебор в высоту
             for (int j = 0; j < humanRelationships[i].length; j++) { //перебор в ширину
-                if(i == index && humanRelationships[i][j] == true && j != index){
-                    toReturn.add(j);
-                    Set<Integer> childs = getAllFriendsAndPotentialFriends(j, deep-1);
-                    if(childs.contains(index)){
-                        childs.remove(index);
+                if(humanRelationships[i][j] == true) {
+                    int current;
+                    if (i == index) {
+                        current = j;
+                    } else if (j == index) {
+                        current = i;
+                    } else {
+                        continue;
                     }
-                    toReturn.addAll(childs);
-                }
-                if(i != index && humanRelationships[i][j] == true && j == index){
-                    toReturn.add(i);
-                    Set<Integer> childs = getAllFriendsAndPotentialFriends(i, deep-1);
-                    if(childs.contains(index)){
-                        childs.remove(index);
-                    }
-                    toReturn.addAll(childs);
+
+                    toReturn.add(current);
+
+                    toReturn.addAll(getAllFriendsAndPotentialFriends(current, deep - 1));
+                    toReturn.remove(index);
                 }
             }
         }
-
-
         return toReturn;
     }
 
