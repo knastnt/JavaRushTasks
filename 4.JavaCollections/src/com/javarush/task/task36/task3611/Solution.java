@@ -24,22 +24,35 @@ public class Solution {
         Set<Integer> toReturn = new HashSet<Integer>();
         if (deep==0) return toReturn;
 
-        for (int i = 0; i < humanRelationships[index].length; i++) {
-            if(humanRelationships[index][i] && i != index){
-                toReturn.add(i);
-                Set<Integer> childs = getAllFriendsAndPotentialFriends(i, deep-1);
-                toReturn.addAll(childs);
+//        for (int i = 0; i < humanRelationships.length; i++) {
+//            if(((humanRelationships[i].length >= index+1 && humanRelationships[i][index]) || (humanRelationships[index])) && i != index){
+//                toReturn.add(i);
+//                Set<Integer> childs = getAllFriendsAndPotentialFriends(i, deep-1);
+//                toReturn.addAll(childs);
+//            }
+//        }
+
+        for (int i = 0; i < humanRelationships.length; i++) { //перебор в высоту
+            for (int j = 0; j < humanRelationships[i].length; j++) { //перебор в ширину
+                if(i == index && humanRelationships[i][j] == true && j != index){
+                    toReturn.add(j);
+                    Set<Integer> childs = getAllFriendsAndPotentialFriends(j, deep-1);
+                    if(childs.contains(index)){
+                        childs.remove(index);
+                    }
+                    toReturn.addAll(childs);
+                }
+                if(i != index && humanRelationships[i][j] == true && j == index){
+                    toReturn.add(i);
+                    Set<Integer> childs = getAllFriendsAndPotentialFriends(i, deep-1);
+                    if(childs.contains(index)){
+                        childs.remove(index);
+                    }
+                    toReturn.addAll(childs);
+                }
             }
         }
 
-
-        for (int i = 0; i < humanRelationships.length; i++) {
-            if(humanRelationships[i].length-1 >= index && humanRelationships[i][index] && i != index){
-                toReturn.add(i);
-                Set<Integer> childs = getAllFriendsAndPotentialFriends(i, deep-1);
-                toReturn.addAll(childs);
-            }
-        }
 
         return toReturn;
     }
