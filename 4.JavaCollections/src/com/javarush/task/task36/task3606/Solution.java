@@ -35,7 +35,7 @@ public class Solution {
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
                     if(file.toString().toUpperCase().endsWith(".CLASS")){
-                        System.out.println(file);
+                        //System.out.println(file);
 
                         //Обработка файла класса
                         Class clazz = new ClassLoader(){
@@ -77,7 +77,7 @@ public class Solution {
 
     public HiddenClass getHiddenClassObjectByKey(String key) {
         for (Class hiddenClass : hiddenClasses) {
-            if(hiddenClass.getSimpleName().toLowerCase().equals(key.toLowerCase())){
+            if(hiddenClass.getSimpleName().toLowerCase().startsWith(key.toLowerCase())){
                 try {
                     Constructor constructor = hiddenClass.getDeclaredConstructor();
                     constructor.setAccessible(true);
