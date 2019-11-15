@@ -30,6 +30,7 @@ public class FileBucket {
     public void putEntry(Entry entry) { //- должен сериализовывать переданный entry в файл. Учти, каждый entry может содержать еще один entry.
         try {
             ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(path));
+            oos.writeObject(entry);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -48,7 +49,7 @@ public class FileBucket {
     }
     public void remove() { //- удалять файл на который указывает path.
         try {
-            Files.deleteIfExists(path);
+            Files.delete(path);
         } catch (IOException e) {
             e.printStackTrace();
         }
