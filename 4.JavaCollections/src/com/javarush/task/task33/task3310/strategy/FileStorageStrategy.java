@@ -36,13 +36,16 @@ public class FileStorageStrategy implements StorageStrategy {
 
         FileBucket[] tab = table;
 
-        for (int i = 0; i < tab.length ; i++)
+        for (int i = 0; i < tab.length ; i++) {
+            if(tab[i] == null) continue;
+            for (Entry e = tab[i].getEntry(); e != null; e = e.next) {
 
-            for (Entry e = tab[i].getEntry() ; e != null ; e = e.next)
-
-                if (value.equals(e.value))
+                if (value.equals(e.value)) {
 
                     return true;
+                }
+            }
+        }
 
         return false;
     }
@@ -78,10 +81,14 @@ public class FileStorageStrategy implements StorageStrategy {
 
     @Override
     public Long getKey(String value) {
-        for (Entry entry : table) {
-            if(entry.getValue().equals(value)){
-                return entry.getKey();
-            }
+        for (FileBucket bu : table) {
+            Entry curEntry = bu.getEntry();
+           do {
+               if (curEntry.getValue().equals(value)) {
+                   return curEntry.getKey();
+               }
+               curEntry = curEntry.next;
+           } while(curEntry.next != null);
         }
         return null;
     }
@@ -101,7 +108,7 @@ public class FileStorageStrategy implements StorageStrategy {
     public Entry getEntry(Long key){
         int hash = (key == null) ? 0 : hash((long)key.hashCode());
 
-        for (Entry e = table[indexFor(hash, table.length)]; e != null; e = e.next) {
+        for (Entry e = table[indexFor(hash, table.length)].getEntry(); e != null; e = e.next) {
 
             Object k;
 
@@ -116,13 +123,13 @@ public class FileStorageStrategy implements StorageStrategy {
         return null;
     }
     public void resize(int newCapacity){
-        Entry[] oldTable = table;
+        FileBucket[] oldTable = table;
 
         int oldCapacity = oldTable.length;
 
         if (oldCapacity == 1 << 30) {
 
-            threshold = Integer.MAX_VALUE;
+            bucketSizeLimit = Integer.MAX_VALUE;
 
             return;
 
@@ -133,18 +140,18 @@ public class FileStorageStrategy implements StorageStrategy {
 
         transfer(newTable);
 
-        table = newTable;
-
-        threshold = (int)(newCapacity * loadFactor);
+//        table = newTable;
+//
+//        threshold = (int)(newCapacity * loadFactor);
     }
     public void transfer(Entry[] newTable){
-        Entry[] src = table;
+        FileBucket[] src = table;
 
         int newCapacity = newTable.length;
 
         for (int j = 0; j < src.length; j++) {
 
-            Entry e = src[j];
+            Entry e = src[j].getEntry();
 
             if (e != null) {
 
@@ -173,14 +180,14 @@ public class FileStorageStrategy implements StorageStrategy {
 
         table[bucketIndex].putEntry( new Entry(hash, key, value, e) );
 
-        if (size++ >= threshold)
-
+//        if (size++ >= threshold)
+        if (bucketSizeLimit <= table[bucketIndex].getFileSize())
             resize(2 * table.length);
     }
     public void createEntry(int hash, Long key, String value, int bucketIndex){
-        Entry e = table[bucketIndex];
+        Entry e = table[bucketIndex].getEntry();
 
-        table[bucketIndex] = new Entry(hash, key, value, e);
+        table[bucketIndex].putEntry(new Entry(hash, key, value, e));
 
         size++;
     }
