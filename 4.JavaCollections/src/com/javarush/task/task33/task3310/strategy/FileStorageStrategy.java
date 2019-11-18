@@ -4,6 +4,11 @@ public class FileStorageStrategy implements StorageStrategy {
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
 //    private static final float DEFAULT_LOAD_FACTOR = 0.75f;
     private FileBucket[] table = new FileBucket[DEFAULT_INITIAL_CAPACITY];
+    {
+        for (int i = 0; i < table.length; i++) {
+            table[i] = new FileBucket();
+        }
+    }
     private int size;
 //    private int threshold = (int) (DEFAULT_INITIAL_CAPACITY * DEFAULT_LOAD_FACTOR);
 //    private float loadFactor = DEFAULT_LOAD_FACTOR;
@@ -37,7 +42,7 @@ public class FileStorageStrategy implements StorageStrategy {
         FileBucket[] tab = table;
 
         for (int i = 0; i < tab.length ; i++) {
-            if(tab[i] == null) continue;
+//            if(tab[i] == null) continue;
             for (Entry e = tab[i].getEntry(); e != null; e = e.next) {
 
                 if (value.equals(e.value)) {
@@ -56,6 +61,11 @@ public class FileStorageStrategy implements StorageStrategy {
         int hash = hash((long)key.hashCode());
 
         int i = indexFor(hash, table.length);
+
+//        if(table[i] == null){
+//            Entry e = new Entry(hash, key, value, null);
+//            table[i].putEntry(e);
+//        }
 
         for (Entry e = table[i].getEntry(); e != null; e = e.next) {
 
