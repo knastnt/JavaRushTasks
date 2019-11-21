@@ -133,6 +133,8 @@ public class FileStorageStrategy implements StorageStrategy {
         return null;
     }
     public void resize(int newCapacity){
+
+
         FileBucket[] oldTable = table;
 
         int oldCapacity = oldTable.length;
