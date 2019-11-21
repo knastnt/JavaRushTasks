@@ -16,5 +16,6 @@
     <orderEntry type="library" name="org.apache.directory.studio:org.slf4j.log4j12:1.7.2" level="project" />
     <orderEntry type="library" name="org.apache.directory.studio:org.slf4j.api:1.7.2" level="project" />
     <orderEntry type="library" name="com.google.guava:guava:19.0" level="project" />
+    <orderEntry type="library" name="org.apache.commons:commons-collections4:4.0" level="project" />
   </component>
 </module>
