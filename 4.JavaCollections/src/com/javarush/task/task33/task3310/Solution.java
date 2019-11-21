@@ -10,7 +10,7 @@ public class Solution {
     public static void main(String[] args) {
 //        testStrategy(new HashMapStorageStrategy(), 10000);
 //        testStrategy(new OurHashMapStorageStrategy(), 10000);
-        testStrategy(new FileStorageStrategy(), 100);
+        testStrategy(new OurHashBiMapStorageStrategy(), 10000);
 
 //        FileBucket fb = new FileBucket();
 //        fb.putEntry(new Entry(555, 7777L, "Привет!", new Entry(444, 6666L, "Пока...", null)));
