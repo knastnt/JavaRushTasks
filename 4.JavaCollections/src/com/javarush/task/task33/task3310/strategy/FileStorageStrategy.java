@@ -93,12 +93,12 @@ public class FileStorageStrategy implements StorageStrategy {
     public Long getKey(String value) {
         for (FileBucket bu : table) {
             Entry curEntry = bu.getEntry();
-           do {
+            while (curEntry != null) {
                if (curEntry.getValue().equals(value)) {
                    return curEntry.getKey();
                }
                curEntry = curEntry.next;
-           } while(curEntry.next != null);
+           }
         }
         return null;
     }
