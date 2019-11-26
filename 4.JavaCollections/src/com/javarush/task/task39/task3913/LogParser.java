@@ -21,19 +21,27 @@ public class LogParser implements IPQuery {
 
     public LogParser(Path logDir) {
         this.logDir = logDir;
-        List<Entry> entries = parseLogStrings(readAllLinesFromFiles(getLogFiles(logDir)));
-
-        System.out.println();
+//        List<Entry> entries = parseLogStrings(readAllLinesFromFiles(getLogFiles(logDir)));
+//
+//        System.out.println();
     }
 
     @Override
     public int getNumberOfUniqueIPs(Date after, Date before) {
-        return 0;
+        return getUniqueIPs(after, before).size();
     }
 
     @Override
     public Set<String> getUniqueIPs(Date after, Date before) {
-        return null;
+        Set<String> uniqueIPs = new HashSet<>();
+
+        List<Entry> entries = filterOutDateEntries(parseLogStrings(readAllLinesFromFiles(getLogFiles(logDir))), after, before);
+
+        for (Entry entry : entries) {
+            uniqueIPs.add(entry.ip);
+        }
+
+        return uniqueIPs;
     }
 
     @Override
@@ -113,6 +121,24 @@ public class LogParser implements IPQuery {
             }
         }
         return toReturn;
+    }
+
+    private List<Entry> filterOutDateEntries(List<Entry> list, Date after, Date before){
+        List<Entry> toRetutn = new LinkedList<>();
+        for (Entry entry : list) {
+            if (after != null) {
+                if(!entry.time.after(after)){
+                    continue;
+                }
+            }
+            if (before != null) {
+                if(!entry.time.before(before)){
+                    continue;
+                }
+            }
+            toRetutn.add(entry);
+        }
+        return toRetutn;
     }
 
 
