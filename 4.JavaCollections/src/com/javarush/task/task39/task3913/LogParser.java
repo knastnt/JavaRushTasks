@@ -1,6 +1,5 @@
 package com.javarush.task.task39.task3913;
 
-import com.javarush.task.task37.task3708.storage.Storage;
 import com.javarush.task.task39.task3913.query.IPQuery;
 
 import java.io.IOException;
@@ -14,16 +13,12 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Stream;
 
 public class LogParser implements IPQuery {
     Path logDir;
 
     public LogParser(Path logDir) {
         this.logDir = logDir;
-//        List<Entry> entries = parseLogStrings(readAllLinesFromFiles(getLogFiles(logDir)));
-//
-//        System.out.println();
     }
 
     @Override
@@ -46,17 +41,47 @@ public class LogParser implements IPQuery {
 
     @Override
     public Set<String> getIPsForUser(String user, Date after, Date before) {
-        return null;
+        Set<String> IPs = new HashSet<>();
+
+        List<Entry> entries = filterOutDateEntries(parseLogStrings(readAllLinesFromFiles(getLogFiles(logDir))), after, before);
+
+        for (Entry entry : entries) {
+            if (entry.name.equals(user)){
+                IPs.add(entry.ip);
+            }
+        }
+
+        return IPs;
     }
 
     @Override
     public Set<String> getIPsForEvent(Event event, Date after, Date before) {
-        return null;
+        Set<String> IPs = new HashSet<>();
+
+        List<Entry> entries = filterOutDateEntries(parseLogStrings(readAllLinesFromFiles(getLogFiles(logDir))), after, before);
+
+        for (Entry entry : entries) {
+            if (entry.event.equals(event)){
+                IPs.add(entry.ip);
+            }
+        }
+
+        return IPs;
     }
 
     @Override
     public Set<String> getIPsForStatus(Status status, Date after, Date before) {
-        return null;
+        Set<String> IPs = new HashSet<>();
+
+        List<Entry> entries = filterOutDateEntries(parseLogStrings(readAllLinesFromFiles(getLogFiles(logDir))), after, before);
+
+        for (Entry entry : entries) {
+            if (entry.status.equals(status)){
+                IPs.add(entry.ip);
+            }
+        }
+
+        return IPs;
     }
 
     private Set<Path> getLogFiles(Path dir){
@@ -91,7 +116,7 @@ public class LogParser implements IPQuery {
     }
 
     private Entry parseLogString(String logString) throws ParseException {
-        Pattern p = Pattern.compile("^(([0-9]{1,3}[\\.]){3}[0-9]{1,3})\\s+(.*)\\s+(([0-9]{1,2}[\\.]){2}[0-9]{4}\\s([0-9]{1,2}[:]){2}[0-9]{1,2})\\s+(.*)\\s+(OK|FAILED|ERROR)$");
+        Pattern p = Pattern.compile("^(([0-9]{1,3}[\\.]){3}[0-9]{1,3})\\s+(.*)\\s+(([0-9]{1,2}[\\.]){2}[0-9]{4,5}\\s([0-9]{1,2}[:]){2}[0-9]{1,2})\\s+(.*)\\s+(OK|FAILED|ERROR)$");
         Matcher m = p.matcher(logString);
         //return m.matches();
         if (m.find() && m.groupCount()==8){
@@ -104,7 +129,7 @@ public class LogParser implements IPQuery {
             entry.name = m.group(3);
             entry.time = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").parse(m.group(4));
             entry.tryParseEvent(m.group(7));
-            entry.status = m.group(8);
+            entry.tryParseStatus(m.group(8));
             return entry;
         }else{
             throw new ParseException("Строка не соответствует шиблону. " + logString, 0);
@@ -148,7 +173,7 @@ public class LogParser implements IPQuery {
         public Date time;
         public Event event;
         public Integer eventNum;
-        public String status;
+        public Status status;
 
         public void tryParseEvent(String string) throws ParseException{
             String[] splitted = string.split("\\s+");
@@ -162,6 +187,14 @@ public class LogParser implements IPQuery {
 
             if (splitted.length > 1)
                 eventNum = Integer.parseInt(splitted[1]);
+        }
+
+        public void tryParseStatus(String string) throws ParseException{
+            try {
+                status = Status.valueOf(string);
+            } catch (IllegalArgumentException e) {
+                throw new ParseException(e.getMessage(), 0);
+            }
         }
     }
 }
