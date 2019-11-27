@@ -87,42 +87,66 @@ public class LogParser implements IPQuery, UserQuery {
 
     @Override
     public Set<String> getUsersForIP(String ip, Date after, Date before) {
-        return null;
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.ip.equals(ip))
+                .map(entry -> entry.name)
+                .collect(Collectors.toSet());
     }
 
     @Override
     public Set<String> getLoggedUsers(Date after, Date before) {
-        return null;
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.event == Event.LOGIN)
+                .map(entry -> entry.name)
+                .collect(Collectors.toSet());
     }
 
     @Override
     public Set<String> getDownloadedPluginUsers(Date after, Date before) {
-        return null;
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.event == Event.DOWNLOAD_PLUGIN)
+                .map(entry -> entry.name)
+                .collect(Collectors.toSet());
     }
 
     @Override
     public Set<String> getWroteMessageUsers(Date after, Date before) {
-        return null;
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.event == Event.WRITE_MESSAGE)
+                .map(entry -> entry.name)
+                .collect(Collectors.toSet());
     }
 
     @Override
     public Set<String> getSolvedTaskUsers(Date after, Date before) {
-        return null;
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.event == Event.SOLVE_TASK)
+                .map(entry -> entry.name)
+                .collect(Collectors.toSet());
     }
 
     @Override
     public Set<String> getSolvedTaskUsers(Date after, Date before, int task) {
-        return null;
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.event == Event.SOLVE_TASK && entry.eventNum == task)
+                .map(entry -> entry.name)
+                .collect(Collectors.toSet());
     }
 
     @Override
     public Set<String> getDoneTaskUsers(Date after, Date before) {
-        return null;
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.event == Event.DONE_TASK)
+                .map(entry -> entry.name)
+                .collect(Collectors.toSet());
     }
 
     @Override
     public Set<String> getDoneTaskUsers(Date after, Date before, int task) {
-        return null;
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.event == Event.DONE_TASK && entry.eventNum == task)
+                .map(entry -> entry.name)
+                .collect(Collectors.toSet());
     }
 
 
