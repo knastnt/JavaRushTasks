@@ -1,5 +1,6 @@
 package com.javarush.task.task39.task3913;
 
+import com.javarush.task.task39.task3913.query.DateQuery;
 import com.javarush.task.task39.task3913.query.IPQuery;
 import com.javarush.task.task39.task3913.query.UserQuery;
 
@@ -14,7 +15,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class LogParser implements IPQuery, UserQuery {
+public class LogParser implements IPQuery, UserQuery, DateQuery {
     Path logDir;
 
     public LogParser(Path logDir) {
@@ -149,6 +150,87 @@ public class LogParser implements IPQuery, UserQuery {
                 .collect(Collectors.toSet());
     }
 
+    @Override
+    public Set<Date> getDatesForUserAndEvent(String user, Event event, Date after, Date before) {
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.event == event && entry.name.equals(user))
+                .map(entry -> entry.time)
+                .collect(Collectors.toSet());
+    }
+
+    @Override
+    public Set<Date> getDatesWhenSomethingFailed(Date after, Date before) {
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.status == Status.FAILED)
+                .map(entry -> entry.time)
+                .collect(Collectors.toSet());
+    }
+
+    @Override
+    public Set<Date> getDatesWhenErrorHappened(Date after, Date before) {
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.status == Status.ERROR)
+                .map(entry -> entry.time)
+                .collect(Collectors.toSet());
+    }
+
+    @Override
+    public Date getDateWhenUserLoggedFirstTime(String user, Date after, Date before) {
+        try {
+            return getAllLogEntries(after, before)
+                    .filter(entry -> entry.name.equals(user) && entry.event == Event.LOGIN)
+                    .map(entry -> entry.time)
+                    .sorted((o1, o2) -> o1.compareTo(o2))
+                    .findFirst()
+                    .get();
+        }catch (NoSuchElementException e){
+            return null;
+        }
+    }
+
+    @Override
+    public Date getDateWhenUserSolvedTask(String user, int task, Date after, Date before) {
+        try {
+            return getAllLogEntries(after, before)
+                    .filter(entry -> entry.name.equals(user) && entry.event == Event.SOLVE_TASK && entry.eventNum == task)
+                    .sorted((o1, o2) -> o1.time.compareTo(o2.time))
+                    .findFirst()
+                    .get()
+                    .time;
+        } catch (NoSuchElementException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public Date getDateWhenUserDoneTask(String user, int task, Date after, Date before) {
+        try {
+            return getAllLogEntries(after, before)
+                    .filter(entry -> entry.name.equals(user) && entry.event == Event.DONE_TASK && entry.eventNum == task)
+                    .sorted((o1, o2) -> o1.time.compareTo(o2.time))
+                    .findFirst()
+                    .get()
+                    .time;
+        } catch (NoSuchElementException e) {
+            return null;
+        }
+    }
+
+    @Override
+    public Set<Date> getDatesWhenUserWroteMessage(String user, Date after, Date before) {
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.name.equals(user) && entry.event == Event.WRITE_MESSAGE)
+                .map(entry -> entry.time)
+                .collect(Collectors.toSet());
+    }
+
+    @Override
+    public Set<Date> getDatesWhenUserDownloadedPlugin(String user, Date after, Date before) {
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.name.equals(user) && entry.event == Event.DOWNLOAD_PLUGIN)
+                .map(entry -> entry.time)
+                .collect(Collectors.toSet());
+    }
 
     private Entry parseLogString(String logString) throws ParseException {
         Pattern p = Pattern.compile("^(([0-9]{1,3}[\\.]){3}[0-9]{1,3})\\s+(.*)\\s+(([0-9]{1,2}[\\.]){2}[0-9]{4,5}\\s([0-9]{1,2}[:]){2}[0-9]{1,2})\\s+(.*)\\s+(OK|FAILED|ERROR)$");
