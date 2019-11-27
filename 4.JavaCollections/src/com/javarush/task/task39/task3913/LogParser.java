@@ -1,20 +1,20 @@
 package com.javarush.task.task39.task3913;
 
 import com.javarush.task.task39.task3913.query.IPQuery;
+import com.javarush.task.task39.task3913.query.UserQuery;
 
 import java.io.IOException;
-import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.SimpleFileVisitor;
-import java.nio.file.attribute.BasicFileAttributes;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
-public class LogParser implements IPQuery {
+public class LogParser implements IPQuery, UserQuery {
     Path logDir;
 
     public LogParser(Path logDir) {
@@ -23,102 +23,113 @@ public class LogParser implements IPQuery {
 
     @Override
     public int getNumberOfUniqueIPs(Date after, Date before) {
-        return getUniqueIPs(after, before).size();
+        return (int) getAllLogEntries(after, before)
+                    .map(entry -> entry.ip)
+                    .distinct()
+                    .count();
     }
 
     @Override
     public Set<String> getUniqueIPs(Date after, Date before) {
-        Set<String> uniqueIPs = new HashSet<>();
-
-        List<Entry> entries = filterOutDateEntries(parseLogStrings(readAllLinesFromFiles(getLogFiles(logDir))), after, before);
-
-        for (Entry entry : entries) {
-            uniqueIPs.add(entry.ip);
-        }
-
-        return uniqueIPs;
+        return getAllLogEntries(after, before)
+                .map(entry -> entry.ip)
+                .collect(Collectors.toSet());
     }
 
     @Override
     public Set<String> getIPsForUser(String user, Date after, Date before) {
-        Set<String> IPs = new HashSet<>();
-
-        List<Entry> entries = filterOutDateEntries(parseLogStrings(readAllLinesFromFiles(getLogFiles(logDir))), after, before);
-
-        for (Entry entry : entries) {
-            if (entry.name.equals(user)){
-                IPs.add(entry.ip);
-            }
-        }
-
-        return IPs;
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.name.equals(user))
+                .map(entry -> entry.ip)
+                .collect(Collectors.toSet());
     }
 
     @Override
     public Set<String> getIPsForEvent(Event event, Date after, Date before) {
-        Set<String> IPs = new HashSet<>();
-
-        List<Entry> entries = filterOutDateEntries(parseLogStrings(readAllLinesFromFiles(getLogFiles(logDir))), after, before);
-
-        for (Entry entry : entries) {
-            if (entry.event.equals(event)){
-                IPs.add(entry.ip);
-            }
-        }
-
-        return IPs;
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.event == event)
+                .map(entry -> entry.ip)
+                .collect(Collectors.toSet());
     }
 
     @Override
     public Set<String> getIPsForStatus(Status status, Date after, Date before) {
-        Set<String> IPs = new HashSet<>();
-
-        List<Entry> entries = filterOutDateEntries(parseLogStrings(readAllLinesFromFiles(getLogFiles(logDir))), after, before);
-
-        for (Entry entry : entries) {
-            if (entry.status.equals(status)){
-                IPs.add(entry.ip);
-            }
-        }
-
-        return IPs;
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.status == status)
+                .map(entry -> entry.ip)
+                .collect(Collectors.toSet());
     }
 
-    private Set<Path> getLogFiles(Path dir){
-        Set<Path> toReturn = new LinkedHashSet<>();
-        try {
-            Files.walkFileTree(dir, new SimpleFileVisitor<Path>() {
-                @Override
-                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                    if(attrs.isRegularFile() && file.toString().toLowerCase().endsWith(".log")){
-                        toReturn.add(file);
-                    }
-                    return FileVisitResult.CONTINUE;
-                }
-            });
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        return toReturn;
+
+    @Override
+    public Set<String> getAllUsers() {
+        return getAllLogEntries(null, null)
+                .map(entry -> entry.name)
+                .collect(Collectors.toSet());
     }
 
-    private List<String> readAllLinesFromFiles(Set<Path> files){
-        List<String> toReturn = new LinkedList<>();
-        for (Path file : files) {
-            try {
-                List<String> lines = Files.readAllLines(file);
-                toReturn.addAll(lines);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return toReturn;
+    @Override
+    public int getNumberOfUsers(Date after, Date before) {
+        return (int) getAllLogEntries(after, before)
+                .map(entry -> entry.name)
+                .distinct()
+                .count();
     }
+
+    @Override
+    public int getNumberOfUserEvents(String user, Date after, Date before) {
+        return (int) getAllLogEntries(after, before)
+                .filter(entry -> entry.name.equals(user))
+                .map(entry -> entry.event)
+                .distinct()
+                .count();
+    }
+
+    @Override
+    public Set<String> getUsersForIP(String ip, Date after, Date before) {
+        return null;
+    }
+
+    @Override
+    public Set<String> getLoggedUsers(Date after, Date before) {
+        return null;
+    }
+
+    @Override
+    public Set<String> getDownloadedPluginUsers(Date after, Date before) {
+        return null;
+    }
+
+    @Override
+    public Set<String> getWroteMessageUsers(Date after, Date before) {
+        return null;
+    }
+
+    @Override
+    public Set<String> getSolvedTaskUsers(Date after, Date before) {
+        return null;
+    }
+
+    @Override
+    public Set<String> getSolvedTaskUsers(Date after, Date before, int task) {
+        return null;
+    }
+
+    @Override
+    public Set<String> getDoneTaskUsers(Date after, Date before) {
+        return null;
+    }
+
+    @Override
+    public Set<String> getDoneTaskUsers(Date after, Date before, int task) {
+        return null;
+    }
+
 
     private Entry parseLogString(String logString) throws ParseException {
         Pattern p = Pattern.compile("^(([0-9]{1,3}[\\.]){3}[0-9]{1,3})\\s+(.*)\\s+(([0-9]{1,2}[\\.]){2}[0-9]{4,5}\\s([0-9]{1,2}[:]){2}[0-9]{1,2})\\s+(.*)\\s+(OK|FAILED|ERROR)$");
         Matcher m = p.matcher(logString);
-        //return m.matches();
+
         if (m.find() && m.groupCount()==8){
 //            for(int i = 0; i < m.groupCount()+1; i++) {
 //                String d = m.group(i);
@@ -136,34 +147,37 @@ public class LogParser implements IPQuery {
         }
     }
 
-    private List<Entry> parseLogStrings(List<String> list){
-        List<Entry> toReturn = new LinkedList<>();
-        for (String s : list) {
-            try {
-                toReturn.add(parseLogString(s));
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
-        return toReturn;
-    }
 
-    private List<Entry> filterOutDateEntries(List<Entry> list, Date after, Date before){
-        List<Entry> toRetutn = new LinkedList<>();
-        for (Entry entry : list) {
-            if (after != null) {
-                if(!entry.time.after(after)){
-                    continue;
-                }
-            }
-            if (before != null) {
-                if(!entry.time.before(before)){
-                    continue;
-                }
-            }
-            toRetutn.add(entry);
+
+
+    private Stream<Entry> getAllLogEntries(Date after, Date before){
+        try {
+            return Files.walk(logDir)
+                    .filter(path -> {
+                        return path.toFile().isFile() && path.toString().toLowerCase().endsWith(".log");
+                    })
+                    .flatMap(path -> {
+                        try {
+                            return Files.lines(path);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                            return Stream.empty();
+                        }
+                    })
+                    .map(string -> {
+                        try {
+                            return parseLogString(string);
+                        } catch (ParseException e) {
+                            e.printStackTrace();
+                            return null;
+                        }
+                    })
+                    .filter(entry -> entry != null)
+                    .filter(entry -> entry.isInDate(after, before));
+        } catch (IOException e) {
+            e.printStackTrace();
+            return Stream.empty();
         }
-        return toRetutn;
     }
 
 
@@ -178,7 +192,6 @@ public class LogParser implements IPQuery {
         public void tryParseEvent(String string) throws ParseException{
             String[] splitted = string.split("\\s+");
 
-            boolean exists = true;
             try {
                 event = Event.valueOf(splitted[0]);
             } catch (IllegalArgumentException e) {
@@ -195,6 +208,32 @@ public class LogParser implements IPQuery {
             } catch (IllegalArgumentException e) {
                 throw new ParseException(e.getMessage(), 0);
             }
+        }
+
+        public boolean isInDate(Date after, Date before){
+            if (after != null) {
+                if(!this.time.after(after)){
+                    return false;
+                }
+            }
+            if (before != null) {
+                if(!this.time.before(before)){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        @Override
+        public String toString() {
+            return "Entry{" +
+                    "ip='" + ip + '\'' +
+                    ", name='" + name + '\'' +
+                    ", time=" + time +
+                    ", event=" + event +
+                    ", eventNum=" + eventNum +
+                    ", status=" + status +
+                    '}';
         }
     }
 }
