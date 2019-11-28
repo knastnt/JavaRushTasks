@@ -1,9 +1,6 @@
 package com.javarush.task.task39.task3913;
 
-import com.javarush.task.task39.task3913.query.DateQuery;
-import com.javarush.task.task39.task3913.query.EventQuery;
-import com.javarush.task.task39.task3913.query.IPQuery;
-import com.javarush.task.task39.task3913.query.UserQuery;
+import com.javarush.task.task39.task3913.query.*;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -11,16 +8,43 @@ import java.nio.file.Path;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.function.Function;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery {
+public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQuery {
     Path logDir;
 
     public LogParser(Path logDir) {
         this.logDir = logDir;
+    }
+
+    @Override
+    public Set<Object> execute(String query) {
+        Function<Entry, Object> mapper;
+        switch (query){
+            case "get ip":
+                mapper = entry -> entry.ip;
+                break;
+            case "get user":
+                mapper = entry -> entry.name;
+                break;
+            case "get date":
+                mapper = entry -> entry.time;
+                break;
+            case "get event":
+                mapper = entry -> entry.event;
+                break;
+            case "get status":
+                mapper = entry -> entry.status;
+                break;
+            default:
+                return new HashSet<>();
+        }
+
+        return getAllLogEntries(null, null).map(mapper).collect(Collectors.toSet());
     }
 
     @Override
