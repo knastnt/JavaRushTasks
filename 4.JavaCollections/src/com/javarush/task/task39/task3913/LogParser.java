@@ -9,6 +9,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -32,19 +33,10 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
         }
 
 
+        Predicate<Entry> filter = entry -> ql.field2 == null || (entry.get(ql.field2) == ql.value);
+        Function<Entry, Object> mapper = entry -> entry.get(ql.field1);
 
-        Function<Entry, Object> mapper = entry -> {
-            try {
-                return entry.getClass().getDeclaredField(ql.field1).get(entry);
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (NoSuchFieldException e) {
-                e.printStackTrace();
-            }
-            return null;
-        };
-
-        return getAllLogEntries(null, null).filter(entry -> ql.field2 == null || (entry.getClass().getDeclaredField(ql.field1).get(entry) == ql.value)).map(mapper).collect(Collectors.toSet());
+        return getAllLogEntries(null, null).filter(filter).map(mapper).collect(Collectors.toSet());
     }
 
     @Override
@@ -473,6 +465,24 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
                 }
             }
             return true;
+        }
+
+        public boolean isFieldExist(String field) {
+            try {
+                Object o = this.getClass().getDeclaredField(field).get(this);
+                return true;
+            } catch (IllegalAccessException|NoSuchFieldException e) {
+                return false;
+            }
+        }
+
+        public Object get(String field) {
+            try {
+                return this.getClass().getDeclaredField(field).get(this);
+            } catch (IllegalAccessException|NoSuchFieldException e) {
+                e.printStackTrace();
+                return null;
+            }
         }
 
         @Override
