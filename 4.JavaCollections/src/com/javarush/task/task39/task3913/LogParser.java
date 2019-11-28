@@ -23,26 +23,26 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
 
     @Override
     public Set<Object> execute(String query) {
-        Function<Entry, Object> mapper;
-        switch (query){
-            case "get ip":
-                mapper = entry -> entry.ip;
-                break;
-            case "get user":
-                mapper = entry -> entry.name;
-                break;
-            case "get date":
-                mapper = entry -> entry.time;
-                break;
-            case "get event":
-                mapper = entry -> entry.event;
-                break;
-            case "get status":
-                mapper = entry -> entry.status;
-                break;
-            default:
-                return new HashSet<>();
+        final String[] array = query.split(" ");
+
+        if (array.length != 2 || !array[0].equals("get")){
+            return new HashSet<Object>();
         }
+
+        if (array.length != 6 || !array[0].equals("get") || !array[2].equals("for") || !array[4].equals("=")){
+            return new HashSet<Object>();
+        }
+
+        Function<Entry, Object> mapper = entry -> {
+            try {
+                return entry.getClass().getDeclaredField(array[1]).get(entry);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (NoSuchFieldException e) {
+                e.printStackTrace();
+            }
+            return null;
+        };
 
         return getAllLogEntries(null, null).map(mapper).collect(Collectors.toSet());
     }
@@ -65,7 +65,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     @Override
     public Set<String> getIPsForUser(String user, Date after, Date before) {
         return getAllLogEntries(after, before)
-                .filter(entry -> entry.name.equals(user))
+                .filter(entry -> entry.user.equals(user))
                 .map(entry -> entry.ip)
                 .collect(Collectors.toSet());
     }
@@ -90,14 +90,14 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     @Override
     public Set<String> getAllUsers() {
         return getAllLogEntries(null, null)
-                .map(entry -> entry.name)
+                .map(entry -> entry.user)
                 .collect(Collectors.toSet());
     }
 
     @Override
     public int getNumberOfUsers(Date after, Date before) {
         return (int) getAllLogEntries(after, before)
-                .map(entry -> entry.name)
+                .map(entry -> entry.user)
                 .distinct()
                 .count();
     }
@@ -105,7 +105,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     @Override
     public int getNumberOfUserEvents(String user, Date after, Date before) {
         return (int) getAllLogEntries(after, before)
-                .filter(entry -> entry.name.equals(user))
+                .filter(entry -> entry.user.equals(user))
                 .map(entry -> entry.event)
                 .distinct()
                 .count();
@@ -115,7 +115,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     public Set<String> getUsersForIP(String ip, Date after, Date before) {
         return getAllLogEntries(after, before)
                 .filter(entry -> entry.ip.equals(ip))
-                .map(entry -> entry.name)
+                .map(entry -> entry.user)
                 .collect(Collectors.toSet());
     }
 
@@ -123,7 +123,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     public Set<String> getLoggedUsers(Date after, Date before) {
         return getAllLogEntries(after, before)
                 .filter(entry -> entry.event == Event.LOGIN)
-                .map(entry -> entry.name)
+                .map(entry -> entry.user)
                 .collect(Collectors.toSet());
     }
 
@@ -131,7 +131,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     public Set<String> getDownloadedPluginUsers(Date after, Date before) {
         return getAllLogEntries(after, before)
                 .filter(entry -> entry.event == Event.DOWNLOAD_PLUGIN)
-                .map(entry -> entry.name)
+                .map(entry -> entry.user)
                 .collect(Collectors.toSet());
     }
 
@@ -139,7 +139,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     public Set<String> getWroteMessageUsers(Date after, Date before) {
         return getAllLogEntries(after, before)
                 .filter(entry -> entry.event == Event.WRITE_MESSAGE)
-                .map(entry -> entry.name)
+                .map(entry -> entry.user)
                 .collect(Collectors.toSet());
     }
 
@@ -147,7 +147,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     public Set<String> getSolvedTaskUsers(Date after, Date before) {
         return getAllLogEntries(after, before)
                 .filter(entry -> entry.event == Event.SOLVE_TASK)
-                .map(entry -> entry.name)
+                .map(entry -> entry.user)
                 .collect(Collectors.toSet());
     }
 
@@ -155,7 +155,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     public Set<String> getSolvedTaskUsers(Date after, Date before, int task) {
         return getAllLogEntries(after, before)
                 .filter(entry -> entry.event == Event.SOLVE_TASK && entry.eventNum == task)
-                .map(entry -> entry.name)
+                .map(entry -> entry.user)
                 .collect(Collectors.toSet());
     }
 
@@ -163,7 +163,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     public Set<String> getDoneTaskUsers(Date after, Date before) {
         return getAllLogEntries(after, before)
                 .filter(entry -> entry.event == Event.DONE_TASK)
-                .map(entry -> entry.name)
+                .map(entry -> entry.user)
                 .collect(Collectors.toSet());
     }
 
@@ -171,15 +171,15 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     public Set<String> getDoneTaskUsers(Date after, Date before, int task) {
         return getAllLogEntries(after, before)
                 .filter(entry -> entry.event == Event.DONE_TASK && entry.eventNum == task)
-                .map(entry -> entry.name)
+                .map(entry -> entry.user)
                 .collect(Collectors.toSet());
     }
 
     @Override
     public Set<Date> getDatesForUserAndEvent(String user, Event event, Date after, Date before) {
         return getAllLogEntries(after, before)
-                .filter(entry -> entry.event == event && entry.name.equals(user))
-                .map(entry -> entry.time)
+                .filter(entry -> entry.event == event && entry.user.equals(user))
+                .map(entry -> entry.date)
                 .collect(Collectors.toSet());
     }
 
@@ -187,7 +187,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     public Set<Date> getDatesWhenSomethingFailed(Date after, Date before) {
         return getAllLogEntries(after, before)
                 .filter(entry -> entry.status == Status.FAILED)
-                .map(entry -> entry.time)
+                .map(entry -> entry.date)
                 .collect(Collectors.toSet());
     }
 
@@ -195,7 +195,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     public Set<Date> getDatesWhenErrorHappened(Date after, Date before) {
         return getAllLogEntries(after, before)
                 .filter(entry -> entry.status == Status.ERROR)
-                .map(entry -> entry.time)
+                .map(entry -> entry.date)
                 .collect(Collectors.toSet());
     }
 
@@ -203,8 +203,8 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     public Date getDateWhenUserLoggedFirstTime(String user, Date after, Date before) {
         try {
             return getAllLogEntries(after, before)
-                    .filter(entry -> entry.name.equals(user) && entry.event == Event.LOGIN)
-                    .map(entry -> entry.time)
+                    .filter(entry -> entry.user.equals(user) && entry.event == Event.LOGIN)
+                    .map(entry -> entry.date)
                     .sorted((o1, o2) -> o1.compareTo(o2))
                     .findFirst()
                     .get();
@@ -217,11 +217,11 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     public Date getDateWhenUserSolvedTask(String user, int task, Date after, Date before) {
         try {
             return getAllLogEntries(after, before)
-                    .filter(entry -> entry.name.equals(user) && entry.event == Event.SOLVE_TASK && entry.eventNum == task)
-                    .sorted((o1, o2) -> o1.time.compareTo(o2.time))
+                    .filter(entry -> entry.user.equals(user) && entry.event == Event.SOLVE_TASK && entry.eventNum == task)
+                    .sorted((o1, o2) -> o1.date.compareTo(o2.date))
                     .findFirst()
                     .get()
-                    .time;
+                    .date;
         } catch (NoSuchElementException e) {
             return null;
         }
@@ -231,11 +231,11 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     public Date getDateWhenUserDoneTask(String user, int task, Date after, Date before) {
         try {
             return getAllLogEntries(after, before)
-                    .filter(entry -> entry.name.equals(user) && entry.event == Event.DONE_TASK && entry.eventNum == task)
-                    .sorted((o1, o2) -> o1.time.compareTo(o2.time))
+                    .filter(entry -> entry.user.equals(user) && entry.event == Event.DONE_TASK && entry.eventNum == task)
+                    .sorted((o1, o2) -> o1.date.compareTo(o2.date))
                     .findFirst()
                     .get()
-                    .time;
+                    .date;
         } catch (NoSuchElementException e) {
             return null;
         }
@@ -244,16 +244,16 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     @Override
     public Set<Date> getDatesWhenUserWroteMessage(String user, Date after, Date before) {
         return getAllLogEntries(after, before)
-                .filter(entry -> entry.name.equals(user) && entry.event == Event.WRITE_MESSAGE)
-                .map(entry -> entry.time)
+                .filter(entry -> entry.user.equals(user) && entry.event == Event.WRITE_MESSAGE)
+                .map(entry -> entry.date)
                 .collect(Collectors.toSet());
     }
 
     @Override
     public Set<Date> getDatesWhenUserDownloadedPlugin(String user, Date after, Date before) {
         return getAllLogEntries(after, before)
-                .filter(entry -> entry.name.equals(user) && entry.event == Event.DOWNLOAD_PLUGIN)
-                .map(entry -> entry.time)
+                .filter(entry -> entry.user.equals(user) && entry.event == Event.DOWNLOAD_PLUGIN)
+                .map(entry -> entry.date)
                 .collect(Collectors.toSet());
     }
 
@@ -283,7 +283,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     @Override
     public Set<Event> getEventsForUser(String user, Date after, Date before) {
         return getAllLogEntries(after, before)
-                .filter(entry -> entry.name.equals(user))
+                .filter(entry -> entry.user.equals(user))
                 .map(entry -> entry.event)
                 .collect(Collectors.toSet());
     }
@@ -363,8 +363,8 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
 //            }
             Entry entry = new Entry();
             entry.ip = m.group(1);
-            entry.name = m.group(3);
-            entry.time = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").parse(m.group(4));
+            entry.user = m.group(3);
+            entry.date = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").parse(m.group(4));
             entry.tryParseEvent(m.group(7));
             entry.tryParseStatus(m.group(8));
             return entry;
@@ -409,8 +409,8 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
 
     private class Entry {
         public String ip;
-        public String name;
-        public Date time;
+        public String user;
+        public Date date;
         public Event event;
         public Integer eventNum;
         public Status status;
@@ -438,12 +438,12 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
 
         public boolean isInDate(Date after, Date before){
             if (after != null) {
-                if(!this.time.after(after)){
+                if(!this.date.after(after)){
                     return false;
                 }
             }
             if (before != null) {
-                if(!this.time.before(before)){
+                if(!this.date.before(before)){
                     return false;
                 }
             }
@@ -454,8 +454,8 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
         public String toString() {
             return "Entry{" +
                     "ip='" + ip + '\'' +
-                    ", name='" + name + '\'' +
-                    ", time=" + time +
+                    ", name='" + user + '\'' +
+                    ", time=" + date +
                     ", event=" + event +
                     ", eventNum=" + eventNum +
                     ", status=" + status +
