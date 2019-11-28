@@ -23,19 +23,19 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
 
     @Override
     public Set<Object> execute(String query) {
-        final String[] array = query.split(" ");
-
-        if (array.length != 2 || !array[0].equals("get")){
-            return new HashSet<Object>();
+        QL ql;
+        try {
+            ql = parseQLString(query);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return new HashSet<>();
         }
 
-        if (array.length != 6 || !array[0].equals("get") || !array[2].equals("for") || !array[4].equals("=")){
-            return new HashSet<Object>();
-        }
+
 
         Function<Entry, Object> mapper = entry -> {
             try {
-                return entry.getClass().getDeclaredField(array[1]).get(entry);
+                return entry.getClass().getDeclaredField(ql.field1).get(entry);
             } catch (IllegalAccessException e) {
                 e.printStackTrace();
             } catch (NoSuchFieldException e) {
@@ -44,7 +44,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
             return null;
         };
 
-        return getAllLogEntries(null, null).map(mapper).collect(Collectors.toSet());
+        return getAllLogEntries(null, null).filter(entry -> ql.field2 == null || (entry.getClass().getDeclaredField(ql.field1).get(entry) == ql.value)).map(mapper).collect(Collectors.toSet());
     }
 
     @Override
@@ -371,6 +371,31 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
         }else{
             throw new ParseException("Строка не соответствует шиблону. " + logString, 0);
         }
+    }
+
+    private QL parseQLString(String QLString) throws ParseException {
+        Pattern p = Pattern.compile("^get\\s+(\\w+)(\\s+for\\s+(\\w+)\\s*=\\s*\"(.*)\")?$");
+        Matcher m = p.matcher(QLString);
+
+        if (m.find() && m.groupCount()==4){
+//            for(int i = 0; i < m.groupCount()+1; i++) {
+//                String d = m.group(i);
+//                System.out.println(i + "  " + d);
+//            }
+            QL ql = new QL();
+            ql.field1 = m.group(1);
+            ql.field2 = m.group(3);
+            ql.value = m.group(4);
+            return ql;
+        }else{
+            throw new ParseException("Запрос не соответствует шиблону. " + QLString, 0);
+        }
+    }
+
+    private class QL {
+        public String field1;
+        public String field2;
+        public String value;
     }
 
 
