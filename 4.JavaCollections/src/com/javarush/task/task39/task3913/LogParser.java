@@ -1,6 +1,7 @@
 package com.javarush.task.task39.task3913;
 
 import com.javarush.task.task39.task3913.query.DateQuery;
+import com.javarush.task.task39.task3913.query.EventQuery;
 import com.javarush.task.task39.task3913.query.IPQuery;
 import com.javarush.task.task39.task3913.query.UserQuery;
 
@@ -15,7 +16,7 @@ import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class LogParser implements IPQuery, UserQuery, DateQuery {
+public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery {
     Path logDir;
 
     public LogParser(Path logDir) {
@@ -230,6 +231,101 @@ public class LogParser implements IPQuery, UserQuery, DateQuery {
                 .filter(entry -> entry.name.equals(user) && entry.event == Event.DOWNLOAD_PLUGIN)
                 .map(entry -> entry.time)
                 .collect(Collectors.toSet());
+    }
+
+    @Override
+    public int getNumberOfAllEvents(Date after, Date before) {
+        return (int) getAllLogEntries(after, before)
+                .map(entry -> entry.event)
+                .distinct()
+                .count();
+    }
+
+    @Override
+    public Set<Event> getAllEvents(Date after, Date before) {
+        return getAllLogEntries(after, before)
+                .map(entry -> entry.event)
+                .collect(Collectors.toSet());
+    }
+
+    @Override
+    public Set<Event> getEventsForIP(String ip, Date after, Date before) {
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.ip.equals(ip))
+                .map(entry -> entry.event)
+                .collect(Collectors.toSet());
+    }
+
+    @Override
+    public Set<Event> getEventsForUser(String user, Date after, Date before) {
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.name.equals(user))
+                .map(entry -> entry.event)
+                .collect(Collectors.toSet());
+    }
+
+    @Override
+    public Set<Event> getFailedEvents(Date after, Date before) {
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.status == Status.FAILED)
+                .map(entry -> entry.event)
+                .collect(Collectors.toSet());
+    }
+
+    @Override
+    public Set<Event> getErrorEvents(Date after, Date before) {
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.status == Status.ERROR)
+                .map(entry -> entry.event)
+                .collect(Collectors.toSet());
+    }
+
+    @Override
+    public int getNumberOfAttemptToSolveTask(int task, Date after, Date before) {
+        try {
+            return (int) getAllLogEntries(after, before)
+                    .filter(entry -> entry.event == Event.SOLVE_TASK && entry.eventNum.equals(task))
+                    .count();
+        }catch (NullPointerException e){
+            return 0;
+        }
+    }
+
+    @Override
+    public int getNumberOfSuccessfulAttemptToSolveTask(int task, Date after, Date before) {
+        try {
+            return (int) getAllLogEntries(after, before)
+                    .filter(entry -> entry.event == Event.DONE_TASK && entry.eventNum.equals(task))
+                    .count();
+        }catch (NullPointerException e){
+            return 0;
+        }
+    }
+
+    @Override
+    public Map<Integer, Integer> getAllSolvedTasksAndTheirNumber(Date after, Date before) {
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.event == Event.SOLVE_TASK)
+                .collect(Collectors.toMap(entry -> {
+                    return entry.eventNum; //key
+                }, entry -> {
+                    return 1; //value
+                }, (integer1, integer2) -> {
+                    return integer1+integer2; //присваиваем новое значение ключу. integer1 - пердыдущее значения этого ключа в мапе. integer2 - то, что вернулось в value строкой выше
+                }));
+    }
+
+    @Override
+    public Map<Integer, Integer> getAllDoneTasksAndTheirNumber(Date after, Date before) {
+        return getAllLogEntries(after, before)
+                .filter(entry -> entry.event == Event.DONE_TASK)
+                .collect(Collectors.toMap(entry -> {
+                    return entry.eventNum; //key
+                }, entry -> {
+                    return 1; //value
+                }, (integer1, integer2) -> {
+                    return integer1+integer2; //присваиваем новое значение ключу. integer1 - пердыдущее значения этого ключа в мапе. integer2 - то, что вернулось в value строкой выше
+                }));
     }
 
     private Entry parseLogString(String logString) throws ParseException {
