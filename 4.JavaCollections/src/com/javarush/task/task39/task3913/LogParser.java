@@ -1,6 +1,7 @@
 package com.javarush.task.task39.task3913;
 
 import com.javarush.task.task39.task3913.query.*;
+import javafx.util.Pair;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -33,8 +34,16 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
         }
 
 
-        Predicate<Entry> filter = entry -> ql.field2 == null || (entry.get(ql.field2) == ql.value);
-        Function<Entry, Object> mapper = entry -> entry.get(ql.field1);
+        Predicate<Entry> filter = entry -> ql.field2 == null || (entry.isEquals(ql.field2, ql.value));
+
+        Function<Entry, Object> mapper = entry -> {
+            try {
+                return entry.get(ql.field1).getValue();
+            } catch (NoSuchFieldException|IllegalAccessException e) {
+                e.printStackTrace();
+                return new HashSet<>();
+            }
+        };
 
         return getAllLogEntries(null, null).filter(filter).map(mapper).collect(Collectors.toSet());
     }
@@ -469,19 +478,52 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
 
         public boolean isFieldExist(String field) {
             try {
-                Object o = this.getClass().getDeclaredField(field).get(this);
+                Pair<Class, Object> fieldPair = this.get(field);
                 return true;
             } catch (IllegalAccessException|NoSuchFieldException e) {
                 return false;
             }
         }
 
-        public Object get(String field) {
+        public Pair<Class, Object> get(String field) throws NoSuchFieldException, IllegalAccessException {
+            Class key = this.getClass().getDeclaredField(field).getType();
+            Object value = this.getClass().getDeclaredField(field).get(this);
+            return new Pair<>(key, value);
+        }
+
+        public boolean isEquals(String field, String value) {
             try {
-                return this.getClass().getDeclaredField(field).get(this);
+                Pair<Class, Object> fieldPair = this.get(field);
+
+                if (fieldPair.getKey() == String.class){
+                    return fieldPair.getValue().equals(value);
+                }
+
+                if (fieldPair.getKey().isEnum()){
+                    //Поле по имени field имеет тип Enum, поэтому и сравнивать будем соответствующим образом
+                    try {
+                        Object required = Enum.valueOf(fieldPair.getKey(), value);
+                        return fieldPair.getValue().equals(required);
+                    }catch (IllegalArgumentException|NullPointerException e){
+                        e.printStackTrace();
+                        return false;
+                    }
+                }
+
+                if (fieldPair.getKey() == Date.class){
+                    try {
+                        Date required = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").parse(value);
+                        return fieldPair.getValue().equals(required);
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                        return false;
+                    }
+                }
+
+                return false;
             } catch (IllegalAccessException|NoSuchFieldException e) {
                 e.printStackTrace();
-                return null;
+                return false;
             }
         }
 
