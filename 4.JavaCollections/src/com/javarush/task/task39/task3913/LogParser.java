@@ -45,7 +45,7 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
             }
         };
 
-        return getAllLogEntries(null, null).filter(filter).map(mapper).collect(Collectors.toSet());
+        return getAllLogEntries(ql.after, ql.before).filter(filter).map(mapper).collect(Collectors.toSet());
     }
 
     @Override
@@ -375,10 +375,10 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
     }
 
     private QL parseQLString(String QLString) throws ParseException {
-        Pattern p = Pattern.compile("^get\\s+(\\w+)(\\s+for\\s+(\\w+)\\s*=\\s*\"(.*)\")?$");
+        Pattern p = Pattern.compile("^get\\s+(\\w+)(\\s+for\\s+(\\w+)\\s*=\\s*\"(.+?)\"(\\s+and\\s+date\\s+between\\s+\"(.*)\"\\s+and\\s+\"(.*)\")?)?$");
         Matcher m = p.matcher(QLString);
 
-        if (m.find() && m.groupCount()==4){
+        if (m.find() && m.groupCount()==7){
 //            for(int i = 0; i < m.groupCount()+1; i++) {
 //                String d = m.group(i);
 //                System.out.println(i + "  " + d);
@@ -387,6 +387,8 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
             ql.field1 = m.group(1);
             ql.field2 = m.group(3);
             ql.value = m.group(4);
+            ql.after = m.group(6) == null ? null : new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").parse(m.group(6));
+            ql.before = m.group(6) == null ? null : new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").parse(m.group(7));
             return ql;
         }else{
             throw new ParseException("Запрос не соответствует шиблону. " + QLString, 0);
@@ -397,6 +399,8 @@ public class LogParser implements IPQuery, UserQuery, DateQuery, EventQuery, QLQ
         public String field1;
         public String field2;
         public String value;
+        public Date after;
+        public Date before;
     }
 
 
