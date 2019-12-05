@@ -22,5 +22,6 @@
     <orderEntry type="library" name="org.apache.commons:commons-collections4:4.2" level="project" />
     <orderEntry type="library" name="junit:junit:4.12" level="project" />
     <orderEntry type="library" name="org.powermock:powermock-core:2.0.2" level="project" />
+    <orderEntry type="library" name="powermock-core-2.0.2-javadoc" level="project" />
   </component>
 </module>
