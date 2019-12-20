@@ -63,7 +63,7 @@ public class HHStrategy implements Strategy {
     }
 
     protected Document getDocument(String searchString, int page) throws IOException{
-        Document doc = Jsoup.connect(String.format(URL_FORMAT, searchString, page)).userAgent(userAgent).referrer("http://hh.ua").get();
+        Document doc = Jsoup.connect(String.format(URL_FORMAT, searchString, page)).timeout(30000).userAgent(userAgent).referrer("http://hh.ua").get();
         return doc;
     }
 }
