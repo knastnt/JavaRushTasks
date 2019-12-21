@@ -2,7 +2,11 @@ package com.javarush.task.task28.task2810.view;
 
 import com.javarush.task.task28.task2810.Controller;
 import com.javarush.task.task28.task2810.vo.Vacancy;
+import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Node;
+import org.jsoup.select.Elements;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -20,8 +24,11 @@ public class HtmlView implements View {
     @Override
     public void update(List<Vacancy> vacancies) {
         updateFile(getUpdatedFileContent(vacancies));
-
-
+        try {
+            getDocument();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
 
 //        System.out.println(vacancies.size());
@@ -37,49 +44,26 @@ public class HtmlView implements View {
     }
 
     private String getUpdatedFileContent(List<Vacancy> vacancies){
-        StringBuffer vacanciesHtml = new StringBuffer(
-                "<!DOCTYPE html>\n" +
-                        "<html lang=\"ru\">\n" +
-                        "<head>\n" +
-                        "    <meta charset=\"utf-8\">\n" +
-                        "    <title>Вакансии</title>\n" +
-                        "</head>\n" +
-                        "<body>\n" +
-                        "<table>\n" +
-                        "    <tr>\n" +
-                        "        <th>Title</th>\n" +
-                        "        <th>City</th>\n" +
-                        "        <th>Company Name</th>\n" +
-                        "        <th>Salary</th>\n" +
-                        "    </tr>"
-        );
-        for (Vacancy vacancy : vacancies) {
-            vacanciesHtml.append(String.format(
-                    "    <tr class=\"vacancy\">\n" +
-                            "        <td class=\"title\"><a href=\"%s\">%s</a></td>\n" +
-                            "        <td class=\"city\">%s</td>\n" +
-                            "        <td class=\"companyName\">%s</td>\n" +
-                            "        <td class=\"salary\">%s</td>\n" +
-                            "    </tr>",
-                    vacancy.getUrl(),
-                    vacancy.getTitle(),
-                    vacancy.getCity(),
-                    vacancy.getCompanyName(),
-                    vacancy.getSalary()
-            ));
+        try {
+            Document document = getDocument();
+            Element template = document.getElementsByClass("template").first();
+            Element copy = template.clone();
+            copy.removeClass("template").removeAttr("style");
+            document.select(".vacancy:not(.template)").remove();
+
+            for (Vacancy vacancy : vacancies) {
+                Element element = copy.clone();
+                element.getElementsByClass("city").first().text(vacancy.getCity());
+                element.getElementsByClass("companyName").first().text(vacancy.getCompanyName());
+                element.getElementsByClass("salary").first().text(vacancy.getSalary());
+                element.getElementsByTag("a").first().attr("href", vacancy.getUrl()).text(vacancy.getTitle());
+                document.select(".vacancy.template").before(element.outerHtml());
+            }
+            return document.outerHtml();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return "Some exception occurred";
         }
-        vacanciesHtml.append(
-                "    <tr class=\"vacancy template\" style=\"display: none\">\n" +
-                        "        <td class=\"title\"><a href=\"url\"></a></td>\n" +
-                        "        <td class=\"city\"></td>\n" +
-                        "        <td class=\"companyName\"></td>\n" +
-                        "        <td class=\"salary\"></td>\n" +
-                        "    </tr>\n" +
-                        "</table>\n" +
-                        "</body>\n" +
-                        "</html>"
-        );
-        return vacanciesHtml.toString();
     }
     private void updateFile(String html){
         try(FileOutputStream fos = new FileOutputStream(filePath)){
@@ -87,5 +71,8 @@ public class HtmlView implements View {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+    protected Document getDocument() throws IOException {
+        return Jsoup.parse(new File(filePath), "UTF-8");
     }
 }
