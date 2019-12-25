@@ -9,6 +9,15 @@ import java.util.List;
 */
 public class Solution {
     private static int n = 70;
+    private static long[] results = new long[n+1];
+    private static int resultsLastFilled;
+    static {
+        results[0] = 1;
+        results[1] = 1;
+        results[2] = 2;
+        resultsLastFilled = 2;
+    }
+
     public static void main(String[] args) {
         for(int i=0; i<10; i++){
             System.out.println(i +" = "+numberOfPossibleAscents(i));
@@ -20,33 +29,13 @@ public class Solution {
 
     public static long numberOfPossibleAscents(int n) {
         if (n<0) return 0;
-        int[] num = {1,1,2};
-        if (n<3) return num[n];
-
-        for(int i = 2; i < n; i++){
-            int sum = num[0] + num[1] + num[2];
-            num[0] = num[1];
-            num[1] = num[2];
-            num[2] = sum;
+        if (results[n] == 0){
+            for(int i = resultsLastFilled; i < n; i++){
+                results[i+1] = results[i] + results[i-1] + results[i-2];
+                resultsLastFilled = i+1;
+            }
         }
-        return num[2];
+        return results[n];
     }
-
-//    public static long numberOfPossibleAscents(int n) {
-//        if (n<0) return 0;
-//        List<Integer> results = new ArrayList<>(Arrays.asList(1,1,2));
-//        if (n > results.size()-1){
-//            for(int i = results.size()-1; i < n; i++){
-//                results.add(results.get(results.size()-1) + results.get(results.size()-2) + results.get(results.size()-3));
-//            }
-//        }
-//        return results.get(n);
-//    }
-
-//    public static long numberOfPossibleAscents(int n) {
-//        if (n<0) return 0;
-//        if (n==0) return 1;
-//        return numberOfPossibleAscents(n-3) + numberOfPossibleAscents(n-2) + numberOfPossibleAscents(n-1);
-//    }
 }
 
