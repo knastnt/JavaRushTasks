@@ -21,7 +21,7 @@ public class Solution {
 //                        {0, 0, 0, 1, 0, 1, 0, 0, 0, 1, },
 //                        {0, 1, 1, 0, 0, 0, 0, 0, 1, 0, },
 //                };
-        int[][] matrix = new int[10][10];
+        int[][] matrix = new int[20][20];
         Random r = new Random();
         for (int i=0; i<matrix.length; i++){
             System.out.print("{");
@@ -33,6 +33,30 @@ public class Solution {
         }
 
         System.out.println(maxSquare(matrix));
+        System.out.println(largestSquare(matrix));
+    }
+
+    public static int largestSquare(int[][] matrix){
+        int[][] cache = matrix.clone();
+        int result = 0;
+        for(int i=0; i<matrix.length; i++){
+            for(int j=0; j<matrix[i].length; j++){
+                if(i==0||j==0){
+
+                }else if(matrix[i][j]>0){
+                    cache[i][j] = 1 + Math.min(Math.min(cache[i][j-1], cache[i-1][j]), cache[i-1][j-1]);
+                }
+                if(cache[i][j]>result) result = cache[i][j];
+            }
+        }
+        for (int i=0; i<cache.length; i++){
+            System.out.print("{");
+            for (int j=0; j<cache[i].length; j++){
+                System.out.print(cache[i][j] + ", ");
+            }
+            System.out.println("},");
+        }
+        return result*result;
     }
 
     public static int maxSquare(int[][] matrix) {
