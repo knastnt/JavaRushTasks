@@ -7,6 +7,8 @@ public class CashMachine {
         Locale.setDefault(Locale.ENGLISH);
         String code = ConsoleHelper.askCurrencyCode();
         String[] digits = ConsoleHelper.getValidTwoDigits(code);
-        CurrencyManipulatorFactory.getManipulatorByCurrencyCode(code).addAmount(Integer.parseInt(digits[0]), Integer.parseInt(digits[1]));
+        CurrencyManipulator currencyManipulator = CurrencyManipulatorFactory.getManipulatorByCurrencyCode(code);
+        currencyManipulator.addAmount(Integer.parseInt(digits[0]), Integer.parseInt(digits[1]));
+        System.out.println(currencyManipulator.getTotalAmount());
     }
 }
