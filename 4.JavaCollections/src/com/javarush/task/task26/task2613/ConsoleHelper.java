@@ -52,4 +52,15 @@ public class ConsoleHelper {
             return result;
         }
     }
+
+    public static Operation askOperation(){
+        while (true){
+            writeMessage("Введите номер операции: 1 - INFO, 2 - DEPOSIT, 3 - WITHDRAW, 4 - EXIT");
+            try {
+                return Operation.getAllowableOperationByOrdinal(Integer.parseInt(readString()));
+            }catch (Exception e){
+                writeMessage("Неверный ввод, повторите снова.");
+            }
+        }
+    }
 }
