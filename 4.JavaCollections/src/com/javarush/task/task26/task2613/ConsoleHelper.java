@@ -1,5 +1,7 @@
 package com.javarush.task.task26.task2613;
 
+import com.javarush.task.task26.task2613.exception.InterruptOperationException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -12,15 +14,17 @@ public class ConsoleHelper {
         System.out.println(message);
     }
 
-    public static String readString(){
+    public static String readString() throws InterruptOperationException {
         try {
-            return bis.readLine();
+            String readed = bis.readLine();
+            if (readed.toLowerCase().equals("exit")) throw new InterruptOperationException();
+            return readed;
         } catch (IOException e) {
             return "";
         }
     }
 
-    public static String askCurrencyCode(){
+    public static String askCurrencyCode() throws InterruptOperationException {
         writeMessage("Введите код валюты:");
         String code;
         while ((code = readString()).length() != 3){
@@ -29,7 +33,7 @@ public class ConsoleHelper {
         return code.toUpperCase();
     }
 
-    public static String[] getValidTwoDigits(String currencyCode){
+    public static String[] getValidTwoDigits(String currencyCode) throws InterruptOperationException {
 
         while (true){
             writeMessage("Введите номинал и количество банкнот через пробел");
@@ -53,12 +57,12 @@ public class ConsoleHelper {
         }
     }
 
-    public static Operation askOperation(){
+    public static Operation askOperation() throws InterruptOperationException {
         while (true){
             writeMessage("Введите номер операции: 1 - INFO, 2 - DEPOSIT, 3 - WITHDRAW, 4 - EXIT");
             try {
                 return Operation.getAllowableOperationByOrdinal(Integer.parseInt(readString()));
-            }catch (Exception e){
+            }catch (IllegalArgumentException e){
                 writeMessage("Неверный ввод, повторите снова.");
             }
         }
