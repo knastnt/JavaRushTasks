@@ -13,7 +13,7 @@ import java.util.ResourceBundle;
 
 public class LoginCommand implements Command {
     private ResourceBundle validCreditCards = PropertyResourceBundle.getBundle(CashMachine.class.getPackage().getName() + ".resources.verifiedCards");
-
+  
     @Override
     public void execute() throws InterruptOperationException {
         while (true){
