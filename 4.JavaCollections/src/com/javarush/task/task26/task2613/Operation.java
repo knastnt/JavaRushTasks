@@ -1,11 +1,13 @@
 package com.javarush.task.task26.task2613;
 
 public enum Operation {
-    INFO, DEPOSIT, WITHDRAW, EXIT;
+    LOGIN, INFO, DEPOSIT, WITHDRAW, EXIT;
 
     public static Operation getAllowableOperationByOrdinal(Integer i){
         if (i == null) throw new IllegalArgumentException();
         switch (i){
+            case 0:
+                throw new IllegalArgumentException();
             case 1:
                 return INFO;
             case 2:

@@ -6,8 +6,6 @@ import com.javarush.task.task26.task2613.CurrencyManipulatorFactory;
 import com.javarush.task.task26.task2613.exception.InterruptOperationException;
 import com.javarush.task.task26.task2613.exception.NotEnoughMoneyException;
 
-import java.util.Map;
-import java.util.stream.Stream;
 
 class WithdrawCommand implements Command {
     @Override
