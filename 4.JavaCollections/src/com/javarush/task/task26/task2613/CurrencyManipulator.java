@@ -61,7 +61,7 @@ public class CurrencyManipulator {
                     entry.setValue(entry.getValue() - 1);
                 }
                 return entry;
-            }).count();
+            }).forEach(integerIntegerEntry -> System.out.println());
 
             if (rSum.get() != expectedAmount) throw new NotEnoughMoneyException();
 

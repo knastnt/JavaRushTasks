@@ -5,8 +5,12 @@ import com.javarush.task.task26.task2613.exception.InterruptOperationException;
 import com.javarush.task.task26.task2613.exception.NotEnoughMoneyException;
 
 import java.util.Locale;
+import java.util.PropertyResourceBundle;
+import java.util.ResourceBundle;
 
 public class CashMachine {
+    private static ResourceBundle res = PropertyResourceBundle.getBundle(CashMachine.class.getPackage().getName() + ".resources.common_en");
+
     public static void main(String[] args) throws NotEnoughMoneyException {
 //        CurrencyManipulator h = CurrencyManipulatorFactory.getManipulatorByCurrencyCode("zzz");
 //        h.addAmount(500, 2);
@@ -25,7 +29,9 @@ public class CashMachine {
                 CommandExecutor.execute(operation);
             } while (operation != Operation.EXIT);
         }catch (InterruptOperationException e){
-            ConsoleHelper.writeMessage("До свидания!");
+
+            ConsoleHelper.writeMessage(res.getString("the.end"));
+//            ConsoleHelper.writeMessage("До свидания!");
         }
     }
 }
