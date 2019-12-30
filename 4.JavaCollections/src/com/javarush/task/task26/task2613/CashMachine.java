@@ -9,7 +9,7 @@ import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
 public class CashMachine {
-    private static ResourceBundle res = PropertyResourceBundle.getBundle(CashMachine.class.getPackage().getName() + ".resources.common_en");
+    public static final String RESOURCE_PATH = CashMachine.class.getPackage().getName() + ".resources.";
 
     public static void main(String[] args) throws NotEnoughMoneyException {
 //        CurrencyManipulator h = CurrencyManipulatorFactory.getManipulatorByCurrencyCode("zzz");
@@ -30,7 +30,7 @@ public class CashMachine {
             } while (operation != Operation.EXIT);
         }catch (InterruptOperationException e){
 
-            ConsoleHelper.writeMessage(res.getString("the.end"));
+            ConsoleHelper.printExitMessage();
 //            ConsoleHelper.writeMessage("До свидания!");
         }
     }

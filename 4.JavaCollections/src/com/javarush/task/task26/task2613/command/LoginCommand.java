@@ -12,8 +12,8 @@ import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
 public class LoginCommand implements Command {
-//    private ResourceBundle validCreditCards = PropertyResourceBundle.getBundle(CashMachine.class.getPackage().getName() + ".resources.verifiedCards");
-//    private ResourceBundle res = PropertyResourceBundle.getBundle(CashMachine.class.getPackage().getName() + ".resources.login_en");
+//    private ResourceBundle validCreditCards = PropertyResourceBundle.getBundle(CashMachine.RESOURCE_PATH + "verifiedCards");
+//    private ResourceBundle res = PropertyResourceBundle.getBundle(CashMachine.RESOURCE_PATH + "login_en");
 //
 //    @Override
 //    public void execute() throws InterruptOperationException {
@@ -55,8 +55,8 @@ public class LoginCommand implements Command {
 //        }
 //    }
 
-    private ResourceBundle validCreditCards = PropertyResourceBundle.getBundle(CashMachine.class.getPackage().getName() + ".resources.verifiedCards");
-    private ResourceBundle res = PropertyResourceBundle.getBundle(CashMachine.class.getPackage().getName() + ".resources.login_en");
+    private ResourceBundle validCreditCards = PropertyResourceBundle.getBundle(CashMachine.RESOURCE_PATH + "verifiedCards");
+    private ResourceBundle res = PropertyResourceBundle.getBundle(CashMachine.RESOURCE_PATH + "login_en");
 
     @Override
     public void execute() throws InterruptOperationException {
