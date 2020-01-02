@@ -64,6 +64,7 @@ public class SimpleWebServer {
                     if(s == null || s.trim().length() == 0) {
                         break;
                     }
+                    System.out.println(s);
                 }
             }
         }
