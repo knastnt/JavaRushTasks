@@ -10,9 +10,10 @@ public class Controller {
     public Controller() {
         this.view = new View(this);
         this.model = new Model();
+        this.view.init();
     }
 
     public static void main(String[] args) {
-
+        new Controller();
     }
 }
