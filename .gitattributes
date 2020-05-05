@@ -1,2 +1,2 @@
-*.info linguist-detectable=false
-*.jrtc linguist-detectable=false
+*.info linguist-language=text
+*.jrtc linguist-language=text
